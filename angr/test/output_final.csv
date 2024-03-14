@@ -1,0 +1,35 @@
+amd64_code,aarch64_code
+"sub rsp, 0x8;mov rax, qword ptr [label1];test rax, rax;je label2","sub x8, x8, #0x8;ldr x0, [];cbz x0, label2"
+"add rsp, 0x8;retn","add x8, x8, #0x8;ldp x29, x30, [] # 0x10;ret"
+call rax, blr x1
+push qword ptr [label1];jmp qword ptr [label2],"str qword ptr [label1], [x8, #-8]!;ldr x0, [];cmp x0, # 0x128;b.lo label2"
+push 0x0 ;jmp label1,"str #0x0 , [x8, #-8]!;stp x29, x30, []!;mov x29, sp"
+jmp qword ptr [label1],"ldr x0, []"
+jmp qword ptr [label1];jmp qword ptr [label2],"ldr x0, [];b label2"
+"lea rdi, [label1];lea rax, [label2];cmp rax, rdi;je label3","ldr x0, [];add x0, x0, # 0x128;cmp x0, x25;b.eq label2"
+retn, ret
+"mov rax, qword ptr [label1];test rax, rax;je label2","ldr x0, [];cbz x0, label2"
+jmp rax, b label1
+"lea rdi, [label1];lea rsi, [label2];sub rsi, rdi;mov rax, rsi;shr rsi, 0x3f;sar rax, 0x3;add rsi, rax;sar rsi, 0x1;je label3",nan
+retn, ret
+"mov rax, qword ptr [label1];test rax, rax;je label2","ldr x0, [];cbz x0, label2"
+jmp rax, b label1
+"cmp byte ptr [label1], 0x0;jne label2","ldrb w0, [];cbnz w0, label1"
+retn, ret
+"push rbp ;cmp qword ptr [label1], 0x0;mov rbp, rsp;je label2","str rbp , [x8, #-8]!;ldr x0, [];cbz x0, label2"
+"call label1 ;mov byte ptr [label2], 0x1;pop rbp ;retn"," bl label1 ;mov w0, # 0x1;b label2"
+"mov rdi, qword ptr [label1];call label2","ldr x0, [];bl label2"
+jmp label1, b label1
+"mov dword ptr [rsp-0x4], edi;mov eax, dword ptr [rsp-0x4];retn","mov w25, w25;b label1"
+"mov dword ptr [label1], edi;retn","ldr w0, [];ret"
+"mov dword ptr [rsp+0x4], 0x0;mov eax, dword ptr [rsp+0x4];mov eax, edi;jmp label1","mov w0, # 0;b label1"
+"mov dword ptr [label1], 0x0",str wzr []
+call label1 ;call label2, bl label1
+"add rsp, 0x18;retn","add x8, x8, #0x18;ldp x29, x30, [] # 0x10;ret"
+call label1 ;call label2, bl label1
+"mov eax, 0x0;add rsp, 0x18;retn","mov w0, # 0;ldp x29, x30, [] # 0x10;ret"
+"add rsp, 0x8;pop rbx ;pop rbp ;pop r12 ;pop r13 ;pop r14 ;pop r15 ;retn","add x8, x8, #0x8;ldp x19, x20, [];ldp x21, x22, [];ldp x23, x24, [];ldp x29, x30, [] # 0x50;ret"
+"xor ebx, ebx","ldr w0, [];ret"
+"mov rdx, r14;mov rsi, r13;mov edi, r12d;call qword ptr [r15+rbx*8];add rbx, 0x1;cmp rbp, rbx;jne label1","ldr x2, [];mov x1, x22;mov w0, w21;blr x2 ;add x19, x0, # 0x1;cmp x20, x22;b.ne label1"
+retn, ret
+"sub rsp, 0x8;add rsp, 0x8;retn","sub x8, x8, #0x8;stp x29, x30, []!;mov x29, sp;ret"

@@ -1,0 +1,7373 @@
+source,target,text
+"  mov rdx qword [ rsi + 0x68 ] 
+  add rdx qword [ rax + 0x30 ] 
+ ","  ldr x1 [ x0 # 0x30 ] 
+  ldr x0 [ x24 # 0x68 ] 
+  add x1 x1 x0 
+ "," ldr x1 [ x0 # 0x30 ] 
+  ldr x0 [ x24 # 0x68 ] 
+  add x1 x1 x0 
+"
+"  or al dl 
+  jne address 
+  cmp r14 rsi 
+  jb address 
+ ","  cmp x26 x1 
+  mov x0 # <unk> 
+  ccmp x23 x0 # 0x2 cc 
+  ccmp x24 x1 # 0x2 ls 
+  b.lo address 
+ "," cmp x25 x1 
+  ccmp x25 x1 # 0 ls 
+  b.lo address 
+"
+"  mov r12d dword [ rsp + 0x7c ] 
+  add r12 rbp 
+ ","  ldr w23 [ sp # 0xc4 ] 
+  add x23 x21 x23 
+ "," ldr w23 [ sp # 0xc4 ] 
+  add x23 x21 x23 
+"
+"  cmp dword [ r13 ] 0x39 
+  je address 
+ ","  ldr w0 [ x22 ] 
+  cmp w0 # 0x39 
+  b.eq address 
+ "," ldr w0 [ x22 ] 
+  cmp w0 # 0x39 
+  b.eq address 
+"
+"  sub rcx rdx 
+  mov r15 rcx 
+  jne address 
+ ","  subs x28 x1 x2 lsl # 0x2 
+  b.ne address 
+ "," subs x28 x1 x2 lsl # 0x2 
+  b.ne address 
+"
+"  cmp qword [ r15 + 0xf0 ] 0x0 
+  je address 
+ ","  ldr x2 [ x24 # 0xf0 ] 
+  cbz x2 address 
+ "," ldr x0 [ x24 # 0xf0 ] 
+  cbz x0 address 
+"
+"  movzx eax byte [ rdi + 0x6c ] 
+  shr al 0x1 
+  and eax 0x3 
+  cmp al 0x1 
+  jbe address 
+ ","  ldr x0 [ x19 # 0x68 ] 
+  ubfx x0 x0 # 0x21 # 0x2 
+  cmp w0 # 0x1 
+  b.ls address 
+ "," ldr x0 [ x19 # 0x68 ] 
+  ubfx x0 x0 # 0x21 # 0x2 
+  cmp w0 # 0x1 
+  b.ls address 
+"
+"  mov eax eax 
+  add qword [ rbx ] rax 
+ ","  mov w1 w0 
+  ldr x0 [ x19 ] 
+  add x0 x0 x1 
+  str x0 [ x19 ] 
+ "," mov w1 w0 
+  ldr x0 [ x19 ] 
+  add x0 x0 x1 
+  str x0 [ x19 ] 
+"
+"  mov rdi rbx 
+  call symbol 
+  test eax eax 
+  jne address 
+ ","  mov x0 x19 
+  bl symbol 
+  cbnz w0 address 
+ "," mov x0 x19 
+  bl symbol 
+  cbnz w0 address 
+"
+"  mov rdi r14 
+  call rax 
+  mov ecx eax 
+ ","  mov x0 x23 
+  blr x1 
+  mov w2 w0 
+ "," mov x0 x19 
+  blr x8 
+"
+"  mov rsi qword [ rbp + 0x10 ] 
+  cmp rbx qword [ rsi + 0x8 ] 
+  jb address 
+ ","  ldr x2 [ x23 # 0x10 ] 
+  ldr x2 [ x2 # 0x8 ] 
+  cmp x19 x2 
+  b.lo address 
+ "," ldr x2 [ x20 # 0x10 ] 
+  ldr x2 [ x2 # 0x8 ] 
+  cmp x19 x2 
+  b.lo address 
+"
+"  cmp rdx rax 
+  mov eax 0x1 
+  cmovb eax dword [ rsp + 0x10 ] 
+  mov dword [ rsp + 0x10 ] eax 
+ ","  cmp x1 x0 
+  ldr w0 [ sp # 0x70 ] 
+  csinc w0 w0 wzr cc 
+  str w0 [ sp # 0x70 ] 
+ "," cmp x1 x0 
+  ldr w0 [ sp # 0x70 ] 
+  csinc w0 w0 wzr cc 
+  str w0 [ sp # 0x70 ] 
+"
+"  lea rsi [ rsp + 0x10 ] 
+  movsxd rdi dword [ rbx + 0x1c ] 
+  mov rax qword [ rbp + 0x8 ] 
+  call qword [ rax + 0x48 ] 
+ ","  ldr x0 [ x20 # 0x8 ] 
+  ldr x2 [ x0 # 0x48 ] 
+  add x1 sp # 0x48 
+  ldrsw x0 [ x19 # 0x1c ] 
+  blr x2 
+ "," ldr x0 [ x20 # 0x8 ] 
+  ldr x2 [ x0 # 0x48 ] 
+  add x1 sp # 0x48 
+  ldrsw x0 [ x19 # 0x1c ] 
+  blr x2 
+"
+"  push r8 
+  mov r8d 0x109 
+  lea rcx [ rel string ] 
+  call symbol 
+ ","  mov w6 w4 
+  mov x5 x3 
+  mov w4 # 0x109 
+  adrp x3 address 
+  add x3 x3 # 0x1a8 
+  bl symbol 
+ "," mov w6 w4 
+  mov x5 x3 
+  mov w4 # 0x109 
+  adrp x3 string 
+  add x3 x3 # 0x4c0 
+  bl symbol 
+"
+"  lea rdx [ rsp + 0x1c ] 
+  lea rsi [ rel symbol ] 
+  mov rbx qword [ rsp ] 
+  mov rdi rbx 
+  call symbol 
+ ","  add x2 sp # 0x6c 
+  adrp x1 address 
+  add x1 x1 # 0x978 
+  mov x0 x27 
+  bl symbol 
+ "," add x2 sp # 0x6c 
+  adrp x1 address 
+  add x1 x1 # 0x3f0 
+  mov x0 x27 
+  bl symbol 
+"
+"  mov rdx r12 
+  mov rsi rbx 
+  mov rdi rbp 
+  call symbol 
+  mov r13 rax 
+ ","  mov x2 x22 
+  mov x1 x21 
+  mov x0 x20 
+  bl symbol 
+  mov x21 x0 
+ "," mov x2 x22 
+  mov x1 x19 
+  mov x0 x20 
+  bl symbol 
+  mov x21 x0 
+"
+"  cmp byte [ rsi ] dl 
+  jne address 
+ ","  cmp w2 w1 
+  b.ne address 
+ "," ldrb w2 [ x1 ] 
+  cmp w2 w1 
+  b.ne address 
+"
+"  and edx <unk> 
+  mov dword [ rbp + 0x58 ] edx 
+ ","  and w2 w2 # <unk> 
+  str w2 [ x21 # 0x58 ] 
+ "," and w2 w2 # address 
+  str w2 [ x21 # 0x58 ] 
+"
+"  movzx edx byte [ rcx ] 
+  mov byte [ rsp ] dl 
+ ","  ldrb w0 [ x19 ] 
+  strb w0 [ sp # 0x30 ] 
+ "," ldrb w0 [ x19 ] 
+  strb w0 [ sp # 0x38 ] 
+"
+"  lea rdx [ rel symbol ] 
+  mov esi 0x4bd 
+  lea rdi [ rel address ] 
+  call symbol 
+ ","  adrp x2 string 
+  add x2 x2 # 0x7f8 
+  add x2 x2 # 0x28 
+  mov w1 # 0x4bd 
+  adrp x0 string 
+  add x0 x0 # 0x4a8 
+  bl symbol 
+ "," adrp x2 address 
+  add x2 x2 # 0xee8 
+  add x2 x2 # 0x28 
+  mov w1 # 0x4bd 
+  adrp x0 address 
+  add x0 x0 # 0x2a8 
+  bl symbol 
+"
+"  mov eax 0x0 
+  jmp address 
+ ","  mov w0 # 0 
+  b address 
+ "," mov w0 # 0 
+  b address 
+"
+"  cmp rcx rdx 
+  jb address 
+ ","  cmp x4 x3 
+  b.lo address 
+ "," cmp x4 x3 
+  b.lo address 
+"
+"  mov eax edx 
+  shr al 0x4 
+  xor eax 0x1 
+  mov ebp eax 
+  and ebp 0x1 
+ ","  lsr x0 x3 # 0x24 
+  eor x0 x0 # 0x1 
+  and w0 w0 w20 
+  tst x4 # <unk> 
+  csel w20 w0 wzr ne 
+ "," lsr x0 x3 # 0x24 
+  eor x0 x0 # 0x1 
+  and w0 w0 w20 
+  tst x4 # address 
+  csel w20 w0 wzr ne 
+"
+"  mov r12d 0x0 
+  jmp address 
+ ","  mov x19 # 0 
+  b address 
+ "," mov x21 # 0 
+  b address 
+"
+"  mov rax qword [ r14 + 0x38 ] 
+  mov rax qword [ rax + 0x10 ] 
+  mov qword [ r14 + 0x28 ] rax 
+ ","  ldr x0 [ x27 # 0x38 ] 
+  ldr x0 [ x0 # 0x10 ] 
+  str x0 [ x27 # 0x28 ] 
+ "," ldr x0 [ x27 # 0x38 ] 
+  ldr x0 [ x0 # 0x10 ] 
+  str x0 [ x27 # 0x28 ] 
+"
+"  lea rdi [ rsp + 0x4a ] 
+  mov edx 0x2 
+  lea rsi [ rel address ] 
+  call symbol 
+  test eax eax 
+  je address 
+ ","  mov x2 # 0x2 
+  adrp x1 string 
+  add x1 x1 # 0x3c8 
+  add x0 sp # 0x92 
+  bl symbol 
+  cbz w0 address 
+ "," mov x2 # 0x2 
+  adrp x1 address 
+  add x1 x1 # 0xee8 
+  add x0 sp # 0x92 
+  bl symbol 
+  cbz w0 address 
+"
+"  call symbol 
+  mov dword [ rax ] r14d 
+ ","  bl symbol 
+  str w20 [ x0 ] 
+ "," bl symbol 
+  str w20 [ x0 ] 
+"
+"  mov r13d 0x0 
+  jmp address 
+ ","  mov x22 # 0 
+  b address 
+ "," mov x24 # 0 
+  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldp x27 x28 [ sp # 0x50 ] 
+  b address 
+"
+"  mov rax qword [ rbx + 0x100 ] 
+  mov rax qword [ rax + 0xc98 ] 
+  mov rdx qword [ rsp + 0x60 ] 
+  mov qword [ rax ] rdx 
+  jmp address 
+ ","  ldr x0 [ x19 # 0x100 ] 
+  ldr x0 [ x0 # 0xc98 ] 
+  ldr x1 [ sp # 0xb0 ] 
+  str x1 [ x0 ] 
+  ldp x23 x24 [ sp # 0x30 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldp x27 x28 [ sp # 0x50 ] 
+  b address 
+  ldp x27 x28 [ sp # 0x50 ] 
+  b address 
+ "," ldr x0 [ x19 # 0x100 ] 
+  ldr x0 [ x0 # 0xc98 ] 
+  ldr x1 [ sp # 0xa8 ] 
+  str x1 [ x0 ] 
+  b address 
+"
+"  mov rax qword [ rsp ] 
+  lea rsi [ rax + 0x4 ] 
+  mov rax qword [ rbp + 0x8 ] 
+  mov edi 0x0 
+  call qword [ rax + 0x48 ] 
+ ","  ldr x0 [ x23 # 0x8 ] 
+  ldr x2 [ x0 # 0x48 ] 
+  add x1 x24 # 0x4 
+  mov x0 # 0 
+  blr x2 
+ "," ldr x0 [ x23 # 0x8 ] 
+  ldr x2 [ x0 # 0x48 ] 
+  add x1 x24 # 0x4 
+  mov x0 # 0 
+  blr x2 
+"
+"  call symbol 
+  mov qword [ rbx + 0xa0 ] rax 
+ ","  bl symbol 
+  str x0 [ x19 # 0xa0 ] 
+ "," bl symbol 
+  str x0 [ x19 # 0xa0 ] 
+"
+"  mov rbp qword [ rax + 0x310 ] 
+  mov rax qword [ rsp + 0x10 ] 
+  mov rsi qword [ rax + 0xc8 ] 
+  mov edx 0x0 
+  mov rdi rbp 
+  call symbol 
+  test eax eax 
+  jne address 
+ ","  ldr x19 [ x0 # 0x310 ] 
+  mov x2 # 0 
+  ldr x0 [ sp # 0xb0 ] 
+  ldr x1 [ x0 # 0xc8 ] 
+  mov x0 x19 
+  bl symbol 
+  cbnz w0 address 
+ "," ldr x19 [ x0 # 0x310 ] 
+  mov x2 # 0 
+  ldr x0 [ sp # 0xb0 ] 
+  ldr x1 [ x0 # 0xc8 ] 
+  mov x0 x19 
+  bl symbol 
+  cbnz w0 address 
+"
+"  call symbol 
+  mov qword [ rbx + 0x10 ] rax 
+ ","  bl symbol 
+  str x0 [ x19 # 0x10 ] 
+ "," bl symbol 
+  str x0 [ x19 # 0x10 ] 
+"
+"  mov edi dword [ rdi + address ] 
+  mov rcx qword [ rax + address ] 
+  mov word [ rcx + rdi * 2 ] si 
+ ","  ldr w4 [ x0 # <unk> ] 
+  ldr x3 [ x0 # <unk> ] 
+  strh w1 [ x3 x4 lsl # 0x1 ] 
+ "," ldr w4 [ x0 # address ] 
+  ldr x3 [ x0 # address ] 
+  strh w1 [ x3 x4 lsl # 0x1 ] 
+"
+"  test byte [ rbp + 0x3d1 ] 0x8 
+  jne address 
+ ","  ldr w0 [ x20 # 0x3d0 ] 
+  tbnz w0 # 0xb address 
+ "," ldrb w8 [ x20 # 0x3d1 ] 
+  tbnz w8 # 0x3 address 
+"
+"  mov esi 0x0 
+  call symbol 
+ ","  mov x1 # 0 
+  bl symbol 
+ "," mov x1 # 0 
+  bl symbol 
+"
+"  cmp dword [ rdx + 0x8 ] 0x5 
+  je address 
+ ","  ldr w0 [ x0 # 0x8 ] 
+  cmp w0 # 0x5 
+  b.eq address 
+ "," ldr w0 [ x0 # 0x8 ] 
+  cmp w0 # 0x5 
+  b.eq address 
+"
+"  movzx eax al 
+  add esi eax 
+  add esi edi 
+ ","  add w2 w0 w2 uxtb 
+  add w5 w2 w5 
+ "," add w2 w0 w2 uxtb 
+  add w5 w2 w5 
+"
+"  mov eax dword [ r12 + 0x28 ] 
+  cmp rax r15 
+  je address 
+ ","  ldr w0 [ x21 # 0x28 ] 
+  cmp x0 x22 
+  b.eq address 
+ "," ldr w0 [ x21 # 0x28 ] 
+  cmp x0 x22 
+  b.eq address 
+"
+"  mov esi address 
+  lea rdi [ rel string ] 
+  call symbol 
+  jmp address 
+ ","  mov w1 # <unk> 
+  adrp x0 address 
+  add x0 x0 # 0xbd0 
+  bl symbol 
+  b address 
+ "," mov w1 # address 
+  adrp x0 string 
+  add x0 x0 # 0x710 
+  bl symbol 
+  b address 
+"
+"  push r12 
+  push rbp 
+  push rbx 
+  mov rbx rsi 
+ ","  stp x29 x30 [ sp #- 0x30 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  mov x20 x0 
+  mov x19 x1 
+ "," stp x29 x30 [ sp #- 0x30 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  str x21 [ sp # 0x20 ] 
+  mov x19 x1 
+"
+"  mov edx 0x1 
+  mov rsi rbx 
+  mov rdi rbp 
+  call symbol 
+ ","  mov w2 w22 
+  mov x1 x19 
+  mov x0 x20 
+  bl symbol 
+ "," mov w2 # 0x1 
+  mov x1 x19 
+  mov x0 x20 
+  bl symbol 
+"
+"  and ecx edx 
+  mov dword [ rsp + 0x68 ] ecx 
+  jmp address 
+ ","  cset w0 ne 
+  str w0 [ sp # 0xb0 ] 
+  b address 
+ "," cset w0 ne 
+  str w0 [ sp # 0xb0 ] 
+  b address 
+"
+"  mov rdi qword [ rbp + 0x80 ] 
+  call symbol 
+ ","  ldr x0 [ x20 # 0x80 ] 
+  bl symbol 
+ "," ldr x0 [ x20 # 0x80 ] 
+  bl symbol 
+"
+"  mov rdi rbp 
+  call symbol 
+ ","  mov x0 x20 
+  bl symbol 
+ "," mov x0 x20 
+  bl symbol 
+"
+"  lea rdx [ rdi - 0x1 ] 
+  cmp rdx <unk> 
+  ja address 
+ ","  sub x3 x0 # 0x1 
+  cmn x3 # 0x3 
+  b.hi address 
+ "," sub x11 x10 # 0x1 
+  cmp x11 # 0x3a 
+  b.hi address 
+"
+"  mov eax 0x1 
+  jmp address 
+ ","  mov w0 # 0x1 
+  ldr x19 [ sp # 0x10 ] 
+  b address 
+  ldr x19 [ sp # 0x10 ] 
+ "," mov w0 # 0x1 
+  b address 
+"
+"  mov rsi qword [ rcx + 0x370 ] 
+  movzx esi byte [ rsi + 0x3d1 ] 
+  and esi 0x1 
+  mov r8d esi 
+ ","  ldr x1 [ x4 # 0x370 ] 
+  ldr x1 [ x1 # 0x3d0 ] 
+  ubfx w5 w1 # 0x8 # 0x1 
+ "," ldr x1 [ x4 # 0x370 ] 
+  ldr x1 [ x1 # 0x3d0 ] 
+  ubfx w5 w1 # 0x8 # 0x1 
+"
+"  mov dword [ rsp + 0x30 ] 0x1 
+  jmp address 
+ ","  mov w0 # 0x1 
+  str w0 [ sp # 0x70 ] 
+  ldp x23 x24 [ sp # 0x30 ] 
+  b address 
+  ldp x23 x24 [ sp # 0x30 ] 
+  b address 
+  stp x23 x24 [ sp # 0x30 ] 
+ "," mov w0 # 0x1 
+  str w0 [ sp # 0x8c ] 
+  b address 
+"
+"  mov edi 0x11 
+  call symbol 
+ ","  mov w0 # 0x11 
+  bl symbol 
+ "," mov w0 # 0x11 
+  bl symbol 
+"
+"  movzx ebx byte [ rax + 0x1 ] 
+  test bl bl 
+  je address 
+  lea rdx [ rax + 0x2 ] 
+  mov qword [ rdi + 0x18 ] rdx 
+  movzx ebx byte [ rax + 0x1 ] 
+ ","  ldrb w19 [ x0 # 0x1 ] 
+  cbz w19 address 
+  add x1 x0 # 0x2 
+  str x1 [ x20 # 0x18 ] 
+  ldrb w19 [ x0 # 0x1 ] 
+ "," ldrb w19 [ x0 # 0x1 ] 
+  cbz w19 address 
+  add x1 x0 # 0x2 
+  str x1 [ x19 # 0x18 ] 
+  ldrb w19 [ x0 # 0x1 ] 
+"
+"  mov rax qword [ r13 + 0x18 ] 
+  mov r13 qword [ rax + 0x10 ] 
+ ","  ldr x0 [ x22 # 0x18 ] 
+  ldr x22 [ x0 # 0x10 ] 
+ "," ldr x0 [ x22 # 0x18 ] 
+  ldr x22 [ x0 # 0x10 ] 
+"
+"  mov rcx <unk> 
+  jmp address 
+ ","  mov x3 # <unk> 
+  b address 
+ "," mov x3 # 0xa4e 
+  b address 
+"
+"  mov rcx qword [ rbp ] 
+  mov esi r12d 
+  mov rdi rbx 
+  call symbol 
+ ","  ldr x3 [ x20 ] 
+  mov w1 w22 
+  mov x0 x19 
+  bl symbol 
+ "," ldr x3 [ x20 ] 
+  mov w1 w22 
+  mov x0 x19 
+  bl symbol 
+"
+"  mov r10 rbp 
+  add rbp 0x1 
+  cmp r10 r12 
+  jne address 
+ ","  cmp x24 x2 
+  add x24 x24 # 0x1 
+  b.ne string 
+ "," cmp x24 x2 
+  add x24 x24 # 0x1 
+  b.ne string 
+"
+"  mov rbx qword [ rsp + 0xa0 ] 
+  test rbx rbx 
+  je address 
+ ","  ldr x19 [ sp # 0x130 ] 
+  cbz x19 address 
+ "," ldr x19 [ sp # 0x130 ] 
+  cbz x19 address 
+"
+"  cmp al 0x1 
+  ja address 
+ ","  and w0 w0 # 0xff 
+  cmp w0 # 0x1 
+  b.hi address 
+ "," and w0 w0 # 0xff 
+  cmp w0 # 0x1 
+  b.hi address 
+"
+"  mov rax qword [ r15 + 0x8 ] 
+  mov qword [ r14 + 0x10 ] rax 
+ ","  ldr x0 [ x28 # 0x8 ] 
+  str x0 [ x22 # 0x10 ] 
+ "," ldr x0 [ x28 # 0x8 ] 
+  str x0 [ x22 # 0x10 ] 
+"
+"  mov rax qword [ r14 + 0x320 ] 
+  movzx eax byte [ rax + 0x6 ] 
+  add r13 rax 
+ ","  ldr x0 [ x23 # 0x320 ] 
+  ldrb w0 [ x0 # 0x6 ] 
+  add x22 x22 x0 
+ "," ldr x0 [ x23 # 0x320 ] 
+  ldrb w0 [ x0 # 0x6 ] 
+  add x22 x22 x0 
+"
+"  mov rax qword [ rdi + 0x28 ] 
+  cmp qword [ rax + 0x70 ] 0x0 
+  setne al 
+  movzx eax al 
+  jmp address 
+ ","  ldr x0 [ x1 # 0x28 ] 
+  ldr x0 [ x0 # 0x70 ] 
+  cmp x0 # 0 
+  cset w0 ne 
+  b address 
+ "," ldr x0 [ x0 # 0x28 ] 
+  ldr x0 [ x0 # 0x70 ] 
+  cmp x0 # 0 
+  cset w0 ne 
+  b address 
+"
+"  endbr64 
+  push rbp 
+  push rbx 
+  sub rsp 0x8 
+  mov rbx rdi 
+ ","  stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  mov x19 x0 
+ "," stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  mov x19 x0 
+"
+"  push r12 
+  push rbp 
+  push rbx 
+  mov ebx esi 
+  mov rbp rdx 
+  mov r12 rcx 
+ ","  stp x29 x30 [ sp #- 0x30 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  str x21 [ sp # 0x20 ] 
+  mov w19 w1 
+  mov x21 x2 
+  mov x20 x3 
+ "," stp x29 x30 [ sp #- 0x30 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  str x21 [ sp # 0x20 ] 
+  mov w19 w1 
+  mov x21 x2 
+  mov x20 x3 
+"
+"  lea rax [ rel symbol ] 
+  cmp rax rdi 
+  sete al 
+  movzx eax al 
+ ","  adrp x1 address 
+  add x1 x1 # 0xb50 
+  cmp x1 x0 
+ "," adrp x1 address 
+  ldr x1 [ x1 # 0xf68 ] 
+  cmp x1 x0 
+"
+"  mov eax <unk> 
+  jmp address 
+ ","  mov w0 # <unk> 
+  b address 
+ "," mov w0 # 0x4a 
+  b address 
+"
+"  cmp r9 rsi 
+  jbe address 
+  cmp r10 rdi 
+  jne address 
+  jmp address 
+ ","  cmp x5 x2 
+  ccmp x4 x3 # 0 hi 
+  b.ne address 
+  b address 
+ "," cmp x5 x3 
+  ccmp x7 x3 # 0 hi 
+  b.ne address 
+  b address 
+"
+"  cmp dword [ rsp + 0xbc ] 0x0 
+  je address 
+  jmp address 
+ ","  ldr w0 [ sp # 0x114 ] 
+  cbz w0 address 
+  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x21 x22 [ sp # 0x20 ] 
+  ldp x23 x24 [ sp # 0x30 ] 
+  b address 
+ "," ldr w0 [ sp # 0xbc ] 
+  cbz w0 address 
+  b address 
+"
+"  mov rdx r12 
+  call symbol 
+  mov r13 rax 
+ ","  add x1 x19 # 0x1 
+  mov x0 x20 
+  bl symbol 
+  mov x21 x0 
+ "," bl symbol 
+  mov x21 x0 
+"
+"  lea rdi [ rbp + 0x48 ] 
+  mov rcx qword [ rsp + 0x88 ] 
+  lea rdx [ rel string ] 
+  mov esi 0xc 
+  call symbol 
+ ","  ldr x3 [ sp # 0xe0 ] 
+  mov x2 x26 
+  mov x1 # 0xc 
+  add x0 x0 # 0x48 
+  bl symbol 
+ "," ldr x3 [ sp # 0xe0 ] 
+  mov x2 x26 
+  mov x1 # 0xc 
+  add x0 x0 # 0x48 
+  bl symbol 
+"
+"  mov rdi qword [ rdi ] 
+  call symbol 
+ ","  lsl x1 x1 # 0x3 
+  ldr x0 [ x5 ] 
+  bl symbol 
+  mov x1 x0 
+ "," ldr x0 [ x0 ] 
+  bl symbol 
+"
+"  test byte [ rdi + 0x12 ] 0x4 
+  jne address 
+ ","  ldr w0 [ x0 # 0x10 ] 
+  tbnz w0 # 0x12 address 
+ "," ldrb w8 [ x0 # 0x12 ] 
+  tbnz w8 # 0x2 address 
+"
+"  mov rax qword [ rbx + 0x8 ] 
+  mov rax qword [ rax + 0x100 ] 
+  test byte [ rax + 0xc8c ] 0x40 
+  je address 
+ ","  ldr x0 [ x19 # 0x8 ] 
+  ldr x0 [ x0 # 0x100 ] 
+  ldr x2 [ x0 # 0xc88 ] 
+  tbz x2 # 0x26 address 
+ "," ldr x0 [ x19 # 0x8 ] 
+  ldr x0 [ x0 # 0x100 ] 
+  ldr x1 [ x0 # 0xc88 ] 
+  tbz x1 # 0x26 address 
+"
+"  mov ebp dword [ rsp + 0xe4 ] 
+  test ebp ebp 
+  je address 
+ ","  ldr w25 [ sp # 0x124 ] 
+  cbz w25 address 
+ "," ldr w19 [ sp # 0x144 ] 
+  cbz w19 address 
+"
+"  mov rdx qword [ r13 + 0x10 ] 
+  mov esi ebp 
+  mov rdi rbx 
+  call symbol 
+ ","  ldr x2 [ x22 # 0x10 ] 
+  mov w1 w20 
+  mov x0 x19 
+  bl symbol 
+ "," ldr x2 [ x22 # 0x10 ] 
+  mov w1 w20 
+  mov x0 x19 
+  bl symbol 
+"
+"  mov rsi qword [ rdi + r9 + 0x8 ] 
+  cmp rbx qword [ rsi + 0x8 ] 
+  jb address 
+ ","  add x3 x6 x3 
+  ldr x2 [ x3 # 0x8 ] 
+  ldr x2 [ x2 # 0x8 ] 
+  cmp x19 x2 
+  b.lo address 
+ "," add x3 x6 x3 
+  ldr x2 [ x3 # 0x8 ] 
+  ldr x2 [ x2 # 0x8 ] 
+  cmp x19 x2 
+  b.lo address 
+"
+"  cmp edx 0x108 
+  mov eax 0x3f 
+  mov edx 0x6e 
+  cmove eax edx 
+  jmp address 
+ ","  cmp x0 x1 
+  mov w0 # 0x3f 
+  mov w1 # 0x6e 
+  csel w0 w0 w1 ne 
+  ldp x23 x24 [ sp # 0x30 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  b address 
+ "," cmp w2 # 0x108 
+  mov w0 # 0x6e 
+  csel w0 w0 w2 eq 
+  b address 
+"
+"  lea rdi [ rsp + 0x60 ] 
+  mov edx 0x10 
+  lea rsi [ rel string ] 
+  call symbol 
+  mov ebp eax 
+  test eax eax 
+  je address 
+ ","  mov x2 # 0x10 
+  adrp x1 string 
+  add x1 x1 # 0x420 
+  add x0 sp # 0xa8 
+  bl symbol 
+  mov w20 w0 
+  cbz w0 address 
+ "," mov x2 # 0x10 
+  adrp x1 string 
+  add x1 x1 # 0xc0 
+  add x0 sp # 0xa8 
+  bl symbol 
+  mov w20 w0 
+  cbz w0 address 
+"
+"  mov ecx dword [ rsp + 0x10 ] 
+  mov rax qword [ rbx + 0x30 ] 
+  mov edx 0x0 
+  div rcx 
+  lea r8 [ rax + rdi ] 
+ ","  mov w0 w23 
+  ldr x5 [ x19 # 0x30 ] 
+  udiv x5 x5 x0 
+  add x5 x5 x6 
+ "," mov w0 w23 
+  ldr x5 [ x19 # 0x30 ] 
+  udiv x5 x5 x0 
+  add x5 x5 x6 
+"
+"  mov ebx edx 
+  shl ebx 0x4 
+  add ebx edi 
+ ","  ldrb w2 [ x20 # 0x2 ] 
+  ldrb w2 [ x1 w2 sxtw ] 
+  ldrb w4 [ x20 # 0x3 ] 
+  ldrb w4 [ x1 w4 sxtw ] 
+  ubfiz w1 w3 # 0x4 # 0x4 
+  add w1 w1 w2 lsl # 0x4 
+  add w6 w5 w4 
+  add w1 w1 w6 
+  add w19 w19 w1 
+  and w19 w19 # 0xff 
+ "," ldrb w2 [ x20 # 0x2 ] 
+  ldrb w2 [ x1 w2 sxtw ] 
+  ldrb w4 [ x20 # 0x3 ] 
+  ldrb w4 [ x1 w4 sxtw ] 
+  ldrb w4 [ x1 w4 sxtw ] 
+  ldrb w4 [ x1 w4 sxtw ] 
+  ubfiz w1 w4 # 0x4 # 0x4 
+  add w1 w1 w4 
+  add w6 w4 w4 
+  add w19 w4 
+"
+"  cmp ebx 0x82 
+  je address 
+ ","  cmp w19 # 0x82 
+  b.eq address 
+ "," cmp w19 # 0x82 
+  b.eq address 
+"
+"  mov eax 0x14 
+  mov rcx qword [ rsp + 0x30 ] 
+  cmp rcx rax 
+  mov rbp rcx 
+  cmovb rbp rax 
+ ","  ldr x0 [ sp # 0x78 ] 
+  cmp x0 # 0x14 
+  mov x20 # 0x14 
+  csel x20 x0 x20 cs 
+ "," cmp x20 # 0x14 
+  mov w8 # 0x14 
+  csel x20 x9 x8 cc 
+"
+"  cmp eax 0x2 
+  je address 
+  cmp eax 0x3 
+  je address 
+  cmp eax 0x1 
+  je address 
+  mov r12d 0x1 
+  jmp address 
+ ","  cmp w0 # 0x2 
+  b.eq address 
+  cmp w0 # 0x3 
+  b.eq address 
+  cmp w0 # 0x1 
+  b.eq address 
+  mov w21 # 0x1 
+  ldp x23 x24 [ sp # 0x30 ] 
+  b address 
+ "," cmp w0 # 0x2 
+  b.eq address 
+  cmp w0 # 0x3 
+  b.eq address 
+  cmp w0 # 0x1 
+  b.eq address 
+  mov w21 # 0x1 
+  b address 
+"
+"  mov rax qword [ rsp + 0x28 ] 
+  mov qword [ rax ] r14 
+ ","  ldr x0 [ sp # 0x70 ] 
+  str x20 [ x0 ] 
+ "," ldr x0 [ sp # 0x68 ] 
+  str x21 [ x0 ] 
+"
+"  mov rdi r15 
+  call symbol 
+  lea r13 [ rax + 0x1 ] 
+ ","  mov x0 x26 
+  bl symbol 
+  add x20 x0 # 0x1 
+ "," mov x0 x24 
+  bl symbol 
+  add x24 x0 # 0x1 
+"
+"  mov rbp qword [ r14 + 0x30 ] 
+  test rbp rbp 
+  jne address 
+  jmp address 
+ ","  ldr x20 [ x24 # 0x30 ] 
+  cbz x20 address 
+ "," ldr x20 [ x23 # 0x30 ] 
+  cbnz x20 address 
+  b address 
+"
+"  mov edx 0x8 
+  lea rsi [ rel string ] 
+  mov rdi r12 
+  call symbol 
+  test eax eax 
+  jne address 
+ ","  mov x2 # 0x8 
+  adrp x1 <unk> 
+  add x1 x1 # 0xda8 
+  mov x0 x21 
+  bl symbol 
+  cbnz w0 address 
+ "," mov x2 # 0x8 
+  adrp x1 address 
+  add x1 x1 # 0x2a8 
+  mov x0 x21 
+  bl symbol 
+  cbnz w0 address 
+"
+"  mov edx ebp 
+  mov rsi rbx 
+  call symbol 
+ ","  mov w2 w19 
+  mov x1 x22 
+  bl symbol 
+ "," mov w2 w19 
+  mov x1 x22 
+  bl symbol 
+"
+"  cmp rax <unk> 
+  je address 
+ ","  cmn x0 # 0x1 
+  b.eq address 
+ "," cmp x0 # 0x2d7 
+  b.eq address 
+"
+"  mov rsi qword [ rbx + 0x100 ] 
+  test rsi rsi 
+  je address 
+  cmp rsi rbp 
+  je address 
+ ","  ldr x1 [ x19 # 0x100 ] 
+  cmp x1 # 0 
+  ccmp x1 x20 # 0x4 ne 
+  b.ne address 
+ "," ldr x1 [ x19 # 0x100 ] 
+  cmp x1 # 0 
+  ccmp x1 x20 # 0x4 ne 
+  b.ne address 
+"
+"  mov rdi qword [ rbx + 0xa0 ] 
+  test rdi rdi 
+  je address 
+ ","  ldr x0 [ x19 # 0xa0 ] 
+  cbz x0 address 
+ "," ldr x0 [ x19 # 0xa0 ] 
+  cbz x0 address 
+"
+"  test al 0x8 
+  mov edi 0x1 
+  cmove ebp edi 
+ ","  tst x0 # 0x8 
+  csinc w27 w27 wzr ne 
+ "," tst x0 # 0x8 
+  csinc w27 w27 wzr ne 
+"
+"  lea rbx [ rel string ] 
+  jmp address 
+ ","  adrp x21 address 
+  add x21 x21 # 0x980 
+  b address 
+ "," adrp x21 address 
+  add x21 x21 # 0xa20 
+  b address 
+"
+"  mov eax 0x1 
+  jmp address 
+ ","  mov w0 # 0x1 
+  b address 
+ "," mov w0 # 0x1 
+  b address 
+"
+"  mov edi 0x0 
+  jmp address 
+ ","  mov w0 # 0 
+  b address 
+ "," mov w0 # 0 
+  b address 
+"
+"  mov esi dword [ rbx + 0x84 ] 
+  mov rdi qword [ rbp + 0x50 ] 
+  mov edx 0x2 
+  call qword [ rbp + 0x40 ] 
+  mov qword [ rbx + 0x78 ] rax 
+ ","  ldr x3 [ x20 # 0x40 ] 
+  mov w2 # 0x2 
+  ldr w1 [ x19 # 0x84 ] 
+  ldr x0 [ x20 # 0x50 ] 
+  blr x3 
+  str x0 [ x19 # 0x78 ] 
+ "," ldr x3 [ x20 # 0x40 ] 
+  mov w2 # 0x2 
+  ldr w1 [ x19 # 0x84 ] 
+  ldr x0 [ x20 # 0x50 ] 
+  blr x3 
+  str x0 [ x19 # 0x78 ] 
+"
+"  mov rdx rbx 
+  lea rsi [ rel string ] 
+  mov rdi rbp 
+  call symbol 
+  mov r12d eax 
+ ","  mov x2 x19 
+  adrp x1 address 
+  add x1 x1 # 0x290 
+  mov x0 x20 
+  bl symbol 
+  mov w21 w0 
+ "," mov x2 x19 
+  adrp x1 address 
+  add x1 x1 # 0x28 
+  mov x0 x20 
+  bl symbol 
+  mov w21 w0 
+"
+"  mov eax 0x0 
+  add rsp 0x8 
+  retn 
+ ","  mov w0 # 0 
+  ldp x29 x30 [ sp ] # 0x10 
+  ret 
+ "," mov w0 # 0 
+  ldp x29 x30 [ sp ] # 0x10 
+  ret 
+"
+"  mov rax qword [ rbx + 0x18 ] 
+  cmp byte [ rax ] r12b 
+  jne address 
+ ","  ldr x0 [ x19 # 0x18 ] 
+  ldrb w1 [ x0 ] 
+  cmp w1 w21 
+  b.ne address 
+ "," ldr x0 [ x19 # 0x18 ] 
+  ldrb w1 [ x0 ] 
+  cmp w1 w21 
+  b.ne address 
+"
+"  mov r14d 0x0 
+  jmp address 
+ ","  mov w23 # 0 
+  b address 
+  ldp x25 x26 [ sp # 0x40 ] 
+  b address 
+ "," mov w23 # 0 
+  b address 
+"
+"  test eax eax 
+  jne address 
+  jmp address 
+ ","  cbnz w0 address 
+  ldr x23 [ sp # 0x30 ] 
+  b address 
+ "," cbnz w0 address 
+  b address 
+"
+"  mov rdi r12 
+  call symbol 
+  jmp address 
+ ","  mov x0 x22 
+  bl symbol 
+  b address 
+ "," mov x0 x21 
+  bl symbol 
+  b address 
+"
+"  mov eax 0x0 
+  jmp address 
+ ","  mov w0 # 0 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldp x27 x28 [ sp # 0x50 ] 
+  b address 
+ "," mov w0 # 0 
+  b address 
+"
+"  mov edi 0x11 
+  call symbol 
+ ","  mov w0 # 0x11 
+  bl symbol 
+ "," mov w0 # 0x11 
+  bl symbol 
+"
+"  cmp qword [ rdx + 0x8 ] 0x1 
+  jne address 
+  jmp address 
+ ","  ldr x2 [ x0 # 0x8 ] 
+  cmp x2 # 0x1 
+  b.ne address 
+  b address 
+ "," ldr x0 [ x1 # 0x8 ] 
+  cmp x0 # 0x1 
+  b.ne address 
+  b address 
+"
+"  lea rsi [ rdx + 0x1 ] 
+  mov qword [ rbx + 0x18 ] rsi 
+ ","  add x1 x2 # 0x1 
+  str x1 [ x19 # 0x18 ] 
+ "," add x1 x2 # 0x1 
+  str x1 [ x19 # 0x18 ] 
+"
+"  mov rax qword [ rbx + 0x20 ] 
+  add qword [ r15 + 0x28 ] rax 
+ ","  ldr x0 [ x19 # 0x28 ] 
+  ldr x1 [ x20 # 0x20 ] 
+  add x0 x0 x1 
+  str x0 [ x19 # 0x28 ] 
+ "," ldr x0 [ x19 # 0x28 ] 
+  ldr x1 [ x20 # 0x20 ] 
+  add x0 x0 x1 
+  str x0 [ x19 # 0x28 ] 
+"
+"  endbr64 
+  push r14 
+  push r13 
+  push r12 
+  push rbp 
+  push rbx 
+  mov rbx rdi 
+  mov r12 rsi 
+  mov r13d edx 
+  mov ebp ecx 
+ ","  stp x29 x30 [ sp #- 0x40 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x21 x22 [ sp # 0x20 ] 
+  mov x19 x0 
+  mov x21 x1 
+  mov w22 w2 
+  mov w20 w3 
+ "," stp x29 x30 [ sp #- 0x40 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x21 x22 [ sp # 0x20 ] 
+  str x23 [ sp # 0x30 ] 
+  mov x19 x0 
+  mov x21 x1 
+  mov w22 w2 
+  mov w20 w3 
+"
+"  cmp qword [ rsp + 0xc0 ] 0x0 
+  je address 
+ ","  ldr x0 [ sp # 0x128 ] 
+  cbz x0 address 
+ "," ldr x0 [ sp # 0x128 ] 
+  cbz x0 address 
+"
+"  mov rcx qword [ rcx + 0x70 ] 
+  test rcx rcx 
+  je address 
+ ","  ldr x4 [ x4 # 0x70 ] 
+  cbz x4 address 
+ "," ldr x4 [ x4 # 0x70 ] 
+  cbz x4 address 
+"
+"  movdqu xmm0 xmmword [ rbx ] 
+  movups xmmword [ rax ] xmm0 
+  movdqu xmm1 xmmword [ rbx + 0x10 ] 
+  movups xmmword [ rax + 0x10 ] xmm1 
+  movdqu xmm2 xmmword [ rbx + 0x20 ] 
+  movups xmmword [ rax + 0x20 ] xmm2 
+  mov rax qword [ rbx + 0x30 ] 
+  mov qword [ rbp + 0x30 ] rax 
+ ","  ldp q0 q1 [ x19 ] 
+  stp q0 q1 [ x0 ] 
+  ldr q0 [ x19 # 0x20 ] 
+  str q0 [ x0 # 0x20 ] 
+  ldr x0 [ x19 # 0x30 ] 
+  str x0 [ x20 # 0x30 ] 
+ "," ldp q0 q1 [ x19 ] 
+  stp q0 q1 [ x0 ] 
+  ldr q0 [ x19 # 0x20 ] 
+  str q0 [ x0 # 0x20 ] 
+  ldr x0 [ x19 # 0x30 ] 
+  str x0 [ x20 # 0x30 ] 
+"
+"  mov rdi qword [ rsp ] 
+  mov rax qword [ rdi + 0x8 ] 
+  mov rax qword [ rax + 0x370 ] 
+  mov qword [ rsp + 0x18 ] rax 
+ ","  ldr x0 [ x26 # 0x8 ] 
+  ldr x23 [ x0 # 0x370 ] 
+ "," ldr x0 [ x26 # 0x8 ] 
+  ldr x27 [ x0 # 0x370 ] 
+"
+"  lea rcx [ r12 + 0x90 ] 
+  mov qword [ rsp + 0x30 ] rcx 
+  lea rax [ r12 + 0x98 ] 
+  mov qword [ rsp + 0x38 ] rax 
+  lea r8 [ r12 + 0x78 ] 
+  mov edx r14d 
+  mov rsi rax 
+  mov edi 0x1 
+  call symbol 
+  mov dword [ rsp + 0x8 ] eax 
+ ","  mov x5 x0 
+  add x4 x21 # 0x78 
+  ldr w2 [ x21 # 0x84 ] 
+  mov x1 x28 
+  mov w0 # 0x1 
+  bl symbol 
+  mov w25 w0 
+ "," mov x5 x0 
+  add x4 x21 # 0x78 
+  ldr w2 [ x21 # 0x84 ] 
+  mov x1 x28 
+  mov w0 # 0x1 
+  bl symbol 
+  mov w25 w0 
+"
+"  mov rsi rbp 
+  mov rdi qword [ rsp + 0x30 ] 
+  call symbol 
+ ","  mov x1 x20 
+  ldr x0 [ sp # 0xa8 ] 
+  bl symbol 
+ "," mov x1 x20 
+  ldr x0 [ sp # 0x80 ] 
+  bl symbol 
+"
+"  mov eax 0x0 
+  jmp address 
+ ","  mov w0 # 0 
+  b address 
+ "," mov w0 # 0 
+  b address 
+"
+"  test rcx rcx 
+  je address 
+  mov r12 rcx 
+ ","  cbz x3 address 
+  stp x21 x22 [ sp # 0x20 ] 
+  mov x21 x3 
+ "," cbz x3 address 
+  stp x21 x22 [ sp # 0x20 ] 
+  mov x21 x3 
+"
+"  cmp byte [ rax + 0xc ] 0x1 
+  mov eax 0xc 
+  mov edx 0x18 
+  cmovne eax edx 
+  jmp address 
+ ","  cmp w0 # 0x1 
+  mov w0 # 0xc 
+  mov w1 # 0x18 
+  csel w0 w0 w1 eq 
+  b address 
+ "," cmp w0 # 0x1 
+  mov w0 # 0xc 
+  mov w1 # 0x18 
+  csel w0 w0 w1 eq 
+  b address 
+"
+"  add rsp 0x8 
+  pop rbx 
+  pop rbp 
+  retn 
+ ","  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x29 x30 [ sp ] # 0x20 
+  ret 
+ "," ldp x19 x20 [ sp # 0x10 ] 
+  ldp x29 x30 [ sp ] # 0x20 
+  ret 
+"
+"  mov edx address 
+  lea rsi [ rel string ] 
+  mov rdi rbx 
+  call symbol 
+ ","  mov w2 w0 
+  movk w2 # 0x10 lsl # 0x10 
+  adrp x1 address 
+  add x1 x1 # 0x140 
+  mov x0 x19 
+  bl symbol 
+ "," mov w2 # address 
+  movk w2 # 0x10 lsl # 0x10 
+  ldr x1 [ sp # 0x88 ] 
+  mov x0 x19 
+  bl symbol 
+"
+"  lea rsi [ rsp + 0x50 ] 
+  mov rdx rbp 
+  mov rdi r14 
+  mov rax qword [ rsp + 0x20 ] 
+  call rax 
+ ","  mov x2 x20 
+  mov x1 x24 
+  mov x0 x23 
+  blr x28 
+ "," mov x2 x20 
+  mov x1 x24 
+  mov x0 x23 
+  blr x28 
+"
+"  mov ecx dword [ r15 + 0x78 ] 
+  shl eax cl 
+  mov ebp eax 
+ ","  ldr w1 [ x25 # 0x78 ] 
+  lsl w23 w0 w1 
+ "," ldr w1 [ x25 # 0x78 ] 
+  lsl w23 w0 w1 
+"
+"  cmp dword [ rsp + 0x30 ] 0x1 
+  je address 
+ ","  ldr w0 [ sp # 0x8c ] 
+  cmp w0 # 0x1 
+  b.eq address 
+ "," ldr w0 [ sp # 0x8c ] 
+  cmp w0 # 0x1 
+  b.eq address 
+"
+"  push r15 
+  push r14 
+  push r13 
+  push r12 
+  push rbp 
+  push rbx 
+  sub rsp 0x8 
+  mov r13d esi 
+ ","  stp x29 x30 [ sp #- 0x40 ]! 
+  mov x29 sp 
+  stp x21 x22 [ sp # 0x20 ] 
+  stp x23 x24 [ sp # 0x30 ] 
+  mov w22 w1 
+ "," stp x29 x30 [ sp #- 0x40 ]! 
+  mov x29 sp 
+  stp x21 x22 [ sp # 0x20 ] 
+  mov w22 w1 
+"
+"  test eax eax 
+  cmove ebp eax 
+  jmp address 
+ ","  cmp w0 # 0 
+  csel w20 w20 w0 ne 
+  ldp x23 x24 [ sp # 0x30 ] 
+  b address 
+  ldp x23 x24 [ sp # 0x30 ] 
+ "," cmp w0 # 0 
+  csel w20 w20 w0 ne 
+  ldp x23 x24 [ sp # 0x30 ] 
+  b address 
+"
+"  mov rsi qword [ rsp + 0x78 ] 
+  mov rax qword [ rsi + 0x8 ] 
+  mov rax qword [ rax + 0x370 ] 
+  movzx eax byte [ rax + 0x3d0 ] 
+ ","  ldr x1 [ sp # 0xc0 ] 
+  ldr x0 [ x1 # 0x8 ] 
+  ldr x0 [ x0 # 0x370 ] 
+  ldr x0 [ x0 # 0x3d0 ] 
+ "," ldr x1 [ sp # 0xc0 ] 
+  ldr x0 [ x1 # 0x8 ] 
+  ldr x0 [ x0 # 0x370 ] 
+  ldr x0 [ x0 # 0x3d0 ] 
+"
+"  mov eax 0x0 
+  add rsp 0x8 
+  retn 
+ ","  mov w0 # 0 
+  ldp x29 x30 [ sp ] # 0x10 
+  ret 
+ "," mov w0 # 0 
+  ldp x29 x30 [ sp ] # 0x10 
+  ret 
+"
+"  lea rdx [ rsp + 0xac ] 
+  mov r8 r14 
+  mov ecx 0x0 
+  mov rsi r12 
+  mov rdi qword [ rsp + 0x18 ] 
+  call symbol 
+  mov rbp rax 
+ ","  mov x4 x25 
+  mov w3 # 0 
+  ldr x2 [ sp # 0xa8 ] 
+  mov x1 x21 
+  ldr x0 [ sp # 0xb0 ] 
+  bl symbol 
+  mov x19 x0 
+ "," mov x4 x25 
+  mov w3 # 0 
+  ldr x2 [ sp # 0xa8 ] 
+  mov x1 x21 
+  ldr x0 [ sp # 0xb0 ] 
+  bl symbol 
+  mov x20 x0 
+"
+"  cmp dword [ rdx + 0x40 ] 0x1 
+  jne address 
+ ","  cmp w2 # 0x1 
+  b.ne address 
+ "," cmp w2 # 0x1 
+  b.ne address 
+"
+"  push r13 
+  push r12 
+  push rbp 
+  push rbx 
+  sub rsp 0x8 
+ ","  stp x29 x30 [ sp #- 0x30 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+ "," stp x29 x30 [ sp #- 0x30 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+"
+"  mov rdi qword [ r12 + 0x88 ] 
+  call symbol 
+ ","  ldr x0 [ x21 # 0x88 ] 
+  bl symbol 
+ "," ldr x0 [ x21 # 0x88 ] 
+  bl symbol 
+"
+"  lea rsi [ rbx + 0x4 ] 
+  mov rax qword [ r12 + 0x8 ] 
+  mov rdi qword [ rbp ] 
+  call qword [ rax + 0x90 ] 
+ ","  ldr x0 [ x21 # 0x8 ] 
+  ldr x2 [ x0 # 0x90 ] 
+  add x1 x20 # 0x4 
+  ldr x0 [ x19 ] 
+  blr x2 
+ "," ldr x0 [ x21 # 0x8 ] 
+  ldr x2 [ x0 # 0x90 ] 
+  add x1 x20 # 0x4 
+  ldr x0 [ x19 ] 
+  blr x2 
+"
+"  mov rdi rbx 
+  call symbol 
+  lea ecx [ rax - 0x1 ] 
+  mov eax 0x1 
+  shl rax cl 
+ ","  mov x0 x19 
+  bl symbol 
+  sub w0 w0 # 0x1 
+ "," mov x0 x19 
+  bl symbol 
+  sub w0 w0 # 0x1 
+"
+"  mov esi 0x0 
+  call symbol 
+ ","  mov x1 # 0 
+  bl symbol 
+ "," mov x1 # 0 
+  bl symbol 
+"
+"  mov rcx qword [ r12 + 0x70 ] 
+  test rcx rcx 
+  je address 
+ ","  ldr x2 [ x20 # 0x70 ] 
+  cbz x2 address 
+ "," ldr x2 [ x20 # 0x70 ] 
+  cbz x2 address 
+"
+"  lea rsi [ rel string ] 
+  mov rdi rbx 
+  call symbol 
+ ","  adrp x1 <unk> 
+  add x1 x1 # 0x9b0 
+  mov x0 x19 
+  bl symbol 
+ "," mov x1 x26 
+  mov x0 x19 
+  bl symbol 
+"
+"  mov eax ebx 
+  add rsp 0x28 
+  pop rbx 
+  pop rbp 
+  pop r12 
+  pop r13 
+  pop r14 
+  pop r15 
+  retn 
+ ","  mov w0 w19 
+  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x23 x24 [ sp # 0x30 ] 
+  ldp x29 x30 [ sp ] # 0x80 
+  ret 
+ "," ldp x20 x19 [ sp # 0x50 ] 
+  ldp x22 x21 [ sp # 0x40 ] 
+  ldp x24 x23 [ sp # 0x30 ] 
+  ldp x26 x25 [ sp # 0x20 ] 
+  ldp x28 x27 [ sp # 0x10 ] 
+  ldp x29 x30 [ sp ] # 0x60 
+  ret 
+"
+"  movzx eax byte [ rbx + 0x4 ] 
+  and eax 0x6 
+  cmp al 0x4 
+  je address 
+ ","  ldr x0 [ x20 ] 
+  and x0 x0 # <unk> 
+  mov x1 # <unk> 
+  cmp x0 x1 
+  b.eq address 
+ "," ldr x0 [ x19 ] 
+  and x0 x0 # address 
+  mov x1 # address 
+  cmp x0 x1 
+  b.eq address 
+"
+"  mov rax qword [ rdi + 0x40 ] 
+  mov rax qword [ rax + rsi * 8 ] 
+  mov eax dword [ rax + 0x1c ] 
+ ","  ldr x0 [ x0 # 0x40 ] 
+  ldr x0 [ x0 x1 lsl # 0x3 ] 
+ "," ldr x0 [ x0 # 0x40 ] 
+  ldr x0 [ x0 x1 lsl # 0x3 ] 
+"
+"  cmp qword [ rbp + 0x70 ] 0x0 
+  je address 
+ ","  ldr x0 [ x20 # 0x70 ] 
+  cbz x0 address 
+ "," ldr x0 [ x20 # 0x70 ] 
+  cbz x0 address 
+"
+"  mov rax qword [ r15 + 0x320 ] 
+  movzx r14d byte [ rax + 0x6 ] 
+  add r14 qword [ rbp + 0x40 ] 
+ ","  ldr x0 [ x25 # 0x320 ] 
+  ldrb w24 [ x0 # 0x6 ] 
+  ldr x0 [ x20 # 0x40 ] 
+  add x24 x24 x0 
+ "," ldr x0 [ x25 # 0x320 ] 
+  ldrb w24 [ x0 # 0x6 ] 
+  ldr x0 [ x20 # 0x40 ] 
+  add x24 x24 x0 
+"
+"  mov rax qword [ rdi + 0x10 ] 
+  mov rdx qword [ rax ] 
+ ","  ldr x0 [ x0 # 0x10 ] 
+  ldr x0 [ x0 ] 
+ "," ldr x0 [ x19 # 0x10 ] 
+  ldr x0 [ x0 ] 
+"
+"  mov rdx qword [ r13 + 0x10 ] 
+  call symbol 
+ ","  ldr x2 [ x22 # 0x10 ] 
+  mov w1 w20 
+  mov x0 x19 
+  bl symbol 
+ "," ldr x2 [ x22 # 0x10 ] 
+  mov w1 w20 
+  mov x0 x19 
+  bl symbol 
+"
+"  sub rax 0x1 
+  lea edx [ rcx + rax ] 
+  test edx edx 
+  jg address 
+ ","  sub w0 w0 # 0x1 
+  cmp w0 # 0 
+  b.gt address 
+  sub w1 w1 # 0x1 
+ "," sub w0 w0 # 0x1 
+  cmp w0 # 0 
+  b.gt address 
+"
+"  call symbol 
+  mov qword [ rsp + 0x1e8 ] rax 
+ ","  lsl x0 x0 # 0x2 
+  bl symbol 
+  str x0 [ sp # 0x230 ] 
+ "," lsl x0 x0 # 0x3 
+  bl symbol 
+  str x0 [ sp # 0x230 ] 
+"
+"  mov eax 0xc 
+  jmp address 
+ ","  mov x2 # 0xc 
+  b address 
+ "," mov x2 # 0xc 
+  b address 
+"
+"  mov rax qword [ rcx + 0x8 ] 
+  call qword [ rax + 0x38 ] 
+ ","  ldr x1 [ x3 # 0x8 ] 
+  ldr x1 [ x1 # 0x38 ] 
+  blr x1 
+ "," ldr x1 [ x3 # 0x8 ] 
+  ldr x1 [ x1 # 0x38 ] 
+  blr x1 
+"
+"  mov edx 0x5 
+  lea rsi [ rel string ] 
+  lea rdi [ rel address ] 
+  call symbol 
+  mov rdi rax 
+ ","  mov w2 # 0x5 
+  adrp x1 address 
+  add x1 x1 # 0xf50 
+  adrp x0 string 
+  add x0 x0 # 0x400 
+  bl symbol 
+ "," mov w2 # 0x5 
+  ldr x1 [ sp # 0x68 ] 
+  ldr x0 [ sp # 0x80 ] 
+  bl symbol 
+"
+"  mov edx 0x6 
+  lea rsi [ rel string ] 
+  mov rdi rbx 
+  call symbol 
+  test eax eax 
+  je address 
+ ","  mov x2 # 0x6 
+  adrp x1 string 
+  add x1 x1 # 0x578 
+  mov x0 x20 
+  bl symbol 
+  cbz w0 address 
+ "," mov x2 # 0x6 
+  adrp x1 address 
+  add x1 x1 # 0x2a8 
+  mov x0 x19 
+  bl symbol 
+  cbz w0 address 
+"
+"  mov rax qword [ rax + 0x18 ] 
+  test rax rax 
+  jne address 
+  jmp address 
+ ","  ldr x0 [ x0 # 0x18 ] 
+  cbnz x0 address 
+  b address 
+ "," ldr x0 [ x0 # 0x18 ] 
+  cbnz x0 address 
+  b address 
+"
+"  mov r14d 0x0 
+  jmp address 
+ ","  mov x24 # 0 
+  b address 
+ "," mov w23 # 0 
+  b address 
+"
+"  shl rsi 0x3 
+  mov rdi qword [ r15 ] 
+  call symbol 
+ ","  lsl x1 x1 # 0x3 
+  ldr x0 [ x25 ] 
+  bl symbol 
+ "," lsl x1 x1 # 0x3 
+  ldr x0 [ x25 ] 
+  bl symbol 
+"
+"  push r15 
+  push r14 
+  push r13 
+  push r12 
+  push rbp 
+  push rbx 
+  sub rsp 0x8 
+  mov rbx rdi 
+ ","  stp x29 x30 [ sp #- 0x60 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  mov x19 x0 
+ "," stp x29 x30 [ sp #- 0x40 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  mov x19 x0 
+"
+"  mov rdx rbx 
+  mov rsi rbp 
+  mov rdi qword [ r12 ] 
+  call qword [ r13 + 0x1c0 ] 
+ ","  ldr x3 [ x22 # 0x1c0 ] 
+  mov x2 x19 
+  mov x1 x20 
+  ldr x0 [ x21 ] 
+  blr x3 
+ "," ldr x3 [ x22 # 0x1c0 ] 
+  mov x2 x19 
+  mov x1 x20 
+  ldr x0 [ x21 ] 
+  blr x3 
+"
+"  mov ebp 0x6 
+  jmp address 
+ ","  mov w23 # 0x6 
+  b address 
+ "," mov w23 # 0x6 
+  b address 
+"
+"  mov ecx dword [ rbx + 0x80 ] 
+  mov rax qword [ rbx + 0x78 ] 
+  mov word [ rax + rcx * 2 ] dx 
+ ","  ldr w2 [ x19 # 0x80 ] 
+  ldr x0 [ x19 # 0x78 ] 
+  strh w1 [ x0 x2 lsl # 0x1 ] 
+ "," ldr w1 [ x19 # 0x80 ] 
+  ldr x0 [ x19 # 0x78 ] 
+  strh w2 [ x0 x1 lsl # 0x1 ] 
+"
+"  lea rcx [ rel string ] 
+  jmp address 
+ ","  adrp x3 address 
+  add x3 x3 # 0xc18 
+  b address 
+ "," adrp x3 string 
+  add x3 x3 # 0x28 
+  b address 
+"
+"  mov eax dword [ rbx + address ] 
+  lea ecx [ rax + 0x2a ] 
+ ","  ldr w1 [ x19 # <unk> ] 
+  add w1 w1 # 0x2a 
+ "," ldr w1 [ x19 # address ] 
+  add w1 w1 # 0x2a 
+"
+"  test rbx rbx 
+  je address 
+  test eax eax 
+  je address 
+ ","  cmp x19 # 0 
+  ccmp w0 # 0 # 0x4 ne 
+  b.eq address 
+ "," cmp x19 # 0 
+  ccmp w0 # 0 # 0x4 ne 
+  b.eq address 
+"
+"  mov r15 qword [ rbx + 0xa0 ] 
+  test r15 r15 
+  je address 
+ ","  ldr x25 [ x24 # 0xa0 ] 
+  cbz x25 address 
+ "," ldr x25 [ x20 # 0xa0 ] 
+  cbz x25 address 
+"
+"  lea rdi [ rbp + 0x8 ] 
+  mov edx 0x20 
+  lea rsi [ rel symbol ] 
+  call symbol 
+  test eax eax 
+  je address 
+ ","  mov w2 # 0x20 
+  adrp x1 address 
+  add x1 x1 # 0x118 
+  add x0 x20 # 0x8 
+  bl symbol 
+  cbz w0 address 
+ "," bl symbol 
+  cbz w0 address 
+"
+"  cmp rax 0x6 
+  jne address 
+ ","  cmp x0 # 0x6 
+  b.ne address 
+ "," cmp x0 # 0x6 
+  b.ne address 
+"
+"  lea rax [ rel symbol ] 
+  mov qword [ rbx + 0x20 ] rax 
+  jmp address 
+ ","  str x28 [ x19 # 0x20 ] 
+  b address 
+ "," adrp x0 address 
+  ldr x0 [ x0 # 0xf68 ] 
+  str x0 [ x19 # 0x20 ] 
+  b address 
+"
+"  cmp dword [ rax + 0x20 ] 0x1 
+  mov eax 0x2 
+  sbb eax <unk> 
+  jmp address 
+ ","  cmp w0 # 0 
+  cset w0 ne 
+  add w0 w0 # 0x2 
+  b address 
+ "," cmp w0 # 0 
+  mov w0 # 0x2 
+  csel w0 w0 w1 ne 
+  b address 
+"
+"  mov rax qword [ r12 + 0x30 ] 
+  test rax rax 
+  je address 
+ ","  ldr x0 [ x21 # 0x30 ] 
+  cbz x0 address 
+ "," ldr x0 [ x21 # 0x30 ] 
+  cbz x0 address 
+"
+"  lea edx [ rdx + r11 ] 
+  lea rcx [ rdi + rdx * 4 ] 
+  movzx r9d byte [ rcx ] 
+  movzx edx byte [ rcx + 0x1 ] 
+  movzx r8d word [ rcx + 0x2 ] 
+ ","  add w0 w0 w7 
+  lsl x0 x0 # 0x2 
+  add x1 x2 x0 
+  ldrb w3 [ x2 x0 ] 
+  ldrb w0 [ x1 # 0x1 ] 
+  ldrh w1 [ x1 # 0x2 ] 
+ "," add w0 w0 w7 
+  lsl x0 x0 # 0x2 
+  add x1 x2 x0 
+  ldrb w3 [ x2 x0 ] 
+  ldrb w0 [ x1 # 0x1 ] 
+  ldrh w1 [ x1 # 0x2 ] 
+"
+"  mov r12 qword [ rdi + 0x40 ] 
+  test r12 r12 
+  je address 
+ ","  ldr x21 [ x19 # 0x40 ] 
+  cbz x21 address 
+ "," ldr x21 [ x19 # 0x40 ] 
+  cbz x21 address 
+"
+"  mov edx 0x0 
+  mov esi address 
+  mov rdi rbx 
+  call symbol 
+  test eax eax 
+  setne al 
+  movzx eax al 
+  jmp address 
+ ","  mov x2 # 0 
+  mov x1 # 0x13 
+  movk x1 # <unk> lsl # 0x10 
+  mov x0 x19 
+  bl symbol 
+  cmp w0 # 0 
+  cset w0 ne 
+  b address 
+ "," mov x2 # 0 
+  mov x1 # 0x13 
+  movk x1 # address lsl # 0x10 
+  mov x0 x19 
+  bl symbol 
+  cmp w0 # 0 
+  cset w0 ne 
+  b address 
+"
+"  cmp eax 0x1 
+  je address 
+ ","  cmp x3 # 0x1 
+  b.eq address 
+ "," cmp w0 # 0x1 
+  b.eq address 
+"
+"  test dword [ rbx + 0x68 ] address 
+  je address 
+ ","  ldr x0 [ x19 # 0x68 ] 
+  and x0 x0 # <unk> 
+  and x0 x0 # <unk> 
+  cbz x0 address 
+ "," ldr x0 [ x19 # 0x68 ] 
+  and x0 x0 # address 
+  and x0 x0 # address 
+  cbz x0 address 
+"
+"  endbr64 
+  push rbx 
+  mov rbx rdi 
+ ","  stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  str x19 [ sp # 0x10 ] 
+  mov x19 x0 
+ "," stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  str x19 [ sp # 0x10 ] 
+  mov x19 x0 
+"
+"  test ax <unk> 
+  setne sil 
+  movzx esi sil 
+  jmp address 
+ ","  tst w0 # <unk> 
+  cset w0 ne 
+  ret 
+ "," tst w0 # address 
+  cset w0 ne 
+  b address 
+"
+"  mov rax qword [ rsp + 0x8 ] 
+  add rsp 0x48 
+  pop rbx 
+  pop rbp 
+  pop r12 
+  pop r13 
+  pop r14 
+  pop r15 
+  retn 
+ ","  mov x0 x25 
+  ldp x23 x24 [ sp # 0x30 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldp x29 x30 [ sp ] # 0x80 
+  ret 
+ "," mov x0 x21 
+  ldp x20 x19 [ sp # 0x60 ] 
+  ldp x22 x21 [ sp # 0x50 ] 
+  ldp x24 x23 [ sp # 0x40 ] 
+  ldp x26 x25 [ sp # 0x30 ] 
+  ldp x28 x27 [ sp # 0x20 ] 
+  ldp x29 x30 [ sp # 0x10 ] 
+  add sp sp # 0x70 
+  ret 
+"
+"  endbr64 
+  sub rsp 0x8 
+ ","  stp x29 x30 [ sp #- 0x10 ]! 
+  mov x29 sp 
+ "," stp x29 x30 [ sp #- 0x10 ]! 
+  mov x29 sp 
+"
+"  mov rdx rax 
+  shr rdx 0x3f 
+  lea rbx [ rax + rdx ] 
+  and ebx 0x1 
+  sub rbx rdx 
+  add rbx rax 
+ ","  adds x0 x0 x19 
+  and x19 x0 # 0x1 
+  cneg x19 x19 mi 
+  add x19 x19 x0 
+ "," adds x0 x0 x19 
+  and x19 x0 # 0x1 
+  cneg x19 x19 mi 
+  add x19 x19 x0 
+"
+"  mov rax qword [ r15 + 0xd0 ] 
+  add rdx qword [ rax + 0x8 ] 
+ ","  ldr x0 [ x26 # 0xd0 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  add x22 x22 x0 
+ "," ldr x0 [ x26 # 0xd0 ] 
+  ldr x0 [ x0 # 0x8 ] 
+"
+"  cmp qword [ rsi + 0x40 ] <unk> 
+  je address 
+ ","  ldr x1 [ x19 # 0x40 ] 
+  cmn x1 # 0x1 
+  b.eq address 
+ "," ldr x0 [ x20 # 0x40 ] 
+  cmp x0 # 0xbb 
+  b.eq address 
+"
+"  mov eax 0x1 
+  jmp address 
+  mov eax 0x1 
+  jmp address 
+ ","  mov w0 # 0x1 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldp x27 x28 [ sp # 0x50 ] 
+  b address 
+  mov w0 # 0x1 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldp x27 x28 [ sp # 0x50 ] 
+  b address 
+ "," mov w0 # 0x1 
+  b address 
+  mov w0 # 0x1 
+  b address 
+"
+"  movzx esi byte [ r8 + rdx ] 
+  movzx ecx byte [ r9 + rdx ] 
+  cmp sil cl 
+  jne address 
+ ","  ldrb w3 [ x5 x1 ] 
+  ldrb w2 [ x6 x1 ] 
+  cmp w3 w2 
+  b.ne address 
+ "," ldrb w3 [ x5 x1 ] 
+  ldrb w2 [ x6 x1 ] 
+  cmp w3 w2 
+  b.ne address 
+"
+"  call qword [ rbp + 0x10 ] 
+  jmp address 
+ ","  ldr x1 [ x20 # 0x10 ] 
+  blr x1 
+  b address 
+ "," ldr x1 [ x20 # 0x10 ] 
+  blr x1 
+  b address 
+"
+"  test byte [ rsi ] 0x1 
+  je address 
+ ","  ldr x0 [ x0 ] 
+  tbz w0 # 0 address 
+ "," ldr x0 [ x20 ] 
+  tbz w0 # 0 address 
+"
+"  mov rax qword [ rsp + 0x8 ] 
+  cmp qword [ rbx + 0x8 ] rax 
+  je address 
+ ","  ldr x0 [ x19 # 0x8 ] 
+  cmp x0 x25 
+  b.eq address 
+ "," ldr x1 [ x19 # 0x8 ] 
+  cmp x1 x0 
+  b.eq address 
+"
+"  mov eax edx 
+  add rsp 0x8 
+  pop rbx 
+  pop rbp 
+  pop r12 
+  pop r13 
+  retn 
+ ","  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x29 x30 [ sp ] # 0x30 
+  ret 
+ "," ldp x19 x20 [ sp # 0x10 ] 
+  ldp x21 x22 [ sp # 0x20 ] 
+  ldp x29 x30 [ sp ] # 0x30 
+  ret 
+"
+"  call symbol 
+  jmp address 
+ ","  bl symbol 
+  b address 
+ "," bl symbol 
+  b address 
+"
+"  test byte [ rax + 0x19 ] 0xc 
+  jne address 
+ ","  ldr x0 [ x0 # 0x18 ] 
+  tst x0 # 0xc00 
+  b.ne address 
+ "," ldr w0 [ x0 # 0x18 ] 
+  tst w0 # 0xc00 
+  b.ne address 
+"
+"  cmp eax <unk> 
+  je address 
+ ","  cmn w0 # 0x1 
+  b.eq address 
+ "," cmp w0 # 0x33 
+  b.eq address 
+"
+"  mov eax 0x1 
+  retn 
+ ","  mov w0 # 0x1 
+  ret 
+ "," mov w0 # 0x1 
+  ret 
+"
+"  mov rdx qword [ rbx + 0x78 ] 
+  mov qword [ rax + 0x50 ] rdx 
+ ","  ldr x1 [ x19 # 0x78 ] 
+  str x1 [ x0 # 0x50 ] 
+ "," ldr x1 [ x19 # 0x78 ] 
+  str x1 [ x0 # 0x50 ] 
+"
+"  cmp edi 0x1 
+  sbb eax eax 
+  and eax 0x7 
+  add eax 0x1 
+ ","  mov w1 # 0x102 
+  tst w0 w1 
+  mov w0 # 0x8 
+  csinc w0 w0 wzr eq 
+ "," mov w1 # 0x102 
+  tst w0 w1 
+  mov w0 # 0xb 
+  csinc w0 w0 wzr eq 
+"
+"  add rbx qword [ rsp + 0x8 ] 
+  cmp r15 rbp 
+  ja address 
+  mov r13 qword [ rsp + 0x40 ] 
+ ","  add x19 x19 x22 
+  cmp x27 x20 
+  b.hi address 
+ "," add x19 x19 x23 
+  cmp x26 x19 
+  b.hi address 
+"
+"  mov rsi qword [ rbx + 0x20 ] 
+  test rsi rsi 
+  je address 
+ ","  ldr x1 [ x19 # 0x20 ] 
+  cbz x1 address 
+ "," ldr x1 [ x19 # 0x20 ] 
+  cbz x1 address 
+"
+"  mov rax qword [ r13 + 0x8 ] 
+  mov rax qword [ rax + 0x370 ] 
+  movzx eax byte [ rax + 0x3d0 ] 
+ ","  ldr x0 [ x22 # 0x8 ] 
+  ldr x0 [ x0 # 0x370 ] 
+  ldr x0 [ x0 # 0x3d0 ] 
+ "," ldr x0 [ x22 # 0x8 ] 
+  ldr x0 [ x0 # 0x370 ] 
+  ldr x0 [ x0 # 0x3d0 ] 
+"
+"  lea rax [ rel symbol ] 
+  mov qword [ rdi + 0xb68 ] rax 
+ ","  adrp x2 address 
+  add x2 x2 # 0xaa8 
+  str x2 [ x0 # 0xb68 ] 
+ "," adrp x1 address 
+  ldr x1 [ x1 # 0xf68 ] 
+  str x1 [ x0 # 0xb68 ] 
+"
+"  cmp dword [ rax + 0x8 ] 0x5 
+  jne address 
+ ","  ldr w0 [ x0 # 0x8 ] 
+  cmp w0 # 0x5 
+  b.ne address 
+ "," ldr w0 [ x0 # 0x8 ] 
+  cmp w0 # 0x5 
+  b.ne address 
+"
+"  lea rsi [ rsp + 0xc4 ] 
+  mov rax qword [ r12 + 0x8 ] 
+  mov rdi rbx 
+  call qword [ rax + 0x90 ] 
+ ","  ldr x0 [ x20 # 0x8 ] 
+  ldr x2 [ x0 # 0x90 ] 
+  mov x1 x28 
+  mov x0 x19 
+  blr x2 
+ "," ldr x0 [ x20 # 0x8 ] 
+  ldr x2 [ x0 # 0x90 ] 
+  add x1 sp # 0xc4 
+  mov x0 x19 
+  blr x2 
+"
+"  cmp qword [ rbx + 0x38 ] <unk> 
+  je address 
+ ","  ldr x0 [ x19 # 0x38 ] 
+  cmn x0 # 0x2 
+  b.eq address 
+ "," ldr x0 [ x19 # 0x38 ] 
+  cmp x0 # 0xbb 
+  b.eq address 
+"
+"  cmp edi 0x93f 
+  ja address 
+ ","  cmp w0 # 0x93f 
+  b.hi address 
+ "," cmp w0 # 0x93f 
+  b.hi address 
+"
+"  mov rax qword [ rdi + 0x88 ] 
+  test rax rax 
+  je address 
+ ","  ldr x2 [ x20 # 0x88 ] 
+  cbz x2 address 
+ "," ldr x0 [ x19 # 0x88 ] 
+  cbz x0 address 
+"
+"  mov eax dword [ rsp + 0x14 ] 
+  add rax rbp 
+ ","  ldr w0 [ sp # 0x54 ] 
+  add x0 x20 x0 
+ "," ldr w0 [ sp # 0x54 ] 
+  add x0 x20 x0 
+"
+"  shl rcx 0x3 
+  test rbx rbx 
+  mov eax 0x8 
+  cmovle rcx rax 
+  add qword [ rsp + 0x8 ] rcx 
+ ","  lsl x0 x2 # 0x3 
+  cmp x19 # 0 
+  mov x1 # 0x8 
+  csel x0 x0 x1 gt 
+  add x26 x26 x0 
+ "," lsl x0 x0 # 0x3 
+  cmp x19 # 0 
+  mov x1 # 0x8 
+  csel x0 x0 x1 gt 
+  add x26 x26 x0 
+"
+"  add rdx 0x1 
+  add rax 0x20 
+  cmp r15 rdx 
+  jbe address 
+ ","  add x1 x1 # 0x1 
+  add x0 x0 # 0x20 
+  cmp x26 x1 
+  b.ls address 
+ "," add x1 x1 # 0x1 
+  add x0 x0 # 0x20 
+  cmp x26 x1 
+  b.ls address 
+"
+"  cmp byte [ rdx ] 0x31 
+  jne address 
+  cmp ecx 0x70 
+  jne address 
+ ","  ldrb w0 [ x2 ] 
+  cmp w0 # 0x31 
+  mov w0 # 0x70 
+  ccmp w3 w0 # 0 eq 
+  b.ne address 
+ "," ldrb w0 [ x2 ] 
+  cmp w0 # 0x31 
+  mov w0 # 0x70 
+  ccmp w3 w0 # 0 eq 
+  b.ne address 
+"
+"  test eax eax 
+  mov eax 0x0 
+  cmove r12 rax 
+ ","  cmp w0 # 0 
+  csel x19 x19 xzr ne 
+  ldr x21 [ sp # 0x20 ] 
+ "," cmp w0 # 0 
+  csel x21 x21 xzr ne 
+"
+"  movzx eax byte [ r14 + 0x20 ] 
+  and eax 0x70 
+  cmp al 0x10 
+  je address 
+ ","  ldrb w0 [ x19 # 0x20 ] 
+  and w0 w0 # 0x70 
+  cmp w0 # 0x10 
+  b.eq address 
+ "," ldrb w0 [ x19 # 0x20 ] 
+  and w0 w0 # 0x70 
+  cmp w0 # 0x10 
+  b.eq address 
+"
+"  mov rsi qword [ rsi ] 
+  mov rdi rbx 
+  call symbol 
+  mov r14 rax 
+ ","  ldr x1 [ x19 ] 
+  mov x0 x19 
+  bl symbol 
+  mov x24 x0 
+ "," ldr x1 [ x1 ] 
+  mov x0 x19 
+  bl symbol 
+  mov x24 x0 
+"
+"  push r15 
+  push r14 
+  push r13 
+  push r12 
+  push rbp 
+  push rbx 
+  sub rsp 0x18 
+  mov rbx rdi 
+  mov r13 rsi 
+  mov dword [ rsp + 0xc ] edx 
+ ","  stp x29 x30 [ sp #- 0x60 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x21 x22 [ sp # 0x20 ] 
+  stp x23 x24 [ sp # 0x30 ] 
+  stp x25 x26 [ sp # 0x40 ] 
+  stp x27 x28 [ sp # 0x50 ] 
+  mov x19 x0 
+  mov x23 x1 
+  mov w27 w2 
+ "," stp x29 x30 [ sp #- 0x50 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x21 x22 [ sp # 0x20 ] 
+  stp x23 x24 [ sp # 0x30 ] 
+  str x25 [ sp # 0x40 ] 
+  mov x19 x0 
+  mov x22 x1 
+  mov w23 w2 
+"
+"  cmp al 0x3 
+  je address 
+ ","  cmp w0 # 0x3 
+  b.eq address 
+ "," and w0 w0 # 0x7 
+  cmp w0 # 0x3 
+  b.eq address 
+"
+"  test r14 r14 
+  je address 
+ ","  cbz x23 address 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x25 x26 [ sp # 0x40 ] 
+ "," mov w19 # 0x7e 
+  b address 
+"
+"  cmp eax 0x1 
+  ja address 
+ ","  cmp w0 # 0x1 
+  b.hi address 
+ "," cmp w0 # 0x1 
+  b.hi address 
+"
+"  push r13 
+  push r12 
+  push rbp 
+  push rbx 
+  sub rsp 0x8 
+  mov r13 rsi 
+  mov ebp edx 
+ ","  stp x29 x30 [ sp #- 0x30 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x21 x22 [ sp # 0x20 ] 
+  mov x21 x1 
+  mov w20 w2 
+ "," stp x29 x30 [ sp #- 0x30 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x21 x22 [ sp # 0x20 ] 
+  mov x21 x1 
+  mov w20 w2 
+"
+"  cmp bpl 0x2 
+  je address 
+ ","  cmp w19 # 0x2 
+  b.eq address 
+ "," cmp w19 # 0x2 
+  b.eq address 
+"
+"  or eax edx 
+  mov byte [ rbx + 0x6b ] al 
+ ","  ldr x0 [ x19 # 0x68 ] 
+  and x0 x0 # <unk> 
+  str x0 [ x19 # 0x68 ] 
+ "," ldr x0 [ x19 # 0x68 ] 
+  and x0 x0 # address 
+  str x0 [ x19 # 0x68 ] 
+"
+"  mov rax qword [ r12 + 0x50 ] 
+  mov rax qword [ rax + 0x8 ] 
+  mov r13 qword [ rax + 0x370 ] 
+ ","  ldr x0 [ x21 # 0x50 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  ldr x23 [ x0 # 0x370 ] 
+ "," ldr x0 [ x21 # 0x50 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  ldr x22 [ x0 # 0x370 ] 
+"
+"  mov rax qword [ r12 + 0xe8 ] 
+  test byte [ rax + 0xb ] 0x1 
+  je address 
+ ","  ldr x0 [ x21 # 0xe8 ] 
+  ldr x1 [ x0 # 0x8 ] 
+  tbz w1 # 0x18 address 
+ "," ldr x0 [ x21 # 0xe8 ] 
+  ldr x1 [ x0 # 0x8 ] 
+  tbz w1 # 0x18 address 
+"
+"  cmp byte [ rdx + 0x1 ] 0x70 
+  je address 
+ ","  ldrb w1 [ x0 # 0x1 ] 
+  cmp w1 # 0x70 
+  b.eq address 
+ "," ldrb w1 [ x0 # 0x1 ] 
+  cmp w1 # 0x70 
+  b.eq address 
+"
+"  mov r14 rsp 
+  lea rsi [ rsp + 0x4 ] 
+  mov rdi qword [ rcx + 0x8 ] 
+  call qword [ rax + 0x48 ] 
+ ","  ldr x2 [ x3 # 0x48 ] 
+  add x1 sp # 0x3c 
+  ldr x0 [ x19 # 0x8 ] 
+  blr x2 
+ "," ldr x2 [ x3 # 0x48 ] 
+  add x1 sp # 0x3c 
+  ldr x0 [ x19 # 0x8 ] 
+  blr x2 
+"
+"  call symbol 
+  mov byte [ rbx + 0x8 ] al 
+ ","  bl symbol 
+  strb w0 [ x19 # 0x8 ] 
+ "," bl symbol 
+  strb w0 [ x19 # 0x8 ] 
+"
+"  mov rdx rax 
+  shr rdx 0x10 
+  and edx 0xf 
+  movzx edx byte [ rbx + rdx ] 
+  mov byte [ rsp + 0x14 ] dl 
+  mov rdx rax 
+  shr rdx 0x14 
+  and edx 0xf 
+  movzx edx byte [ rbx + rdx ] 
+  mov byte [ rsp + 0x13 ] dl 
+ ","  ubfx x1 x0 # 0x10 # 0x4 
+  ldrb w1 [ x19 x1 ] 
+  strb w1 [ sp # 0x64 ] 
+  ubfx x1 x0 # 0x14 # 0x4 
+  ldrb w1 [ x19 x1 ] 
+  strb w1 [ sp # 0x63 ] 
+ "," ubfx x1 x0 # 0x10 # 0x4 
+  ldrb w1 [ x19 x1 ] 
+  strb w1 [ sp # 0x64 ] 
+  ubfx x1 x0 # 0x14 # 0x4 
+  ldrb w1 [ x19 x1 ] 
+  strb w1 [ sp # 0x62 ] 
+"
+"  mov rax qword [ rdi + 0x100 ] 
+  mov rdi qword [ rax + 0x60 ] 
+  test rdi rdi 
+  je address 
+ ","  ldr x0 [ x27 # 0x100 ] 
+  ldr x4 [ x0 # 0x60 ] 
+  cbz x4 address 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x21 x22 [ sp # 0x20 ] 
+  stp x23 x24 [ sp # 0x30 ] 
+ "," ldr x0 [ x0 # 0x100 ] 
+  ldr x0 [ x0 # 0x60 ] 
+  cbz x0 address 
+"
+"  mov eax 0x1 
+  retn 
+ ","  mov w0 # 0x1 
+  ret 
+ "," mov w0 # 0x1 
+  ret 
+"
+"  mov rdx rbx 
+  mov rsi rbp 
+  mov rdi r13 
+  call symbol 
+  cmp rax rbp 
+  sete al 
+  movzx eax al 
+  jmp address 
+ ","  mov x2 x19 
+  mov x1 x20 
+  mov x0 x23 
+  bl symbol 
+  cmp x0 x20 
+  cset w0 eq 
+  b address 
+  ldr x25 [ sp # 0x40 ] 
+  b address 
+ "," mov x2 x19 
+  mov x1 x20 
+  mov x0 x23 
+  bl symbol 
+  cmp x0 x19 
+  cset w0 eq 
+  b address 
+"
+"  mov eax 0x0 
+  call rbx 
+  jmp address 
+ ","  blr x20 
+  b address 
+ "," blr x20 
+  b address 
+"
+"  mov esi address 
+  lea rdi [ rel string ] 
+  call symbol 
+  mov qword [ rsp + 0x10 ] 0x0 
+ ","  cbnz x27 address 
+  b address 
+ "," mov w1 # address 
+  adrp x0 string 
+  add x0 x0 # 0x710 
+  bl symbol 
+"
+"  test byte [ rbx + 0x29 ] 0x4 
+  je address 
+ ","  ldr w0 [ x19 # 0x28 ] 
+  tbz w0 # 0xa address 
+ "," ldr w0 [ x19 # 0x28 ] 
+  tbz w0 # 0xa address 
+"
+"  mov rdx r15 
+  mov rsi qword [ rsp + 0x30 ] 
+  mov eax 0x0 
+  call symbol 
+ ","  mov x2 x19 
+  mov x1 x21 
+  bl symbol 
+ "," mov x2 x19 
+  mov x1 x21 
+  bl symbol 
+"
+"  cmp byte [ rbp ] 0x40 
+  jne address 
+ ","  ldrb w1 [ x20 ] 
+  cmp w1 # 0x40 
+  b.ne address 
+ "," ldrb w0 [ x20 ] 
+  cmp w0 # 0x40 
+  b.ne address 
+"
+"  movzx eax byte [ rdi + 0x18 ] 
+  sub eax 0x3 
+ ","  ldrb w0 [ x0 # 0x18 ] 
+  sub w0 w0 # 0x3 
+ "," ldrb w1 [ x0 # 0x18 ] 
+  sub w1 w1 # 0x3 
+"
+"  lea rdi [ rbx + 0x6 ] 
+  mov rax qword [ r12 + 0x8 ] 
+  call qword [ rax + 0x98 ] 
+  mov word [ rbp + 0xa ] ax 
+ ","  ldr x0 [ x21 # 0x8 ] 
+  ldr x1 [ x0 # 0x98 ] 
+  add x0 x20 # 0x6 
+  blr x1 
+  strh w0 [ x19 # 0xa ] 
+ "," ldr x0 [ x21 # 0x8 ] 
+  ldr x1 [ x0 # 0x98 ] 
+  add x0 x20 # 0x6 
+  blr x1 
+  strh w0 [ x19 # 0xa ] 
+"
+"  mov rdi rbx 
+  call symbol 
+  jmp address 
+ ","  mov x0 x19 
+  bl symbol 
+  b address 
+ "," mov x0 x19 
+  bl symbol 
+  b address 
+"
+"  add rsp 0x48 
+  pop rbx 
+  pop rbp 
+  pop r12 
+  pop r13 
+  pop r14 
+  pop r15 
+  retn 
+ ","  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldp x29 x30 [ sp ] # 0x80 
+  ret 
+ "," ldp x20 x19 [ sp # 0x80 ] 
+  ldp x22 x21 [ sp # 0x70 ] 
+  ldp x24 x23 [ sp # 0x60 ] 
+  ldp x26 x25 [ sp # 0x50 ] 
+  ldp x28 x27 [ sp # 0x40 ] 
+  ldp x29 x30 [ sp # 0x30 ] 
+  add sp sp # 0x90 
+  ret 
+"
+"  mov r8d r13d 
+  mov rcx qword [ rsp + 0x20 ] 
+  mov rdx rbx 
+  mov rsi qword [ rsp ] 
+  mov eax 0x0 
+  mov r11 qword [ rsp + 0x18 ] 
+  call r11 
+ ","  mov w4 w21 
+  ldr x3 [ x26 ] 
+  mov x2 x20 
+  mov x1 x25 
+  ldr x5 [ sp # 0x70 ] 
+  blr x5 
+ "," mov w4 w21 
+  ldr x3 [ x26 ] 
+  mov x2 x20 
+  mov x1 x25 
+  blr x21 
+"
+"  cmp dword [ rbp ] 0x47 
+  je address 
+ ","  ldr w0 [ x20 ] 
+  cmp w0 # 0x47 
+  b.eq address 
+ "," ldr w0 [ x20 ] 
+  cmp w0 # 0x47 
+  b.eq address 
+"
+"  mov rcx qword [ rsp + 0x60 ] 
+  movzx edx byte [ rcx ] 
+  test dl dl 
+  je address 
+ ","  ldrb w0 [ x28 ] 
+  cbz w0 address 
+ "," ldrb w0 [ x28 ] 
+  cbz w0 address 
+"
+"  mov eax dword [ rsp + 0x50 ] 
+  add rbp rax 
+ ","  ldr w19 [ sp # 0xb0 ] 
+  add x19 x25 x19 
+ "," ldr w0 [ sp # 0xb0 ] 
+  add x19 x19 x0 
+"
+"  mov rax qword [ rbp + 0x28 ] 
+  add rax qword [ r12 + 0x28 ] 
+  mov r14 rax 
+ ","  ldr x25 [ x21 # 0x28 ] 
+  ldr x0 [ x20 # 0x28 ] 
+  add x25 x25 x0 
+ "," ldr x25 [ x21 # 0x28 ] 
+  ldr x0 [ x20 # 0x28 ] 
+  add x25 x25 x0 
+"
+"  mov rax qword [ r15 + 0x100 ] 
+  mov rax qword [ rax + 0xc98 ] 
+  mov eax dword [ rax + 0x4c ] 
+  lea rdx [ r14 + 0xb8 ] 
+  mov qword [ r13 + rax * 8 ] rdx 
+ ","  ldr x0 [ x26 # 0x100 ] 
+  ldr x0 [ x0 # 0xc98 ] 
+  ldr w0 [ x0 # 0x4c ] 
+  add x1 x22 # 0xb8 
+  str x1 [ x21 x0 lsl # 0x3 ] 
+ "," ldr x0 [ x26 # 0x100 ] 
+  ldr x0 [ x0 # 0xc98 ] 
+  ldr w0 [ x0 # 0x4c ] 
+  add x1 x22 # 0xb8 
+  str x1 [ x21 x0 lsl # 0x3 ] 
+"
+"  add rax 0x1 
+  movzx edx byte [ rsi ] 
+  test byte [ rcx + rdx * 2 ] 0x4 
+  jne address 
+ ","  add x0 x0 # 0x1 
+  ldrb w2 [ x1 ] 
+  ldrh w2 [ x3 x2 lsl # 0x1 ] 
+  tbnz w2 # 0x2 address 
+ "," ldrb w2 [ x1 # 0x1 ]! 
+  ldrh w2 [ x3 x2 lsl # 0x1 ] 
+  tbnz w2 # 0x2 address 
+"
+"  mov rsi r12 
+  call symbol 
+ ","  mov x1 x21 
+  add x0 x20 x2 
+  bl symbol 
+ "," mov x1 x21 
+  bl symbol 
+"
+"  mov rax qword [ rbx + 0x20 ] 
+  cmp qword [ rdx + 0x20 ] rax 
+  jne address 
+ ","  ldr x1 [ x2 # 0x20 ] 
+  ldr x0 [ x19 # 0x20 ] 
+  cmp x1 x0 
+  b.ne address 
+ "," ldr x1 [ x2 # 0x20 ] 
+  ldr x0 [ x19 # 0x20 ] 
+  cmp x1 x0 
+  b.ne address 
+"
+"  mov rdx qword [ rsp + 0x130 ] 
+  mov rdx qword [ rdx + 0xe8 ] 
+  mov edx dword [ rdx + 0x4 ] 
+  cmp edx 0x4 
+  je address 
+  cmp edx 0x9 
+  jne address 
+  mov edx address 
+ ","  ldr x1 [ sp # 0x180 ] 
+  ldr x1 [ x1 # 0xe8 ] 
+  ldr w1 [ x1 # 0x4 ] 
+  cmp w1 # 0x4 
+  b.eq address 
+  cmp w1 # 0x9 
+  b.ne address 
+  mov x1 # <unk> 
+  movk x1 # <unk> lsl # 0x10 
+ "," ldr x1 [ sp # 0x180 ] 
+  ldr x1 [ x1 # 0xe8 ] 
+  ldr w1 [ x1 # 0x4 ] 
+  cmp w1 # 0x4 
+  b.eq address 
+  cmp w1 # 0x9 
+  b.ne address 
+  mov x1 # address 
+"
+"  lea rdi [ rsp + 0x80 ] 
+  mov rdx rbx 
+  mov esi 0x4 
+  call symbol 
+  cmp rax 0x4 
+  jne address 
+ ","  mov x2 x19 
+  mov x1 # 0x4 
+  add x0 sp # 0xc0 
+  bl symbol 
+  cmp x0 # 0x4 
+  b.eq address 
+  ldp x21 x22 [ sp # 0x20 ] 
+  b address 
+  stp x23 x24 [ sp # 0x30 ] 
+ "," mov x2 x19 
+  mov x1 # 0x4 
+  add x0 sp # 0xc0 
+  bl symbol 
+  cmp x0 # 0x4 
+  b.ne address 
+"
+"  lea rsi [ rel string ] 
+  mov rdi r14 
+  call symbol 
+ ","  adrp x1 string 
+  add x1 x1 # 0x7a0 
+  mov x0 x21 
+  bl symbol 
+ "," mov x0 x20 
+  bl symbol 
+"
+"  mov rdx qword [ rdi + 0x10 ] 
+  mov rax qword [ rdi + 0x8 ] 
+  mov rcx rdx 
+  sub rcx rax 
+ ","  ldr x2 [ x20 # 0x10 ] 
+  ldr x0 [ x20 # 0x8 ] 
+  sub x1 x2 x0 
+ "," ldr x2 [ x20 # 0x10 ] 
+  ldr x0 [ x20 # 0x8 ] 
+  sub x1 x2 x0 
+"
+"  test ebp ebp 
+  jne address 
+  mov r14 r15 
+  mov ebx ecx 
+  mov r15 qword [ rsp + 0x10 ] 
+  jmp address 
+  mov r14 r15 
+  mov r15 qword [ rsp + 0x10 ] 
+  jmp address 
+  mov ebx ecx 
+ ","  cbnz w20 address 
+  b address 
+ "," cbnz w20 address 
+  b address 
+"
+"  or r15d address 
+  jmp address 
+ ","  mov w0 # <unk> 
+  movk w0 # <unk> lsl # 0x10 
+  orr w20 w20 w0 
+  b address 
+ "," orr w20 w20 # address 
+  b address 
+"
+"  mov rsi rbp 
+  mov rdi qword [ rsp ] 
+  call symbol 
+  test eax eax 
+  je address 
+ ","  mov x1 x20 
+  mov x0 x23 
+  bl symbol 
+  cbz w0 address 
+ "," mov x1 x20 
+  mov x0 x23 
+  bl symbol 
+  cbz w0 address 
+"
+"  call symbol 
+  mov r13 rax 
+ ","  bl symbol 
+  mov x24 x0 
+ "," bl symbol 
+  mov x22 x0 
+"
+"  cmp r14d 0x4 
+  je address 
+ ","  cmp w22 # 0x4 
+  b.eq address 
+ "," cmp w22 # 0x4 
+  b.eq address 
+"
+"  mov qword [ r13 + 0x1a8 ] rdx 
+  jmp address 
+ ","  str x2 [ x22 # 0x1a8 ] 
+  b address 
+ "," str x2 [ x22 # 0x1a8 ] 
+  b address 
+"
+"  push r14 
+  push r13 
+  push r12 
+  push rbp 
+  push rbx 
+ ","  stp x29 x30 [ sp #- 0x40 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  mov x19 x0 
+ "," stp x29 x30 [ sp #- 0x40 ]! 
+  mov x29 sp 
+  stp x21 x22 [ sp # 0x20 ] 
+"
+"  mov rdi qword [ rbp + 0x10 ] 
+  cmp qword [ rdi + 0x70 ] 0x0 
+  jne address 
+ ","  ldr x0 [ x20 # 0x10 ] 
+  ldr x1 [ x0 # 0x70 ] 
+  cbnz x1 address 
+ "," ldr x0 [ x20 # 0x10 ] 
+  ldr x1 [ x0 # 0x70 ] 
+  cbnz x1 address 
+"
+"  lea rsi [ rel string ] 
+  mov rdi r15 
+  call symbol 
+  mov rdi rax 
+ ","  adrp x1 address 
+  add x1 x1 # 0xd98 
+  mov x0 x21 
+  bl symbol 
+ "," adrp x1 address 
+  add x1 x1 # 0x28 
+  mov x0 x26 
+  bl symbol 
+"
+"  mov rax rbp 
+  jmp string 
+ ","  mov x0 x21 
+  b address 
+ "," mov x0 x20 
+  b address 
+"
+"  lea rsi [ rel string ] 
+  mov rdi rbx 
+  call symbol 
+  test eax eax 
+  je address 
+ ","  adrp x1 address 
+  add x1 x1 # 0x388 
+  mov x0 x19 
+  bl symbol 
+  cbz w0 address 
+ "," bl symbol 
+  cbz w0 address 
+"
+"  mov rdi qword [ rsp + 0x28 ] 
+  call symbol 
+  jmp address 
+ ","  ldr x0 [ sp # 0x78 ] 
+  bl symbol 
+  b address 
+ "," ldr x0 [ sp # 0x78 ] 
+  bl symbol 
+  b address 
+"
+"  endbr64 
+  sub rsp 0x8 
+ ","  stp x29 x30 [ sp #- 0x10 ]! 
+  mov x29 sp 
+ "," stp x29 x30 [ sp #- 0x10 ]! 
+  mov x29 sp 
+"
+"  mov eax dword [ rbx + 0xa0 ] 
+  mov dword [ rsp + 0xf0 ] eax 
+ ","  ldr w0 [ x19 # 0xa0 ] 
+  str w0 [ sp # 0x158 ] 
+ "," ldr w0 [ x19 # 0xa0 ] 
+  str w0 [ sp # 0x158 ] 
+"
+"  test rbx rbx 
+  je address 
+  movzx eax word [ rbx + 0x2c ] 
+  and ax 0x380 
+  cmp ax 0x200 
+  jne address 
+  jmp address 
+ ","  cbz x19 address 
+  ldr w0 [ x19 # 0x2c ] 
+  and w0 w0 # 0x380 
+  cmp w0 # 0x200 
+  b.eq address 
+ "," cbz x19 address 
+  ldr w0 [ x19 # 0x2c ] 
+  and w0 w0 # 0x380 
+  cmp w0 # 0x200 
+  b.ne address 
+  b address 
+"
+"  add edi ecx 
+  add edi eax 
+  mov dword [ r13 + 0x60 ] edi 
+ ","  add w1 w1 w2 
+  add w1 w1 w4 
+  str w1 [ x22 # 0x60 ] 
+ "," add w1 w1 w2 
+  add w1 w1 w4 
+  str w1 [ x22 # 0x60 ] 
+"
+"  mov edi 0x4 
+  call symbol 
+  mov rdx rax 
+  lea rax [ rax + 0x7 ] 
+  test rdx rdx 
+  cmovns rax rdx 
+  sar rax 0x3 
+ ","  mov w0 # 0x4 
+  bl symbol 
+  add x1 x0 # 0x7 
+  cmp x0 # 0 
+  csel x0 x1 x0 lt 
+  ubfx x0 x0 # 0x3 # 0x20 
+ "," mov w0 # 0x4 
+  bl symbol 
+  add x1 x0 # 0x7 
+  cmp x0 # 0 
+  csel x0 x1 x0 lt 
+  ubfx x0 x0 # 0x3 # 0x20 
+"
+"  lea rsi [ rel string ] 
+  mov rdi qword [ rsp + 0x10 ] 
+  call symbol 
+ ","  adrp x1 address 
+  add x1 x1 # 0x8f8 
+  mov x0 x24 
+  bl symbol 
+ "," adrp x1 address 
+  add x1 x1 # 0x28 
+  mov x0 x24 
+  bl symbol 
+"
+"  mov dword [ rbx + 0xb8 ] 0x2 
+  mov dword [ rbx + 0xa0 ] 0x2 
+ ","  mov w0 # 0x2 
+  str w0 [ x19 # 0xb8 ] 
+  str w0 [ x19 # 0xa0 ] 
+ "," mov w0 # 0x2 
+  str w0 [ x19 # 0xb8 ] 
+  str w0 [ x19 # 0xa0 ] 
+"
+"  mov edx 0x5 
+  lea rsi [ rel string ] 
+  lea rdi [ rel address ] 
+  call symbol 
+  mov rdi rax 
+  mov esi ebx 
+  mov eax 0x0 
+  call symbol 
+ ","  mov w2 # 0x5 
+  adrp x1 symbol 
+  add x1 x1 # 0x6b0 
+  adrp x0 string 
+  add x0 x0 # 0x400 
+  bl symbol 
+  mov w1 w19 
+  bl symbol 
+ "," mov w2 # 0x5 
+  adrp x1 address 
+  add x1 x1 # 0x38 
+  adrp x0 address 
+  add x0 x0 # 0x5d0 
+  bl symbol 
+  mov w1 w19 
+  bl symbol 
+"
+"  push rbx 
+  mov rbx rsi 
+ ","  stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  str x19 [ sp # 0x10 ] 
+  mov x19 x1 
+ "," stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  str x19 [ sp # 0x10 ] 
+  mov x19 x1 
+"
+"  mov rax qword [ rsi + 0x20 ] 
+  push 0x0 
+  mov r9d edx 
+  mov r8d 0x0 
+  mov edx 0x0 
+  mov esi 0x0 
+  call qword [ rax + 0x50 ] 
+ ","  ldr x1 [ x1 # 0x20 ] 
+  ldr x7 [ x1 # 0x50 ] 
+  mov w6 # 0 
+  mov w5 w2 
+  mov x4 # 0 
+  mov x2 # 0 
+  mov x1 # 0 
+  blr x7 
+ "," ldr x1 [ x1 # 0x20 ] 
+  ldr x7 [ x1 # 0x50 ] 
+  mov w6 # 0 
+  mov w5 w2 
+  mov x4 # 0 
+  mov x2 # 0 
+  mov x1 # 0 
+  blr x7 
+"
+"  add rsp 0x28 
+  pop rbx 
+  pop rbp 
+  pop r12 
+  pop r13 
+  pop r14 
+  pop r15 
+  retn 
+ ","  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x21 x22 [ sp # 0x20 ] 
+  ldp x23 x24 [ sp # 0x30 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldr x27 [ sp # 0x50 ] 
+  ldp x29 x30 [ sp ] # 0x60 
+  ret 
+ "," ldp x20 x19 [ sp # 0x60 ] 
+  ldp x22 x21 [ sp # 0x50 ] 
+  ldp x24 x23 [ sp # 0x40 ] 
+  ldp x26 x25 [ sp # 0x30 ] 
+  ldp x28 x27 [ sp # 0x20 ] 
+  ldp x29 x30 [ sp # 0x10 ] 
+  add sp sp # 0x70 
+  ret 
+"
+"  cmp byte [ rdx + 0x1 ] 0x74 
+  je address 
+ ","  ldrb w0 [ x1 # 0x1 ] 
+  cmp w0 # 0x74 
+  b.eq address 
+ "," ldrb w1 [ x0 # 0x1 ] 
+  cmp w1 # 0x74 
+  b.eq address 
+"
+"  mov rcx r14 
+  shl rcx 0x4 
+  mov qword [ rsi + rcx ] rax 
+  lea r14 [ r14 + 0x1 ] 
+  jmp address 
+ ","  lsl x1 x19 # 0x4 
+  str x0 [ x28 x1 ] 
+  add x19 x19 # 0x1 
+  b address 
+ "," lsl x1 x19 # 0x4 
+  str x0 [ x28 x1 ] 
+  add x19 x19 # 0x1 
+  b address 
+"
+"  mov rax qword [ rbx + 0x70 ] 
+  mov r12 rcx 
+  add r12 qword [ rbx + 0x68 ] 
+  add r12 qword [ rax + 0x30 ] 
+ ","  ldr x3 [ x20 # 0x70 ] 
+  ldr x19 [ x20 # 0x68 ] 
+  add x19 x2 x19 
+  ldr x3 [ x3 # 0x30 ] 
+  add x19 x19 x3 
+ "," ldr x3 [ x20 # 0x70 ] 
+  ldr x19 [ x3 # 0x30 ] 
+  add x19 x2 x19 
+  ldr x3 [ x3 # 0x68 ] 
+  add x19 x19 x3 
+"
+"  mov rax qword [ rsp + 0x8 ] 
+  mov rax qword [ rax + 0x320 ] 
+  movzx eax byte [ rax + 0x3 ] 
+  mov qword [ rbp + 0x38 ] rax 
+  jmp address 
+ ","  ldr x0 [ x25 # 0x320 ] 
+  ldrb w0 [ x0 # 0x3 ] 
+  str x0 [ x20 # 0x38 ] 
+  b address 
+ "," ldr x0 [ x25 # 0x320 ] 
+  ldrb w0 [ x0 # 0x3 ] 
+  str x0 [ x20 # 0x38 ] 
+  b address 
+"
+"  add rbp 0x8 
+  cmp r13 rbp 
+  je address 
+ ","  add x21 x21 # 0x1 
+  cmp w19 w21 
+  b.ls address 
+ "," add x20 x20 # 0x1 
+  cmp x22 x20 
+  b.eq address 
+"
+"  lea rax [ rdx + 0x1 ] 
+  mov qword [ rdi + 0x18 ] rax 
+  movsx esi byte [ rdx ] 
+ ","  add x0 x2 # 0x1 
+  str x0 [ x19 # 0x18 ] 
+  ldrb w1 [ x2 ] 
+ "," add x0 x2 # 0x1 
+  str x0 [ x19 # 0x18 ] 
+  ldrb w1 [ x2 ] 
+"
+"  cmp r12 rax 
+  jb address 
+  cmp rax rcx 
+  jb address 
+ ","  cmp x21 x0 
+  ccmp x0 x3 # 0 cs 
+  b.lo address 
+ "," cmp x21 x0 
+  ccmp x0 x3 # 0 cs 
+  b.lo address 
+"
+"  mov rax qword [ rbx + 0x10 ] 
+  test rax rax 
+  je address 
+ ","  ldr x1 [ x19 # 0x10 ] 
+  cbz x1 address 
+ "," ldr x0 [ x19 # 0x10 ] 
+  cbz x0 address 
+"
+"  mov edi dword [ rsp + 0x4 ] 
+  mov edx edi 
+  sub edx esi 
+ ","  ldr w1 [ sp # 0x64 ] 
+  sub w0 w1 w26 
+ "," ldr w0 [ sp # 0x64 ] 
+  sub w2 w0 w26 
+"
+"  mov rbx rax 
+  jmp address 
+ ","  mov x19 x0 
+  b address 
+  ldp x21 x22 [ sp # 0x20 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  b address 
+  ldp x21 x22 [ sp # 0x20 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  b address 
+  stp x21 x22 [ sp # 0x20 ] 
+  stp x25 x26 [ sp # 0x40 ] 
+ "," mov x19 x0 
+  b address 
+"
+"  mov edi 0xa 
+  call symbol 
+ ","  mov w0 # 0xa 
+  bl symbol 
+ "," mov w0 # 0xa 
+  bl symbol 
+"
+"  lea rcx [ rel string ] 
+  mov rsi rbx 
+  call symbol 
+  jmp address 
+ ","  adrp x3 address 
+  add x3 x3 # 0x4d0 
+  mov x0 x20 
+  bl symbol 
+  b address 
+ "," adrp x3 string 
+  add x3 x3 # 0xc0 
+  bl symbol 
+  b address 
+"
+"  mov esi 0x130 
+  lea rdi [ rel string ] 
+  call symbol 
+  jmp address 
+ ","  mov w1 # 0x130 
+  adrp x0 symbol 
+  add x0 x0 # 0x1d8 
+  bl symbol 
+  b address 
+ "," mov w1 # 0x130 
+  ldr x0 [ sp # 0x70 ] 
+  bl symbol 
+  b address 
+"
+"  cmp dword [ rsp + 0x50 ] 0x0 
+  je address 
+  cmp dword [ rsp + 0x60 ] 0x0 
+  je address 
+ ","  ldr w3 [ sp # 0xa8 ] 
+  cmp w3 # 0 
+  ldr w3 [ sp # 0xac ] 
+  ccmp w3 # 0 # 0x4 ne 
+  b.eq address 
+ "," ldr w0 [ sp # 0xa8 ] 
+  cmp w0 # 0 
+  ldr w0 [ sp # 0xac ] 
+  ccmp w0 # 0 # 0x4 ne 
+  b.eq address 
+"
+"  mov rax <unk> 
+  jmp address 
+ ","  mov x0 # <unk> 
+  ldp x19 x20 [ sp # 0x10 ] 
+  b address 
+ "," mov x0 # 0x20a 
+  b address 
+"
+"  test edx edx 
+  jne address 
+ ","  bl symbol 
+  cbnz w0 address 
+ "," bl symbol 
+  cbnz w0 address 
+"
+"  add rsp 0x8 
+  retn 
+ ","  ldp x29 x30 [ sp ] # 0x10 
+  ret 
+ "," ldp x29 x30 [ sp ] # 0x10 
+  ret 
+"
+"  mov rdi qword [ rax + address ] 
+  mov ecx dword [ rax + address ] 
+  lea r8d [ rcx + 0x1 ] 
+  mov dword [ rax + address ] r8d 
+  mov ecx ecx 
+  mov byte [ rdi + rcx ] dl 
+ ","  ldr x4 [ x0 # <unk> ] 
+  ldr w3 [ x0 # <unk> ] 
+  add w5 w3 # 0x1 
+  str w5 [ x0 # <unk> ] 
+  strb w2 [ x4 w3 uxtw ] 
+ "," ldr x4 [ x0 # address ] 
+  ldr w3 [ x0 # address ] 
+  add w5 w3 # 0x1 
+  str w5 [ x0 # address ] 
+  strb w2 [ x4 w3 uxtw ] 
+"
+"  movzx eax byte [ rsp + 0x46 ] 
+  movzx ebx byte [ r12 + rax ] 
+  shl ebx 0x4 
+  movzx eax byte [ rsp + 0x47 ] 
+  movzx eax byte [ r12 + rax ] 
+  add ebx eax 
+ ","  ldr x0 [ x28 # 0xf50 ] 
+  ldrb w1 [ sp # 0xa1 ] 
+  ldrb w27 [ x0 w1 sxtw ] 
+  ldrb w1 [ sp # 0xa2 ] 
+  ldrb w0 [ x0 w1 sxtw ] 
+  add w27 w0 w27 lsl # 0x4 
+ "," ldr x0 [ x28 # 0xf50 ] 
+  ldrb w1 [ sp # 0xa1 ] 
+  ldrb w27 [ x0 w1 sxtw ] 
+  ldrb w1 [ sp # 0xa2 ] 
+  ldrb w0 [ x0 w1 sxtw ] 
+  add w27 w0 w27 lsl # 0x4 
+"
+"  lea rdi [ rsp + 0x10 ] 
+  mov rdx rbx 
+  mov esi 0xc 
+  call symbol 
+  cmp rax 0xc 
+  je address 
+ ","  mov x2 x19 
+  mov x1 # 0xc 
+  add x0 sp # 0x38 
+  bl symbol 
+  cmp x0 # 0xc 
+  b.eq address 
+ "," mov x2 x19 
+  mov x1 # 0xc 
+  add x0 sp # 0x40 
+  bl symbol 
+  cmp x0 # 0xc 
+  b.eq address 
+"
+"  mov rax qword [ rcx + 0x370 ] 
+  mov rax qword [ rax + 0x320 ] 
+  cmp byte [ rax + 0xc ] 0x1 
+  je address 
+ ","  ldr x0 [ x1 # 0x370 ] 
+  ldr x0 [ x0 # 0x320 ] 
+  ldrb w0 [ x0 # 0xc ] 
+  cmp w0 # 0x1 
+  b.eq address 
+ "," ldr x0 [ x1 # 0x370 ] 
+  ldr x0 [ x0 # 0x320 ] 
+  ldrb w0 [ x0 # 0xc ] 
+  cmp w0 # 0x1 
+  b.eq address 
+"
+"  lea rax [ rbx + 0x100 ] 
+  mov qword [ rbx + 0x108 ] rax 
+ ","  add x0 x19 # 0x100 
+  str x0 [ x19 # 0x108 ] 
+ "," add x0 x19 # 0x100 
+  str x0 [ x19 # 0x108 ] 
+"
+"  add rsi 0x1 
+  mov qword [ rbx + 0x18 ] rsi 
+ ","  add x2 x2 # 0x1 
+  str x2 [ x19 # 0x18 ] 
+ "," add x2 x2 # 0x1 
+  str x2 [ x19 # 0x18 ] 
+"
+"  movzx ecx byte [ rdx ] 
+  cmp word [ rbx + rcx * 4 + 0xabe ] 0x0 
+  jne address 
+ ","  ldrb w0 [ x3 ] 
+  add x0 x19 x0 lsl # 0x2 
+  ldrh w0 [ x0 # 0xabe ] 
+  cbnz w0 address 
+ "," ldrb w0 [ x3 ] 
+  add x0 x19 x0 lsl # 0x2 
+  ldrh w0 [ x0 # 0xabe ] 
+  cbnz w0 address 
+"
+"  cmp dword [ rsp + 0x5c ] 0x0 
+  je address 
+  mov rsi qword [ rsp + 0x50 ] 
+  mov qword [ rsp + 0x48 ] rsi 
+ ","  ldr w1 [ sp # 0xa4 ] 
+  cbz w1 address 
+  ldr x1 [ sp # 0x98 ] 
+  str x1 [ sp # 0x90 ] 
+ "," ldr w0 [ sp # 0xa4 ] 
+  cbz w0 address 
+  ldr x1 [ sp # 0x98 ] 
+  str x1 [ sp # 0x90 ] 
+"
+"  mov qword [ rsp + 0x78 ] r14 
+  test r13d r13d 
+  jne address 
+ ","  str x25 [ sp # 0xc8 ] 
+  cbnz w22 address 
+ "," str x25 [ sp # 0xc8 ] 
+  cbnz w22 address 
+"
+"  mov rdi qword [ rsi + 0x18 ] 
+  lea rsi [ rel string ] 
+  call symbol 
+  test eax eax 
+  jne address 
+ ","  adrp x1 address 
+  add x1 x1 # 0x1a8 
+  ldr x0 [ x19 # 0x18 ] 
+  bl symbol 
+  cbnz w0 address 
+ "," adrp x1 string 
+  add x1 x1 # 0x4c0 
+  ldr x0 [ x19 # 0x18 ] 
+  bl symbol 
+  cbnz w0 address 
+"
+"  mov edi 0x88 
+  call symbol 
+ ","  mov x0 # 0x88 
+  bl symbol 
+ "," mov w0 # 0x88 
+  bl symbol 
+"
+"  mov rax qword [ rbp + 0x138 ] 
+  or dword [ rax + 0x28 ] address 
+ ","  ldr x1 [ x20 # 0x138 ] 
+  ldr w0 [ x1 # 0x28 ] 
+  orr w0 w0 # <unk> 
+  str w0 [ x1 # 0x28 ] 
+ "," ldr x1 [ x20 # 0x138 ] 
+  ldr w0 [ x1 # 0x28 ] 
+  orr w0 w0 # address 
+  str w0 [ x1 # 0x28 ] 
+"
+"  test esi esi 
+  jne address 
+  test r12 r12 
+  je address 
+ ","  ccmp x21 # 0 # 0x4 eq 
+  b.eq address 
+ "," cmp x21 # 0 
+  ccmp x21 # 0 # 0x4 eq 
+  b.eq address 
+"
+"  mov rsi rbx 
+  mov rdi r12 
+  call symbol 
+ ","  mov x1 x19 
+  mov x0 x21 
+  bl symbol 
+ "," mov x1 x19 
+  mov x0 x21 
+  bl symbol 
+"
+"  cmp rax rdx 
+  mov eax 0x0 
+  cmovne rbx rax 
+ ","  cmp x0 x1 
+  csel x19 x19 xzr eq 
+ "," cmp x0 x1 
+  csel x19 x19 xzr eq 
+"
+"  mov rdi qword [ rsp + 0x28 ] 
+  call symbol 
+ ","  ldr x0 [ sp # 0x60 ] 
+  bl symbol 
+ "," ldr x0 [ sp # 0x60 ] 
+  bl symbol 
+"
+"  mov eax dword [ rsi + 0x4 ] 
+  cmp eax 0x10 
+  je address 
+ ","  ldr w0 [ x20 # 0x4 ] 
+  cmp w0 # 0x10 
+  b.eq address 
+ "," ldr w0 [ x1 # 0x4 ] 
+  cmp w0 # 0x10 
+  b.eq address 
+"
+"  mov rdi qword [ rsp + 0x38 ] 
+  call symbol 
+ ","  ldr x0 [ sp # 0x78 ] 
+  bl symbol 
+ "," ldr x0 [ sp # 0x78 ] 
+  bl symbol 
+"
+"  mov edx 0x5 
+  lea rsi [ rel string ] 
+  lea rdi [ rel address ] 
+  call symbol 
+  mov rdi rax 
+ ","  mov w2 # 0x5 
+  adrp x1 address 
+  add x1 x1 # 0xc00 
+  adrp x0 string 
+  add x0 x0 # 0x400 
+  bl symbol 
+ "," mov w2 # 0x5 
+  ldr x1 [ sp # 0x68 ] 
+  ldr x0 [ sp # 0x80 ] 
+  bl symbol 
+"
+"  mov rsi qword [ rsi + 0x68 ] 
+  add rsi qword [ rax + 0x98 ] 
+ ","  ldr x1 [ x0 # 0x98 ] 
+  ldr x0 [ x21 # 0x68 ] 
+ "," ldr x1 [ x0 # 0x98 ] 
+  ldr x0 [ x21 # 0x68 ] 
+"
+"  mov rsi qword [ rdx + 0x18 ] 
+  mov edx 0x0 
+  call symbol 
+  mov dword [ rsp + 0x30 ] eax 
+  test eax eax 
+  je address 
+ ","  ldr x1 [ x21 # 0x18 ] 
+  bl symbol 
+  str w0 [ sp # 0x70 ] 
+  cbz w0 address 
+ "," mov w2 # 0 
+  ldr x1 [ x19 # 0x18 ] 
+  bl symbol 
+  str w0 [ sp # 0x70 ] 
+  cbz w0 address 
+"
+"  pop rbx 
+  retn 
+ ","  ldr x19 [ sp # 0x10 ] 
+  ldp x29 x30 [ sp ] # 0x20 
+  ret 
+ "," ldr x19 [ sp # 0x10 ] 
+  ldp x29 x30 [ sp ] # 0x20 
+  ret 
+"
+"  mov edx 0x0 
+  jmp address 
+ ","  mov w0 # 0 
+  b address 
+ "," mov w0 # 0 
+  b address 
+"
+"  add edx 0x1 
+  mov dword [ rcx + 0x168 ] edx 
+ ","  add w1 w1 # 0x1 
+  str w1 [ x0 # 0x168 ] 
+ "," add w1 w1 # 0x1 
+  str w1 [ x0 # 0x168 ] 
+"
+"  mov rdi rbx 
+  call symbol 
+ ","  mov x0 x19 
+  bl symbol 
+ "," mov x0 x19 
+  bl symbol 
+"
+"  mov r10d 0x0 
+  jmp address 
+ ","  mov w0 # 0 
+  b address 
+ "," mov w0 # 0 
+  b address 
+"
+"  mov rax qword [ rsp + 0x8 ] 
+  sub rax 0x1 
+  mov qword [ rdx + 0x98 ] rax 
+ ","  ldr x0 [ sp # 0x80 ] 
+  sub x0 x0 # 0x1 
+ "," ldr x0 [ sp # 0x68 ] 
+  sub x0 x0 # 0x1 
+"
+"  lea r14 [ rel string ] 
+  jmp address 
+ ","  ldr x21 [ sp # 0x68 ] 
+  b address 
+ "," adrp x21 address 
+  add x21 x21 # 0x220 
+  b address 
+"
+"  mov rdi r14 
+  sub rdi rbx 
+  mov qword [ r12 ] rdi 
+ ","  sub x0 x24 x19 
+  str x0 [ x21 ] 
+ "," sub x0 x23 x19 
+  str x0 [ x21 ] 
+"
+"  cmp qword [ rbp + 0x58 ] 0x0 
+  je address 
+ ","  ldr x0 [ x21 # 0x58 ] 
+  cbz x0 address 
+ "," ldr x0 [ x20 # 0x58 ] 
+  cbz x0 address 
+"
+"  mov rdi qword [ rsp ] 
+  mov qword [ rdi ] rax 
+ ","  ldr x1 [ sp # 0x68 ] 
+  str x0 [ x1 ] 
+ "," ldr x1 [ sp # 0x68 ] 
+  str x0 [ x1 ] 
+"
+"  add rdi rcx 
+  cmp rdi r14 
+  je address 
+ ","  add x0 x0 x19 
+  cmp x0 x2 
+  b.eq address 
+ "," adds x5 x5 x2 
+  b.eq address 
+"
+"  mov rdi rbx 
+  call symbol 
+ ","  mov x0 x19 
+  bl symbol 
+ "," mov x0 x19 
+  bl symbol 
+"
+"  mov rax qword [ rbx + 0x38 ] 
+  mov rcx qword [ rax + 0x8 ] 
+  mov rdx qword [ rbx + 0x10 ] 
+  mov rax qword [ rbx + 0x28 ] 
+  lea rsi [ rax + 0x1 ] 
+  mov qword [ rbx + 0x28 ] rsi 
+  mov byte [ rdx + rax ] cl 
+ ","  ldr x0 [ x19 # 0x38 ] 
+  ldr x2 [ x0 # 0x8 ] 
+  ldr x1 [ x19 # 0x10 ] 
+  ldr x0 [ x19 # 0x28 ] 
+  add x3 x0 # 0x1 
+  str x3 [ x19 # 0x28 ] 
+  strb w2 [ x1 x0 ] 
+ "," ldr x0 [ x19 # 0x38 ] 
+  ldr x2 [ x0 # 0x8 ] 
+  ldr x1 [ x19 # 0x10 ] 
+  ldr x0 [ x19 # 0x28 ] 
+  add x3 x0 # 0x1 
+  str x3 [ x19 # 0x28 ] 
+  strb w2 [ x1 x0 ] 
+"
+"  lea rdx [ rel symbol ] 
+  mov esi address 
+  lea rdi [ rel string ] 
+  call symbol 
+ ","  adrp x2 address 
+  add x2 x2 # 0xe90 
+  add x2 x2 # 0x20 
+  mov w1 # <unk> 
+  adrp x0 address 
+  add x0 x0 # 0xbd0 
+  bl symbol 
+ "," adrp x2 address 
+  add x2 x2 # 0xc60 
+  add x2 x2 # 0x158 
+  mov w1 # address 
+  adrp x0 address 
+  add x0 x0 # 0x810 
+  bl symbol 
+"
+"  cmp byte [ rbx ] 0x0 
+  jne address 
+ ","  ldrb w0 [ x19 ] 
+  cbnz w0 address 
+ "," ldrb w0 [ x19 ] 
+  cbnz w0 address 
+"
+"  cmp qword [ rdi + 0x40 ] <unk> 
+  je address 
+ ","  ldr x0 [ x0 # 0x40 ] 
+  cmn x0 # 0x1 
+  b.eq address 
+  stp x21 x22 [ sp # 0x20 ] 
+  mov x21 x1 
+ "," ldr x0 [ x0 # 0x40 ] 
+  cmp x0 # 0xbb 
+  b.eq address 
+"
+"  mov rax qword [ r12 + 0xe8 ] 
+  mov dword [ rax + 0x2c ] <unk> 
+ ","  ldr x0 [ x21 # 0xe8 ] 
+  str w1 [ x0 # 0x2c ] 
+ "," ldr x0 [ x21 # 0xe8 ] 
+  str w1 [ x0 # 0x2c ] 
+"
+"  mov edi 0x11 
+  call symbol 
+ ","  mov w0 # 0x11 
+  bl symbol 
+ "," mov w0 # 0x11 
+  bl symbol 
+"
+"  cmp dl 0x1 
+  ja address 
+ ","  cmp w1 # 0x1 
+  b.hi address 
+ "," and w1 w1 # 0xff 
+  cmp w1 # 0x1 
+  b.hi address 
+"
+"  add rsp 0x18 
+  retn 
+ ","  ldp x29 x30 [ sp ] # 0x10 
+  ret 
+ "," ldp x29 x30 [ sp ] # 0x10 
+  ret 
+"
+"  mov rdi rbx 
+  call symbol 
+ ","  mov x0 x21 
+  bl symbol 
+ "," mov x0 x19 
+  bl symbol 
+"
+"  mov esi 0xc1 
+  lea rdi [ rel string ] 
+  call symbol 
+ ","  mov w1 # 0xc1 
+  adrp x0 symbol 
+  add x0 x0 # 0x2f0 
+  bl symbol 
+ "," mov w1 # 0xc1 
+  ldr x0 [ sp # 0x70 ] 
+  bl symbol 
+"
+"  mov rax qword [ rsp + 0x8 ] 
+  lea rdx [ rax + 0x1 ] 
+  mov qword [ rsp + 0x8 ] rdx 
+  mov byte [ rax ] 0x33 
+ ","  ldr x0 [ sp # 0x68 ] 
+  add x1 x0 # 0x1 
+  str x1 [ sp # 0x68 ] 
+  mov w1 # 0x33 
+  strb w1 [ x0 ] 
+ "," ldr x0 [ sp # 0x68 ] 
+  add x1 x0 # 0x1 
+  str x1 [ sp # 0x68 ] 
+  mov w1 # 0x33 
+  strb w1 [ x0 ] 
+"
+"  mov rax qword [ r14 + 0x58 ] 
+  test rax rax 
+  je address 
+ ","  ldr x0 [ x23 # 0x58 ] 
+  cbz x0 address 
+ "," ldr x8 [ x20 # 0x58 ] 
+  cbz x8 address 
+"
+"  cmp r12 rbp 
+  ja address 
+ ","  cmp x21 x19 
+  b.hi address 
+ "," cmp x21 x20 
+  b.hi address 
+"
+"  mov eax dword [ rbp + 0x150 ] 
+  cmp dword [ rbp + 0x140 ] eax 
+  je address 
+ ","  ldr w1 [ x21 # 0x150 ] 
+  ldr w2 [ x21 # 0x140 ] 
+ "," ldr w1 [ x20 # 0x150 ] 
+  ldr w2 [ x20 # 0x140 ] 
+"
+"  mov rbx qword [ rbx + 0x18 ] 
+  test rbx rbx 
+  jne address 
+ ","  ldr x19 [ x19 # 0x18 ] 
+  cbnz x19 address 
+ "," ldr x19 [ x19 # 0x18 ] 
+  cbnz x19 address 
+"
+"  mov r8d r15d 
+  mov rcx rbx 
+  mov rsi r14 
+  mov rdi r12 
+  call symbol 
+  test eax eax 
+  je address 
+  jmp address 
+ ","  mov w4 w23 
+  mov x3 x19 
+  mov x1 x22 
+  mov x0 x20 
+  bl symbol 
+  cbz w0 address 
+  b address 
+ "," mov w4 w23 
+  mov x3 x19 
+  mov x1 x22 
+  mov x0 x20 
+  bl symbol 
+  cbz w0 address 
+  b address 
+"
+"  mov rdi qword [ rbx + 0x28 ] 
+  mov r8d r13d 
+  mov ecx r12d 
+  mov edx dword [ rsp + 0xc ] 
+  mov rsi rbp 
+  call symbol 
+  mov r12 rax 
+ ","  mov w4 w23 
+  mov w3 w21 
+  mov w2 w22 
+  mov x1 x20 
+  ldr x0 [ x19 # 0x28 ] 
+  bl symbol 
+  mov x21 x0 
+ "," mov w4 w23 
+  mov w3 w21 
+  mov w2 w22 
+  mov x1 x20 
+  ldr x0 [ x19 # 0x28 ] 
+  bl symbol 
+  mov x21 x0 
+"
+"  movzx edi byte [ rcx + 0x2 ] 
+  shl edi 0x10 
+  add edx edi 
+ ","  ldrb w1 [ x0 # 0x2 ] 
+  add w7 w7 w1 lsl # 0x10 
+  b address 
+ "," ldrb w1 [ x0 # 0x2 ] 
+  add w7 w7 w1 lsl # 0x10 
+"
+"  cmp r14d 0x4 
+  je address 
+ ","  cmp w22 # 0x4 
+  b.eq address 
+ "," cmp w22 # 0x4 
+  b.eq address 
+"
+"  mov edi 0x5 
+  call symbol 
+ ","  mov w0 # 0x5 
+  bl symbol 
+ "," mov w0 # 0x5 
+  bl symbol 
+"
+"  or ah 0x80 
+  mov dword [ rbx + 0x28 ] eax 
+ ","  orr w1 w1 # <unk> 
+  str w1 [ x19 # 0x28 ] 
+ "," orr w1 w1 # address 
+  str w1 [ x19 # 0x28 ] 
+"
+"  movzx edi byte [ rbp + 0x20 ] 
+  mov esi dword [ rsp + 0x2c ] 
+  call symbol 
+ ","  ldr w1 [ sp # 0x6c ] 
+  ldrb w0 [ x19 # 0x20 ] 
+  bl symbol 
+ "," ldr w1 [ sp # 0x6c ] 
+  ldrb w0 [ x19 # 0x20 ] 
+  bl symbol 
+"
+"  cmp byte [ rax + 0x18 ] 0x7 
+  je address 
+ ","  ldrb w0 [ x0 # 0x18 ] 
+  cmp w0 # 0x7 
+  b.eq address 
+ "," ldrb w1 [ x0 # 0x18 ] 
+  cmp w1 # 0x7 
+  b.eq address 
+"
+"  cmp eax 0x1 
+  adc dword [ rsp + 0x20 ] 0x0 
+ ","  cmp w0 # 0 
+  ldr w0 [ sp # 0x70 ] 
+  cinc w0 w0 eq 
+  str w0 [ sp # 0x70 ] 
+ "," cmp w0 # 0 
+  cinc w0 w0 eq 
+  str w0 [ sp # 0x70 ] 
+"
+"  mov esi dword [ r8 + 0x1c ] 
+  mov rdi qword [ rdi + 0xf8 ] 
+  call symbol 
+ ","  ldr w1 [ x4 # 0x1c ] 
+  ldr x0 [ x0 # 0xf8 ] 
+  bl symbol 
+ "," ldr w1 [ x4 # 0x1c ] 
+  ldr x0 [ x0 # 0xf8 ] 
+  bl symbol 
+"
+"  call symbol 
+  mov ebp eax 
+ ","  mov x0 x19 
+  bl symbol 
+  mov w20 w0 
+ "," bl symbol 
+  mov w20 w0 
+"
+"  movzx edx word [ rdx + 0x2c ] 
+  and dx 0x380 
+ ","  ldr w2 [ x2 # 0x2c ] 
+  and w2 w2 # 0x380 
+ "," ldr w2 [ x2 # 0x2c ] 
+  and w2 w2 # 0x380 
+"
+"  mov edx 0x5 
+  lea rsi [ rel string ] 
+  lea rdi [ rel address ] 
+  call symbol 
+  mov rdi rax 
+ ","  mov w2 # 0x5 
+  adrp x1 symbol 
+  add x1 x1 # 0x770 
+  adrp x0 string 
+  add x0 x0 # 0x400 
+  bl symbol 
+ "," mov w2 # 0x5 
+  ldr x1 [ sp # 0x68 ] 
+  ldr x0 [ sp # 0x80 ] 
+  bl symbol 
+"
+"  mov rax qword [ rax + 0x10 ] 
+  mov eax dword [ rax + 0x8 ] 
+  add dword [ rbx + 0x48 ] eax 
+ ","  ldr x1 [ x0 # 0x10 ] 
+  ldr w0 [ x19 # 0x48 ] 
+  ldr w1 [ x1 # 0x8 ] 
+  add w0 w0 w1 
+  str w0 [ x19 # 0x48 ] 
+ "," ldr x1 [ x0 # 0x10 ] 
+  ldr w0 [ x19 # 0x48 ] 
+  ldr w1 [ x1 # 0x8 ] 
+  add w0 w0 w1 
+  str w0 [ x19 # 0x48 ] 
+"
+"  mov qword [ rbp + 0x30 ] rbx 
+  jmp address 
+ ","  str x19 [ x20 # 0x30 ] 
+  b address 
+ "," str x19 [ x20 # 0x30 ] 
+  b address 
+"
+"  mov rax qword [ rsi ] 
+  lea rdx [ rax + 0x4 ] 
+  mov qword [ rsi ] rdx 
+  mov byte [ rax ] 0x40 
+  mov byte [ rax + 0x1 ] 0x1 
+  mov word [ rax + 0x2 ] 0x0 
+ ","  ldr x0 [ x21 ] 
+  add x3 x0 # 0x4 
+  str x3 [ x21 ] 
+  strb w2 [ x0 ] 
+  strb w1 [ x0 # 0x1 ] 
+  strh wzr [ x0 # 0x2 ] 
+ "," ldr x0 [ x21 ] 
+  add x3 x0 # 0x4 
+  str x3 [ x21 ] 
+  strb w2 [ x0 ] 
+  strb w2 [ x0 # 0x1 ] 
+  strh wzr [ x0 # 0x2 ] 
+"
+"  mov rax qword [ rdi + 0x38 ] 
+  test rax rax 
+  mov edx 0x1 
+  cmove rax rdx 
+  jmp address 
+ ","  ldr x0 [ x3 # 0x38 ] 
+  cmp x0 # 0 
+  csinc x0 x0 xzr ne 
+  b address 
+ "," ldr x0 [ x3 # 0x38 ] 
+  cmp x0 # 0 
+  csinc x0 x0 xzr ne 
+  b address 
+"
+"  mov rbp qword [ r12 ] 
+  test rbp rbp 
+  je address 
+ ","  ldr x20 [ x21 # 0x8 ]! 
+  cbz x20 address 
+ "," ldr x20 [ x21 ] 
+  cbz x20 address 
+"
+"  push rbx 
+  mov rbx rdi 
+ ","  stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  str x19 [ sp # 0x10 ] 
+  mov x19 x0 
+ "," stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  str x19 [ sp # 0x10 ] 
+  mov x19 x0 
+"
+"  mov rax qword [ r15 + 0x20 ] 
+  mov rax qword [ rax + 0x70 ] 
+  mov r8d 0x1 
+  test rax rax 
+  je address 
+ ","  ldr x0 [ x21 # 0x20 ] 
+  ldr x5 [ x0 # 0x70 ] 
+  mov w4 # 0x1 
+  cbz x5 address 
+ "," ldr x0 [ x21 # 0x20 ] 
+  ldr x5 [ x0 # 0x70 ] 
+  mov w4 # 0x1 
+  cbz x5 address 
+"
+"  mov rax qword [ r12 + 0x330 ] 
+  add qword [ rdx + 0x40 ] rax 
+ ","  ldr x0 [ x2 # 0x40 ] 
+  ldr x1 [ x21 # 0x330 ] 
+  add x0 x0 x1 
+  str x0 [ x2 # 0x40 ] 
+ "," ldr x1 [ x2 # 0x40 ] 
+  ldr x0 [ x21 # 0x330 ] 
+  add x0 x0 x1 
+  str x0 [ x2 # 0x40 ] 
+"
+"  cmp r10d eax 
+  jbe address 
+ ","  cmp w3 w2 
+  b.ls address 
+ "," cmp w3 w2 
+  b.ls address 
+"
+"  mov rdi r12 
+  call symbol 
+  lea r13 [ rax + 0x1 ] 
+ ","  mov x0 x21 
+  bl symbol 
+  add x22 x0 # 0x1 
+ "," mov x0 x21 
+  bl symbol 
+  add x22 x0 # 0x1 
+"
+"  mov rdi qword [ r13 + 0x10 ] 
+  mov rcx qword [ rsp + 0x8 ] 
+  mov edx dword [ rsp + 0x1c ] 
+  mov rsi rbx 
+  call symbol 
+ ","  mov x3 x24 
+  mov w2 w27 
+  mov x1 x19 
+  ldr x0 [ x26 # 0x10 ] 
+  bl symbol 
+ "," mov x3 x24 
+  mov w2 w27 
+  mov x1 x19 
+  ldr x0 [ x26 # 0x10 ] 
+  bl symbol 
+"
+"  mov rdi r12 
+  call symbol 
+ ","  mov x0 x22 
+  bl symbol 
+ "," mov x0 x21 
+  bl symbol 
+"
+"  lea rsi [ rel <unk> ] 
+  mov rdi rbx 
+  call symbol 
+ ","  adrp x1 <unk> 
+  add x1 x1 # 0x9c0 
+  mov x0 x19 
+  bl symbol 
+ "," mov x1 x26 
+  mov x0 x19 
+  bl symbol 
+"
+"  mov rdx qword [ r12 + 0xe8 ] 
+  mov rax qword [ rbx + 0xe8 ] 
+  mov rdx qword [ rdx + 0xb0 ] 
+  mov qword [ rax + 0xb0 ] rdx 
+ ","  ldr x1 [ x21 # 0xe8 ] 
+  ldr x0 [ x19 # 0xe8 ] 
+  ldr x1 [ x1 # 0xb0 ] 
+  str x1 [ x0 # 0xb0 ] 
+ "," ldr x1 [ x21 # 0xe8 ] 
+  ldr x1 [ x19 # 0xe8 ] 
+  ldr x0 [ x1 # 0xb0 ] 
+  str x0 [ x1 # 0xb0 ] 
+"
+"  cmp edx 0x5 
+  jne address 
+ ","  cmp x0 # 0x5 
+  b.ne address 
+ "," cmp w1 # 0x5 
+  b.ne address 
+"
+"  add rbp 0x18 
+  cmp rbp r13 
+  jne address 
+ ","  add x0 x23 # 0x18 
+  str x0 [ sp # 0x60 ] 
+  cmp x0 x22 
+  b.ne address 
+ "," add x20 x20 # 0x18 
+  subs x19 x19 # 0x1 
+  b.ne address 
+"
+"  pop rbx 
+  retn 
+ ","  ldr x19 [ sp # 0x10 ] 
+  ldp x29 x30 [ sp ] # 0x20 
+  ret 
+ "," ldr x19 [ sp # 0x10 ] 
+  ldp x29 x30 [ sp ] # 0x20 
+  ret 
+"
+"  cmp dword [ rcx + 0x8 ] 0x1 
+  jne address 
+ ","  ldr w2 [ x1 # 0x8 ] 
+  cmp w2 # 0x1 
+  b.ne address 
+ "," ldr w10 [ x9 # 0x8 ] 
+  cmp w10 # 0x1 
+  b.ne address 
+"
+"  push r8 
+  mov r8d 0x301 
+  lea rcx [ rel string ] 
+  call symbol 
+ ","  mov w6 w4 
+  mov x5 x3 
+  mov w4 # 0x301 
+  adrp x3 address 
+  add x3 x3 # 0x1a8 
+  bl symbol 
+ "," mov w6 w4 
+  mov x5 x3 
+  mov w4 # 0x301 
+  adrp x3 string 
+  add x3 x3 # 0x4c0 
+  bl symbol 
+"
+"  add rsp 0x8 
+  retn 
+ ","  ldp x29 x30 [ sp ] # 0x10 
+  ret 
+ "," ldp x29 x30 [ sp ] # 0x10 
+  ret 
+"
+"  mov dword [ r12 + 0x18 ] 0x0 
+  jmp address 
+ ","  str wzr [ x20 # 0x18 ] 
+  b address 
+ "," str wzr [ x19 # 0x18 ] 
+  b address 
+"
+"  mov rax qword [ rax + 0x10 ] 
+  movzx eax byte [ rax ] 
+  cmp al 0x30 
+  je address 
+  cmp al 0x31 
+  jne address 
+ ","  ldr x0 [ x1 # 0x10 ] 
+  ldrb w0 [ x0 ] 
+  cmp w0 # 0x30 
+  b.eq address 
+  cmp w0 # 0x31 
+  b.ne address 
+ "," ldr x0 [ x0 # 0x10 ] 
+  ldrb w0 [ x0 ] 
+  cmp w0 # 0x30 
+  b.eq address 
+  cmp w0 # 0x31 
+  b.ne address 
+"
+"  mov rax qword [ rsp + 0xc0 ] 
+  mov qword [ rax ] rbp 
+ ","  ldr x0 [ sp # 0xd0 ] 
+  str x21 [ x0 ] 
+ "," ldr x0 [ sp # 0xd0 ] 
+  str x21 [ x0 ] 
+"
+"  mov ecx r8d 
+  movzx esi word [ rsp + rcx * 2 + 0x60 ] 
+  lea edx [ rsi - 0x1 ] 
+  mov word [ rsp + rcx * 2 + 0x60 ] dx 
+  test dx dx 
+  jne address 
+ ","  add x1 sp # 0x78 
+  str x23 [ sp # 0x68 ] 
+  mov w23 w2 
+  b address 
+  cmp w7 w13 
+  csel w4 w7 w13 ls 
+  cmp w4 w12 
+  csel w4 w4 w12 cs 
+ "," add x1 sp # 0x78 
+  str x23 [ sp # 0x68 ] 
+  mov w23 w2 
+  b address 
+"
+"  mov esi address 
+  lea rdi [ rel string ] 
+  call symbol 
+ ","  mov w1 # <unk> 
+  adrp x0 address 
+  add x0 x0 # 0xbd0 
+  bl symbol 
+ "," mov w1 # address 
+  adrp x0 string 
+  add x0 x0 # 0x710 
+  bl symbol 
+"
+"  mov rcx qword [ rbx + 0x100 ] 
+  cmp byte [ rcx + 0x4 ] 0x2 
+  je address 
+ ","  ldr x3 [ x19 # 0x100 ] 
+  ldrb w3 [ x3 # 0x4 ] 
+  cmp w3 # 0x2 
+  b.eq address 
+ "," ldr x3 [ x19 # 0x100 ] 
+  ldrb w3 [ x3 # 0x4 ] 
+  cmp w3 # 0x2 
+  b.eq address 
+"
+"  mov rax <unk> 
+  jmp string 
+ ","  mov x0 # <unk> 
+  ldr x23 [ sp # 0x30 ] 
+  b address 
+ "," mov x0 # 0xa4e 
+  b address 
+"
+"  mov rcx qword [ rsp + 0x30 ] 
+  mov qword [ rsp + 0x90 ] rcx 
+ ","  ldr x1 [ sp # 0x88 ] 
+  str x1 [ sp # 0xf0 ] 
+ "," ldr x0 [ sp # 0x88 ] 
+  str x0 [ sp # 0xe0 ] 
+"
+"  mov edi 0x11 
+  call symbol 
+ ","  mov w0 # 0x11 
+  bl symbol 
+ "," mov w0 # 0x11 
+  bl symbol 
+"
+"  test r9d r9d 
+  je address 
+  test r10d r10d 
+  je address 
+ ","  cmp w6 # 0 
+  ccmp w5 # 0 # 0 ne 
+  b.eq address 
+ "," cmp w6 # 0 
+  ccmp w5 # 0 # 0x4 ne 
+  b.eq address 
+"
+"  cmp rbx rdx 
+  jbe address 
+ ","  cmp x21 x24 
+  b.ls address 
+ "," cmp x19 x1 
+  b.ls address 
+"
+"  add rbx 0x1 
+  cmp qword [ r12 + 0x28 ] rbx 
+  jbe address 
+ ","  add x19 x19 # 0x1 
+  ldr x0 [ x21 # 0x28 ] 
+  cmp x0 x19 
+  b.ls address 
+ "," add x19 x19 # 0x1 
+  ldr x0 [ x21 # 0x28 ] 
+  cmp x0 x19 
+  b.ls address 
+"
+"  cmp r14 0x1 
+  je address 
+ ","  cmp x20 # 0x1 
+  b.eq address 
+ "," cmp x21 # 0x1 
+  b.eq address 
+"
+"  mov rsi qword [ rsp + 0x50 ] 
+  lea r13 [ rsp + 0x50 ] 
+  jmp address 
+ ","  ldr x1 [ sp # 0xb8 ] 
+  add x24 sp # 0xb8 
+  b address 
+ "," ldr x1 [ sp # 0xb8 ] 
+  add x22 sp # 0xb8 
+  b address 
+"
+"  mov r12d dword [ rbp + 0x10 ] 
+  jmp address 
+ ","  ldr w21 [ x20 # 0x10 ] 
+  b address 
+ "," ldr w21 [ x20 # 0x10 ] 
+  b address 
+"
+"  mov edx dword [ rbx + 0xac ] 
+  mov eax 0x2 
+  cmp edx eax 
+  cmovbe eax edx 
+  mov dword [ rbx + address ] eax 
+ ","  ldr w3 [ x19 # 0xac ] 
+  cmp w3 # 0x2 
+  mov w0 # 0x2 
+  csel w0 w3 w0 ls 
+  str w0 [ x19 # <unk> ] 
+ "," ldr w3 [ x19 # 0xac ] 
+  cmp w3 # 0x2 
+  mov w0 # 0x2 
+  csel w0 w3 w0 ls 
+  str w0 [ x19 # address ] 
+"
+"  call symbol 
+  mov rbp rax 
+ ","  bl symbol 
+  mov x20 x0 
+ "," bl symbol 
+  mov x20 x0 
+"
+"  mov rax qword [ rsp + 0x50 ] 
+  mov rax qword [ rax + 0xb0 ] 
+  mov qword [ rsp + 0x48 ] rax 
+ ","  ldr x0 [ sp # 0xd0 ] 
+  ldr x0 [ x0 # 0xb0 ] 
+  str x0 [ sp # 0x98 ] 
+ "," ldr x0 [ sp # 0xd0 ] 
+  ldr x0 [ x0 # 0xb0 ] 
+  str x0 [ sp # 0xe0 ] 
+"
+"  push r14 
+  push r13 
+  push r12 
+  push rbp 
+  push rbx 
+  mov rbp rdi 
+  mov r13 rsi 
+  mov r12 rdx 
+  mov r14d ecx 
+ ","  stp x29 x30 [ sp #- 0x40 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x21 x22 [ sp # 0x20 ] 
+  str x23 [ sp # 0x30 ] 
+  mov x20 x0 
+  mov x21 x1 
+  mov x22 x2 
+  mov w23 w3 
+ "," stp x29 x30 [ sp #- 0x40 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x21 x22 [ sp # 0x20 ] 
+  str x23 [ sp # 0x30 ] 
+  mov x20 x0 
+  mov x21 x1 
+  mov x22 x2 
+  and w23 w3 # 0xff 
+"
+"  lea rax [ rel address ] 
+  cmp qword [ rbp + 0x70 ] rax 
+  je address 
+ ","  ldr x0 [ x20 # 0x70 ] 
+  cmp x0 x21 
+  b.eq address 
+ "," ldr x0 [ x20 # 0x70 ] 
+  cmp x0 x21 
+  b.eq address 
+"
+"  test byte [ r15 + 0x4 ] 0x1 
+  je address 
+ ","  ldr x0 [ x21 ] 
+  tbz x0 # 0x20 address 
+ "," ldrb w8 [ x21 # 0x4 ] 
+  tbz w8 # 0 address 
+"
+"  mov eax 0x0 
+  jmp address 
+ ","  mov w0 # 0 
+  b address 
+ "," mov w0 # 0 
+  b address 
+"
+"  cmp dword [ r15 + 0x184 ] 0x0 
+  jne address 
+ ","  ldr w0 [ x24 # 0x184 ] 
+  cbnz w0 address 
+ "," ldr w0 [ x26 # 0x184 ] 
+  cbnz w0 address 
+"
+"  test byte [ r13 + 0x38 ] 0x4 
+  je address 
+ ","  ldrb w0 [ x21 # 0x38 ] 
+  tbz w0 # 0x2 address 
+ "," ldrb w0 [ x21 # 0x38 ] 
+  tbz w0 # 0x2 address 
+"
+"  mov ebp 0x0 
+  jmp address 
+ ","  mov x20 # 0 
+  ldr x21 [ sp # 0x20 ] 
+  b address 
+ "," mov x20 # 0 
+  b address 
+"
+"  movzx esi r14w 
+  shl esi cl 
+  or edi esi 
+  add ecx 0x5 
+  jmp address 
+ ","  and w5 w23 # <unk> 
+  lsl w5 w5 w0 
+  orr w3 w3 w5 
+  and w3 w3 # <unk> 
+  add w0 w0 # 0x5 
+  b address 
+ "," and w5 w23 # address 
+  lsl w5 w5 w0 
+  orr w3 w3 w5 
+  and w3 w3 # address 
+  add w0 w0 # 0x5 
+  b address 
+"
+"  test byte [ rbx + 0x2a ] 0x10 
+  jne address 
+ ","  ldr w0 [ x19 # 0x28 ] 
+  tbnz w0 # 0x14 address 
+ "," ldr w0 [ x19 # 0x28 ] 
+  tbnz w0 # 0x14 address 
+"
+"  mov byte [ rbx + 0x52 ] 0x0 
+  jmp address 
+  mov r15 qword [ rsp + 0x38 ] 
+  mov r12 qword [ rsp + 0x30 ] 
+  mov r14 qword [ rsp + 0x28 ] 
+  mov r13 rcx 
+  jmp address 
+ ","  strb wzr [ x21 # 0x52 ] 
+  b address 
+  ldr x27 [ sp # 0x78 ] 
+  ldr x22 [ sp # 0x88 ] 
+  ldr x25 [ sp # 0x80 ] 
+  ldr x19 [ sp # 0x68 ] 
+  b address 
+ "," strb wzr [ x21 # 0x52 ] 
+  b address 
+"
+"  mov edx edi 
+  sub edx eax 
+  mov rax qword [ rsi + rdx * 8 ] 
+ ","  mov w3 # 0x79 
+  msub w0 w0 w3 w2 
+  ldr x0 [ x1 x0 lsl # 0x3 ] 
+ "," sub w2 w2 w1 
+  ldr x0 [ x1 w2 uxtw # 0x3 ] 
+"
+"  cmp dl 0x63 
+  je address 
+ ","  ldrb w5 [ x6 ] 
+  adrp x4 address 
+  ldr x4 [ x4 # 0xf50 ] 
+  ldrb w5 [ x4 w5 sxtw ] 
+  cmp w5 # 0x63 
+  b.eq address 
+ "," cmp w1 # 0x63 
+  b.eq address 
+"
+"  test rax rax 
+  cmove rax rdi 
+  jmp address 
+ ","  cmp x6 # 0 
+  csel x6 x6 x0 ne 
+  b address 
+ "," cmp x0 # 0 
+  csel x0 x1 x0 eq 
+  b address 
+"
+"  movzx esi byte [ rdx + 0x4 ] 
+  cmp rax rsi 
+  jne address 
+ ","  ldrb w2 [ x1 # 0x4 ] 
+  cmp x0 x2 
+  b.ne address 
+ "," ldrb w2 [ x1 # 0x4 ] 
+  cmp x0 x2 
+  b.ne address 
+"
+"  lea rsi [ rel string ] 
+  mov rdi r12 
+  call symbol 
+  jmp address 
+ ","  adrp x0 string 
+  add x20 x0 # 0x7d8 
+ "," bl symbol 
+  b address 
+"
+"  mov qword [ rsp + 0x20 ] 0x0 
+  mov qword [ rsp + 0x18 ] 0x0 
+  mov qword [ rsp + 0x10 ] 0x0 
+ ","  str xzr [ sp # 0x40 ] 
+  str xzr [ sp # 0x38 ] 
+  str xzr [ sp # 0x30 ] 
+ "," str xzr [ sp # 0x70 ] 
+  str xzr [ sp # 0x60 ] 
+  str xzr [ sp # 0x70 ] 
+"
+"  mov rcx qword [ rsp + 0x10 ] 
+  test byte [ rcx + 0x2a ] 0x10 
+  jne address 
+ ","  ldr x2 [ sp # 0x68 ] 
+  ldr w2 [ x2 # 0x28 ] 
+  tbnz w2 # 0x14 address 
+ "," ldr x2 [ sp # 0x68 ] 
+  ldr w2 [ x2 # 0x28 ] 
+  tbnz w2 # 0x14 address 
+"
+"  mov ecx edx 
+  mov r8 qword [ rbx + 0x148 ] 
+  mov rsi qword [ rax + 0x68 ] 
+  add rsi qword [ rdi + 0x30 ] 
+  mov qword [ r8 + rcx * 8 ] rsi 
+ ","  ldr x1 [ x19 # 0x148 ] 
+  ldr x0 [ x0 # 0x30 ] 
+  ldr x2 [ x6 # 0x68 ] 
+  add x0 x0 x2 
+  str x0 [ x1 w7 uxtw # 0x3 ] 
+ "," ldr x1 [ x19 # 0x30 ] 
+  ldr x2 [ x6 # 0x68 ] 
+  add x1 x1 x2 
+  str x1 [ x0 w7 uxtw # 0x3 ] 
+"
+"  sub rsp 0x8 
+  push 0x0 
+  mov r9d 0x0 
+  mov r8d 0x0 
+  mov ecx 0x0 
+  mov rdx qword [ rsp + 0x50 ] 
+  mov rdi rbx 
+  call symbol 
+  mov qword [ rsp + 0x20 ] rax 
+ ","  mov x6 # 0 
+  mov x5 # 0 
+  mov x4 # 0 
+  mov x3 # 0 
+  mov x2 x0 
+  add x1 x27 # 0x68 
+  mov x0 x20 
+  bl symbol 
+  str x0 [ sp # 0x78 ] 
+ "," mov x6 # 0 
+  mov x5 # 0 
+  mov x4 # 0 
+  mov x3 # 0 
+  add x1 x27 # 0x68 
+  mov x0 x20 
+  bl symbol 
+  str x0 [ sp # 0x78 ] 
+"
+"  mov rdx rdi 
+  shr rdx 0x18 
+  mov byte [ rsi ] dl 
+ ","  lsr x2 x0 # 0x18 
+  strb w2 [ x1 ] 
+ "," lsr x2 x0 # 0x18 
+  strb w2 [ x1 ] 
+"
+"  endbr64 
+  push rbp 
+  push rbx 
+  sub rsp 0x8 
+  mov rbx rdi 
+ ","  stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  mov x19 x0 
+ "," stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  mov x19 x0 
+"
+"  mov r14 rbp 
+  sub r14 qword [ rsp + 0x8 ] 
+  cmp r14 r15 
+  jb address 
+ ","  sub x24 x19 x23 
+  cmp x24 x25 
+  b.lo address 
+ "," sub x24 x19 x23 
+  cmp x24 x25 
+  b.lo address 
+"
+"  call symbol 
+  mov rdx rax 
+  lea rcx [ rbp - 0x80 ] 
+  mov esi address 
+  mov rdi rbx 
+  call symbol 
+ ","  bl symbol 
+  add x3 x29 # 0x30 
+  mov x2 x0 
+  mov w1 # <unk> 
+  mov x0 x21 
+  bl symbol 
+ "," bl symbol 
+  add x3 x29 # 0x30 
+  mov x2 x0 
+  mov w1 # address 
+  mov x0 x19 
+  bl symbol 
+"
+"  mov rax qword [ rsp + 0x10 ] 
+  mov rdi qword [ rsp + 0x18 ] 
+  mov qword [ rax + 0x18 ] rdi 
+  mov dword [ rax + 0x20 ] esi 
+  mov qword [ rax ] r13 
+  mov dword [ rax + 0x8 ] ebp 
+  mov qword [ r12 + 0x50 ] r15 
+  mov dword [ r12 + 0x58 ] ebx 
+ ","  str x27 [ x24 # 0x18 ] 
+  str w26 [ x24 # 0x20 ] 
+  str x23 [ x24 ] 
+  str w20 [ x24 # 0x8 ] 
+  str x22 [ x21 # 0x50 ] 
+  str w19 [ x21 # 0x58 ] 
+ "," str x27 [ x24 # 0x18 ] 
+  str w26 [ x24 # 0x20 ] 
+  str x23 [ x24 ] 
+  str w20 [ x24 # 0x8 ] 
+  str x22 [ x21 # 0x50 ] 
+  str w19 [ x21 # 0x58 ] 
+"
+"  mov rsi r13 
+  mov rdi rbp 
+  call symbol 
+  mov rsi rax 
+ ","  mov x1 x24 
+  mov x0 x20 
+  bl symbol 
+  mov x22 x0 
+ "," mov x1 x22 
+  mov x0 x20 
+  bl symbol 
+  mov x22 x0 
+"
+"  mov rdi rbx 
+  call symbol 
+  mov r13 rax 
+ ","  mov x0 x19 
+  bl symbol 
+  mov x22 x0 
+ "," mov x0 x19 
+  bl symbol 
+  mov x22 x0 
+"
+"  cmp dword [ rax + 0x2fc ] esi 
+  jbe address 
+ ","  ldr w0 [ x0 # 0x2fc ] 
+  cmp w0 w1 
+  b.ls address 
+  stp x21 x22 [ sp # 0x20 ] 
+ "," ldr w0 [ x0 # 0x2fc ] 
+  cmp w0 w1 
+  b.ls address 
+"
+"  mov r14 qword [ rsp + 0x20 ] 
+  cmp rax r14 
+  ja address 
+ ","  ldr x23 [ sp # 0x60 ] 
+  cmp x0 x23 
+  b.hi address 
+ "," ldr x23 [ sp # 0x60 ] 
+  cmp x0 x23 
+  b.hi address 
+"
+"  cmp qword [ rbp + 0x18 ] 0x0 
+  je address 
+ ","  ldr x1 [ x23 # 0x18 ] 
+  cbz x1 address 
+ "," ldr x0 [ x20 # 0x18 ] 
+  cbz x0 address 
+"
+"  mov eax dword [ rbx + 0x50 ] 
+  sub r12d eax 
+  add r13 r12 
+ ","  ldr w0 [ x19 # 0x50 ] 
+  sub w21 w21 w0 
+  add x25 x25 x21 
+ "," ldr w0 [ x19 # 0x50 ] 
+  sub w21 w21 w0 
+  add x23 x23 x21 
+"
+"  mov rax qword [ r15 + 0x100 ] 
+  mov rax qword [ rax + 0xc98 ] 
+  mov dword [ rax + 0x48 ] ebx 
+ ","  ldr x0 [ x26 # 0x100 ] 
+  ldr x0 [ x0 # 0xc98 ] 
+  str w21 [ x0 # 0x48 ] 
+ "," ldr x0 [ x26 # 0x100 ] 
+  ldr x0 [ x0 # 0xc98 ] 
+  str w21 [ x0 # 0x48 ] 
+"
+"  mov rbx qword [ rbp + 0x90 ] 
+  test rbx rbx 
+  jne address 
+  jmp address 
+ ","  ldr x19 [ x20 # 0x90 ] 
+  cbnz x19 address 
+  b address 
+ "," ldr x19 [ x20 # 0x90 ] 
+  cbnz x19 address 
+  b address 
+"
+"  mov rdx qword [ rbp ] 
+  mov qword [ rax ] rdx 
+ ","  ldr x1 [ x20 ] 
+  str x1 [ x0 ] 
+ "," ldr x1 [ x20 ] 
+  str x1 [ x0 ] 
+"
+"  cmp eax 0x2 
+  je address 
+  cmp eax 0xb 
+  jne address 
+ ","  ccmp w0 # 0xb # 0x4 ne 
+  b.eq address 
+ "," cmp w0 # 0x2 
+  b.eq address 
+  cmp w0 # 0xb 
+  b.ne address 
+"
+"  mov rax qword [ rax ] 
+  test rax rax 
+  jne address 
+ ","  ldr x0 [ x0 ] 
+  cbnz x0 address 
+ "," ldr x0 [ x0 ] 
+  cbnz x0 address 
+"
+"  mov rax qword [ r15 + 0x20 ] 
+  mov rcx rax 
+  shr rcx 0x4 
+  mov qword [ rsp + 0x20 ] rcx 
+ ","  ldr x0 [ x24 # 0x20 ] 
+  lsr x1 x0 # 0x4 
+  str x1 [ sp # 0x68 ] 
+ "," ldr x0 [ x24 # 0x20 ] 
+  lsr x1 x0 # 0x4 
+  str x1 [ sp # 0x68 ] 
+"
+"  mov rax qword [ rsp + 0x20 ] 
+  mov eax dword [ rax + 0x40 ] 
+  mov dword [ rbp + 0x40 ] eax 
+ ","  ldr x0 [ sp # 0x60 ] 
+  ldr w0 [ x0 # 0x40 ] 
+  str w0 [ x25 # 0x40 ] 
+ "," ldr x0 [ sp # 0x60 ] 
+  ldr w0 [ x0 # 0x40 ] 
+  str w0 [ x25 # 0x40 ] 
+"
+"  mov r15d eax 
+  cmp r15 r13 
+  jae address 
+ ","  mov w0 w0 
+  str x0 [ sp # 0x60 ] 
+  cmp x0 x23 
+  b.hs address 
+ "," and x25 x0 # address 
+  cmp x25 x23 
+  b.hs address 
+"
+"  lea rdi [ rbx + 0x8 ] 
+  mov rax qword [ r12 + 0x8 ] 
+  call qword [ rax + 0x88 ] 
+  mov qword [ rbp + 0x10 ] rax 
+ ","  ldr x0 [ x21 # 0x8 ] 
+  ldr x1 [ x0 # 0x88 ] 
+  add x0 x20 # 0x8 
+  blr x1 
+  str x0 [ x19 # 0x10 ] 
+ "," ldr x0 [ x21 # 0x8 ] 
+  ldr x1 [ x0 # 0x88 ] 
+  add x0 x20 # 0x8 
+  blr x1 
+  str x0 [ x19 # 0x10 ] 
+"
+"  mov eax ebx 
+  lea rax [ rax + rax * 2 + 0x3 ] 
+  shl rax 0x4 
+ ","  mov w0 w19 
+  add x0 x0 # 0x1 
+  add x0 x0 x0 lsl # 0x1 
+  lsl x0 x0 # 0x4 
+  ldr x0 [ x20 x0 ] 
+  ubfx x0 x0 # 0x1a # 0x1 
+ "," mov w0 w19 
+  add x0 x0 # 0x1 
+  add x0 x0 x0 lsl # 0x1 
+  lsl x0 x0 # 0x4 
+  ldr x0 [ x20 x0 ] 
+  ubfx x0 x0 # 0x1a # 0x1 
+"
+"  mov eax eax 
+  imul rax rax 0x50 
+  mov rcx qword [ rsp + 0x8 ] 
+  cmp dword [ rcx + rax + 0x4 ] 0x3 
+  je address 
+ ","  mov w0 w0 
+  mov x1 # 0x50 
+  madd x0 x0 x1 x24 
+  ldr w0 [ x0 # 0x4 ] 
+  cmp w0 # 0x3 
+  b.eq address 
+ "," mov w0 w0 
+  mov x1 # 0x50 
+  madd x0 x0 x1 x24 
+  ldr w0 [ x0 # 0x4 ] 
+  cmp w0 # 0x3 
+  b.eq address 
+"
+"  lea rsi [ rel string ] 
+  mov rdi qword [ rdi ] 
+  call symbol 
+  mov rsi rax 
+ ","  adrp x1 address 
+  add x1 x1 # 0x548 
+  ldr x0 [ x21 ] 
+  bl symbol 
+  mov x1 x0 
+ "," bl symbol 
+  mov x1 x0 
+"
+"  mov rdi qword [ r15 ] 
+  cmp qword [ rsp + 0x38 ] rdi 
+  jne address 
+ ","  ldr x0 [ x25 ] 
+  ldr x1 [ sp # 0x88 ] 
+  cmp x1 x0 
+  b.ne address 
+ "," ldr x0 [ x25 ] 
+  cmp x28 x0 
+  b.ne address 
+"
+"  mov eax dword [ rax + 0xb8 ] 
+  lea r14 [ r12 + rax * 8 ] 
+ ","  ldr w22 [ x0 # 0xb8 ] 
+  add x22 x21 x22 lsl # 0x3 
+ "," ldr w25 [ x0 # 0xb8 ] 
+  add x25 x21 x25 lsl # 0x3 
+"
+"  mov rdx qword [ rax + 0x28 ] 
+  mov r14d dword [ rdx ] 
+  jmp address 
+ ","  ldr x1 [ x0 # 0x28 ] 
+  ldr w23 [ x1 ] 
+  b address 
+ "," ldr x1 [ x0 # 0x28 ] 
+  ldr w23 [ x1 ] 
+  b address 
+"
+"  add rax 0x8 
+  cmp rcx rax 
+  jbe address 
+ ","  add x0 x0 # 0x8 
+  cmp x3 x0 
+  b.ls address 
+ "," add x0 x0 # 0x8 
+  cmp x3 x0 
+  b.ls address 
+"
+"  mov edx dword [ rbp + 0x8 ] 
+  mov eax edx 
+  cmp rax rbx 
+  jae address 
+ ","  ldr w1 [ x20 # 0x8 ] 
+  cmp x19 w1 uxtw 
+  b.ls address 
+ "," ldr w1 [ x20 # 0x8 ] 
+  cmp x19 w1 uxtw 
+  b.ls address 
+"
+"  movzx eax byte [ r12 + 0x18 ] 
+  and eax 0xf 
+  cmp al 0x6 
+  je address 
+ ","  ldrb w0 [ x22 # 0x18 ] 
+  and w0 w0 # 0xf 
+  cmp w0 # 0x6 
+  b.eq address 
+ "," ldrb w0 [ x22 # 0x18 ] 
+  and w0 w0 # 0xf 
+  cmp w0 # 0x6 
+  b.eq address 
+"
+"  call symbol 
+  mov r12 rax 
+ ","  mov x0 x19 
+  bl symbol 
+  mov x21 x0 
+ "," bl symbol 
+  mov x21 x0 
+"
+"  mov rdi rbp 
+  call symbol 
+ ","  mov x0 x20 
+  bl symbol 
+ "," mov x0 x20 
+  bl symbol 
+"
+"  lea eax [ rax - 0x101 ] 
+  add rax rdi 
+  mov qword [ rsp - 0x50 ] rax 
+ ","  sub w11 w11 # 0x101 
+  add x11 x6 x11 
+ "," sub w11 w11 # 0x101 
+  add x11 x6 x11 
+"
+"  mov rdx qword [ rbp + 0x30 ] 
+  cmp qword [ rbx + 0x30 ] rdx 
+  jne address 
+ ","  ldr x2 [ x19 # 0x30 ] 
+  ldr x1 [ x20 # 0x30 ] 
+  cmp x2 x1 
+  b.eq address 
+  ldp x21 x22 [ sp # 0x20 ] 
+  b address 
+ "," ldr x2 [ x19 # 0x30 ] 
+  ldr x1 [ x20 # 0x30 ] 
+  cmp x2 x1 
+  b.eq address 
+  ldp x21 x22 [ sp # 0x20 ] 
+  b address 
+"
+"  cmp dword [ rbx + 0x18 ] ebp 
+  jne address 
+ ","  ldr w0 [ x23 # 0x18 ] 
+  cmp w0 w24 
+  b.ne address 
+ "," ldr w0 [ x19 # 0x18 ] 
+  cmp w0 w20 
+  b.ne address 
+"
+"  mov ebp dword [ rdi + 0x40 ] 
+  cmp ebp 0x1 
+  je address 
+ ","  ldr w24 [ x19 # 0x40 ] 
+  cmp w24 # 0x1 
+  b.eq address 
+ "," ldr w24 [ x19 # 0x40 ] 
+  cmp w24 # 0x1 
+  b.eq address 
+"
+"  mov edx 0x5 
+  lea rsi [ rel string ] 
+  lea rdi [ rel address ] 
+  call symbol 
+  mov rdi rax 
+  mov rsi qword [ rsp + 0x50 ] 
+  mov eax 0x0 
+  call symbol 
+ ","  adrp x0 string 
+  add x0 x0 # 0x400 
+  str x0 [ sp # 0x98 ] 
+  b address 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x21 x22 [ sp # 0x20 ] 
+  stp x23 x24 [ sp # 0x30 ] 
+  stp x25 x26 [ sp # 0x40 ] 
+ "," mov w2 # 0x5 
+  ldr x1 [ sp # 0x98 ] 
+  ldr x0 [ sp # 0xb0 ] 
+  bl symbol 
+  bl symbol 
+"
+"  mov rax qword [ rsp + 0x30 ] 
+  mov dword [ rbp + 0x4c ] eax 
+ ","  ldr x0 [ sp # 0x88 ] 
+  str w0 [ x20 # 0x4c ] 
+ "," ldr x0 [ sp # 0x80 ] 
+  str w0 [ x20 # 0x4c ] 
+"
+"  mov rax qword [ rsi + 0x8 ] 
+  mov rdi qword [ rax + 0x50 ] 
+ ","  ldr x0 [ x1 # 0x8 ] 
+  ldr x0 [ x0 # 0x50 ] 
+ "," ldr x0 [ x1 # 0x8 ] 
+  ldr x4 [ x0 # 0x50 ] 
+"
+"  cmp al 0x57 
+  jne address 
+  lea r14 [ rel string ] 
+  jmp address 
+ ","  cmp w0 # 0x57 
+  b.ne address 
+  adrp x21 <unk> 
+  add x21 x21 # 0x558 
+  b address 
+ "," cmp w0 # 0x57 
+  b.ne address 
+"
+"  mov rax <unk> 
+  jmp address 
+ ","  mov x0 # <unk> 
+  ldr x21 [ sp # 0x20 ] 
+  b address 
+ "," mov x0 # 0x20a 
+  b address 
+"
+"  lea rdi [ rbp + 0x4 ] 
+  mov rax qword [ r12 + 0x8 ] 
+  call qword [ rax + 0x80 ] 
+  mov dword [ rbx + 0x4 ] eax 
+ ","  ldr x0 [ x20 # 0x8 ] 
+  ldr x1 [ x0 # 0x80 ] 
+  add x0 x21 # 0x4 
+  blr x1 
+  str w0 [ x19 # 0x4 ] 
+ "," ldr x0 [ x20 # 0x8 ] 
+  ldr x1 [ x0 # 0x80 ] 
+  add x0 x21 # 0x4 
+  blr x1 
+  str w0 [ x19 # 0x4 ] 
+"
+"  mov eax 0x32 
+  cmp rsi rax 
+  cmova rsi rax 
+  lea rdi [ rbp + 0x55 ] 
+  call symbol 
+ ","  cmp x1 # 0x32 
+  mov w2 w0 
+  mov x0 # 0x32 
+  csel x1 x1 x0 ls 
+  add x0 x25 # 0x55 
+  bl symbol 
+ "," cmp x1 # 0x32 
+  mov w2 w0 
+  csel x1 x1 x0 ls 
+  add x0 x25 # 0x55 
+  bl symbol 
+"
+"  mov rsi qword [ rel symbol ] 
+  mov rdi qword [ rax ] 
+  call symbol 
+ ","  ldr x24 [ x26 # 0xef8 ] 
+  b address 
+ "," ldr x0 [ x21 ] 
+  bl symbol 
+"
+"  mov rax qword [ rbp + 0x10 ] 
+  mov rax qword [ rax + 0x8 ] 
+  sub rax qword [ rbp ] 
+  jmp address 
+ ","  ldr x0 [ x23 # 0x10 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  ldr x1 [ x23 ] 
+  sub x0 x0 x1 
+  ldp x25 x26 [ sp # 0x40 ] 
+  b address 
+ "," ldr x0 [ x20 # 0x10 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  ldr x1 [ x20 ] 
+  sub x0 x0 x1 
+  b address 
+"
+"  add rsp 0x8 
+  retn 
+ ","  ldp x29 x30 [ sp ] # 0x10 
+  ret 
+ "," ldp x29 x30 [ sp ] # 0x10 
+  ret 
+"
+"  mov rax qword [ r15 ] 
+  mov qword [ r14 + 0x8 ] rax 
+ ","  ldr x0 [ x28 ] 
+  str x0 [ x22 # 0x8 ] 
+ "," ldr x0 [ x28 ] 
+  str x0 [ x22 # 0x8 ] 
+"
+"  test r14d r14d 
+  cmove r15 r12 
+ ","  cmp w27 # 0 
+  csel x28 x28 x22 ne 
+ "," cmp w27 # 0 
+  csel x28 x28 x22 ne 
+"
+"  cmp byte [ rbx + 0x18 ] 0x3 
+  je address 
+ ","  ldrb w0 [ x19 # 0x18 ] 
+  cmp w0 # 0x3 
+  b.eq address 
+ "," ldrb w0 [ x19 # 0x18 ] 
+  cmp w0 # 0x3 
+  b.eq address 
+"
+"  mov edx ebx 
+  mov rax qword [ rbp + 0x18 ] 
+  mov r12 qword [ rax + rdx * 8 ] 
+ ","  ldr x0 [ x20 # 0x18 ] 
+  ldr x21 [ x0 w19 uxtw # 0x3 ] 
+ "," ldr x0 [ x20 # 0x18 ] 
+  ldr x21 [ x0 w19 uxtw # 0x3 ] 
+"
+"  mov rsi qword [ rsi + 0x8 ] 
+  mov rdi qword [ rdi + 0x8 ] 
+  call symbol 
+  test eax eax 
+  sete al 
+  movzx eax al 
+ ","  ldr x1 [ x1 # 0x8 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  bl symbol 
+  cmp w0 # 0 
+ "," ldr x1 [ x1 # 0x8 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  bl symbol 
+  cmp w0 # 0 
+"
+"  mov rax qword [ r12 + 0x8 ] 
+  mov rax qword [ rax + 0x370 ] 
+  test byte [ rax + 0x3d0 ] 0x4 
+  je address 
+ ","  ldr x0 [ x21 # 0x8 ] 
+  ldr x0 [ x0 # 0x370 ] 
+  ldr w0 [ x0 # 0x3d0 ] 
+  tbz w0 # 0x2 address 
+ "," ldr x0 [ x21 # 0x8 ] 
+  ldr x0 [ x0 # 0x370 ] 
+  ldr w0 [ x0 # 0x3d0 ] 
+  tbz w0 # 0x2 address 
+"
+"  mov edx 0x0 
+  mov esi 0x1 
+  mov edi eax 
+  mov eax 0x0 
+  call symbol 
+ ","  mov w2 # 0 
+  mov w1 # 0x1 
+  bl symbol 
+ "," mov w2 # 0 
+  mov w1 # 0x1 
+  bl symbol 
+"
+"  add dword [ rsp + 0x20 ] 0x1 
+  mov eax dword [ rsp + 0x20 ] 
+  cmp dword [ r13 + 0x2c4 ] eax 
+  ja address 
+  mov r14d dword [ rsp + 0x4c ] 
+  jmp address 
+ ","  ldr w0 [ sp # 0x8c ] 
+  add w0 w0 # 0x1 
+  mov w1 w0 
+  str w0 [ sp # 0x8c ] 
+  ldr w0 [ x20 # 0x2c4 ] 
+  cmp w0 w1 
+  b.hi address 
+ "," ldr w0 [ sp # 0x8c ] 
+  add w0 w0 # 0x1 
+  str w0 [ sp # 0x8c ] 
+  ldr w0 [ x20 # 0x2c4 ] 
+  cmp w0 w0 
+  b.hi address 
+"
+"  sub rax rbp 
+  jmp address 
+ ","  sub x0 x0 x19 
+  b address 
+ "," sub x0 x0 x20 
+  b address 
+"
+"  mov edx 0x5 
+  lea rsi [ rel string ] 
+  lea rdi [ rel address ] 
+  call symbol 
+  mov rdi rax 
+ ","  mov w2 # 0x5 
+  adrp x1 address 
+  add x1 x1 # 0x1f0 
+  adrp x0 string 
+  add x0 x0 # 0x400 
+  bl symbol 
+ "," mov w2 # 0x5 
+  ldr x1 [ sp # 0x68 ] 
+  ldr x0 [ sp # 0x80 ] 
+  bl symbol 
+"
+"  mov rsi qword [ rbp ] 
+  mov rdi r13 
+  call symbol 
+  test eax eax 
+  je address 
+ ","  ldr x1 [ x20 ] 
+  mov x0 x22 
+  bl symbol 
+  cbz w0 address 
+ "," ldr x1 [ x20 ] 
+  mov x0 x22 
+  bl symbol 
+  cbz w0 address 
+"
+"  endbr64 
+  push r12 
+  push rbp 
+  push rbx 
+  mov rbx rdi 
+  mov ebp esi 
+  mov r12 rdx 
+ ","  stp x29 x30 [ sp #- 0x30 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  str x21 [ sp # 0x20 ] 
+  mov x20 x0 
+  mov w19 w1 
+  mov x21 x2 
+ "," stp x29 x30 [ sp #- 0x30 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  str x21 [ sp # 0x20 ] 
+  mov x19 x0 
+  mov w20 w1 
+  mov x21 x2 
+"
+"  mov rdi qword [ rdi + 0x28 ] 
+  mov r8d 0x1 
+  mov ecx 0x0 
+  mov edx 0x0 
+  call symbol 
+ ","  mov w4 # 0x1 
+  mov w3 # 0 
+  mov w2 # 0 
+  ldr x0 [ x0 # 0x28 ] 
+  bl symbol 
+ "," mov w4 # 0x1 
+  mov w3 # 0 
+  mov w2 # 0 
+  ldr x0 [ x0 # 0x28 ] 
+  bl symbol 
+"
+"  cmp rbp 0xf 
+  ja string 
+ ","  cmp x21 # 0xf 
+  b.hi address 
+ "," cmp x21 # 0xf 
+  b.hi address 
+"
+"  mov rax qword [ rsp + 0xa0 ] 
+  mov qword [ r15 + 0x38 ] rax 
+ ","  ldr x0 [ sp # 0x100 ] 
+  str x0 [ x19 # 0x38 ] 
+ "," ldr x0 [ sp # 0x100 ] 
+  str x0 [ x19 # 0x38 ] 
+"
+"  lea rsi [ rel string ] 
+  call symbol 
+ ","  adrp x1 address 
+  add x1 x1 # 0x2a0 
+  bl symbol 
+ "," mov x1 x26 
+  bl symbol 
+"
+"  cmp dword [ rel symbol ] 0x0 
+  je address 
+ ","  adrp x0 address 
+  ldr w0 [ x0 # 0x9b4 ] 
+  cbz w0 address 
+ "," adrp x0 address 
+  ldr x0 [ x0 # 0xfe0 ] 
+  ldr w0 [ x0 ] 
+  cbz w0 address 
+"
+"  cmp dl 0x3 
+  jne address 
+ ","  cmp w1 # 0x3 
+  b.ne address 
+ "," cmp w1 # 0x3 
+  b.ne address 
+"
+"  cmp rdx <unk> 
+  je address 
+ ","  cmn x1 # 0x1 
+  b.eq address 
+ "," cmp x1 # 0xa9 
+  b.eq address 
+"
+"  add r12 0x2 
+  cmp byte [ r15 ] 0x4e 
+  jne address 
+  lea rbx [ r12 - 0x2 ] 
+ ","  add x20 x20 # 0x2 
+  ldrb w0 [ x23 ] 
+  cmp w0 # 0x4e 
+  b.ne address 
+  sub x19 x20 # 0x2 
+ "," add x20 x20 # 0x2 
+  ldrb w0 [ x23 ] 
+  cmp w0 # 0x4e 
+  b.ne address 
+  sub x19 x20 # 0x2 
+"
+"  mov edx dword [ rbx + 0x50 ] 
+  cmp edx ebp 
+  jbe address 
+ ","  ldr w1 [ x19 # 0x50 ] 
+  cmp w1 w20 
+  b.ls address 
+ "," ldr w1 [ x19 # 0x50 ] 
+  cmp w1 w20 
+  b.ls address 
+"
+"  mov rax qword [ rbp + 0xd0 ] 
+  mov qword [ rax + 0x28 ] r12 
+ ","  ldr x0 [ x20 # 0xd0 ] 
+  str x21 [ x0 # 0x28 ] 
+ "," ldr x0 [ x20 # 0xd0 ] 
+  str x21 [ x0 # 0x28 ] 
+"
+"  test byte [ rbx + 0x6d ] 0x1 
+  je address 
+ ","  ldr x0 [ x19 # 0x68 ] 
+  tbz x0 # 0x28 address 
+ "," ldr x0 [ x19 # 0x68 ] 
+  tbz x0 # 0x28 address 
+"
+"  mov rax rbp 
+  add rsp 0x18 
+  pop rbx 
+  pop rbp 
+  pop r12 
+  pop r13 
+  pop r14 
+  pop r15 
+  retn 
+ ","  mov x0 x20 
+  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x21 x22 [ sp # 0x20 ] 
+  ldp x23 x24 [ sp # 0x30 ] 
+  ldr x25 [ sp # 0x40 ] 
+  ldp x29 x30 [ sp ] # 0x50 
+  ret 
+ "," mov x0 x20 
+  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x21 x22 [ sp # 0x20 ] 
+  ldp x23 x24 [ sp # 0x30 ] 
+  ldp x29 x30 [ sp ] # 0x50 
+  ret 
+"
+"  cmp qword [ rax + 0x40 ] <unk> 
+  jne address 
+  mov rsi rbx 
+ ","  ldr x0 [ x0 # 0x40 ] 
+  cmn x0 # 0x1 
+  b.ne address 
+  mov x1 x23 
+ "," cmp x8 # 0x202 
+  b.ne address 
+"
+"  mov rdx qword [ rsp + 0x18 ] 
+  mov rsi qword [ rsp + 0x8 ] 
+  mov qword [ rsp + 0x28 ] rax 
+  mov rdi rax 
+  call symbol 
+  mov qword [ rsp + 0x40 ] rax 
+ ","  ldr x2 [ sp # 0x70 ] 
+  mov x1 x27 
+  bl symbol 
+  mov x26 x0 
+ "," ldr x2 [ sp # 0x88 ] 
+  mov x1 x27 
+  bl symbol 
+  mov x26 x0 
+"
+"  mov edx dword [ rsi + 0x20 ] 
+  test edx edx 
+  je address 
+ ","  ldr w1 [ x20 # 0x20 ] 
+  cbz w1 address 
+ "," ldr w1 [ x20 # 0x20 ] 
+  cbz w1 address 
+"
+"  test rax rax 
+  je address 
+ ","  cbz x0 address 
+  stp x27 x28 [ sp # 0x50 ] 
+ "," cbz x0 address 
+  mov x1 x0 
+"
+"  or eax 0x1 
+  mov edx eax 
+  mov esi 0x2 
+  mov edi ebp 
+  mov eax 0x0 
+  call symbol 
+ ","  orr w2 w0 # 0x1 
+  mov w1 # 0x2 
+  mov w0 w20 
+  bl symbol 
+ "," orr w2 w0 # 0x1 
+  mov w1 # 0x2 
+  mov w0 w20 
+  bl symbol 
+"
+"  mov ebx 0x0 
+  jmp address 
+ ","  mov x19 # 0 
+  b address 
+ "," mov x19 # 0 
+  b address 
+"
+"  call symbol 
+  jmp address 
+ ","  mov x0 x19 
+  bl symbol 
+  b address 
+ "," bl symbol 
+  b address 
+"
+"  lea rdi [ rsp + 0x10 ] 
+  mov rdx rbp 
+  mov rsi rbx 
+  call symbol 
+  test eax eax 
+  je address 
+ ","  mov x2 x19 
+  mov x1 x20 
+  mov x0 x23 
+  bl symbol 
+  cbz w0 address 
+ "," mov x2 x19 
+  mov x1 x20 
+  mov x0 x23 
+  bl symbol 
+  cbz w0 address 
+"
+"  cmp dword [ rax + 0x54 ] 0x1 
+  sbb rbx <unk> 
+ ","  cmp w0 # 0 
+  cinc x19 x19 ne 
+ "," cmp w0 # 0 
+  cinc x19 x19 ne 
+"
+"  cmp rdx 0x3c 
+  jne address 
+ ","  cmp x1 # 0x3c 
+  b.eq address 
+  ldp x23 x24 [ sp # 0x30 ] 
+  b address 
+ "," cmp x1 # 0x3c 
+  b.ne address 
+"
+"  mov eax dword [ rsp + 0x38 ] 
+  add eax esi 
+  mov edx 0x0 
+  div r13d 
+  mov r15d edx 
+ ","  add w0 w4 w27 
+  udiv w24 w0 w25 
+  msub w24 w24 w25 w0 
+ "," add w0 w4 w27 
+  udiv w24 w0 w25 
+  msub w24 w24 w25 w0 
+"
+"  mov rax qword [ r14 + 0x8 ] 
+  mov eax dword [ rax + 0x10 ] 
+  cmp eax 0x1 
+  je address 
+ ","  ldr x0 [ x23 # 0x8 ] 
+  ldr w0 [ x0 # 0x10 ] 
+  cmp w0 # 0x1 
+  b.eq address 
+ "," ldr x0 [ x23 # 0x8 ] 
+  ldr w0 [ x0 # 0x10 ] 
+  cmp w0 # 0x1 
+  b.eq address 
+"
+"  lea rdx [ rsp + 0x188 ] 
+  mov rsi qword [ rbp + 0x8 ] 
+  call symbol 
+  mov qword [ rbp + 0x80 ] rax 
+ ","  add x2 sp # 0x210 
+  ldr x1 [ x19 # 0x8 ] 
+  bl symbol 
+  mov x1 x0 
+  str x0 [ x19 # 0x80 ] 
+ "," add x2 sp # 0x210 
+  ldr x1 [ x19 # 0x8 ] 
+  bl symbol 
+  str x0 [ x19 # 0x80 ] 
+"
+"  add rax 0x1 
+  mov qword [ rbx + 0x18 ] rax 
+ ","  add x0 x0 # 0x1 
+  str x0 [ x19 # 0x18 ] 
+ "," add x0 x0 # 0x1 
+  str x0 [ x19 # 0x18 ] 
+"
+"  lea rdx [ rbx + 0x10 ] 
+  mov rax qword [ rsp + 0x8 ] 
+  add rax qword [ rbp + 0x10 ] 
+  cmp rdx rax 
+  jae address 
+ ","  ldr x2 [ sp # 0x68 ] 
+  add x1 x2 # 0x10 
+  ldr x0 [ x21 # 0x10 ] 
+  add x0 x0 x24 
+  cmp x1 x0 
+  b.hs address 
+ "," add x1 x26 # 0x10 
+  ldr x0 [ x21 # 0x10 ] 
+  add x0 x0 x24 
+  cmp x1 x0 
+  b.hs address 
+"
+"  mov rax qword [ rdi + 0x8 ] 
+  and esi 0x7 
+  call qword [ rax + rsi * 8 + 0xd0 ] 
+  test eax eax 
+  je address 
+ ","  ldr x0 [ x19 # 0x8 ] 
+  and x1 x1 # 0x7 
+  add x1 x1 # 0x1a 
+  ldr x1 [ x0 x1 lsl # 0x3 ] 
+  mov x0 x19 
+  blr x1 
+  cbz w0 address 
+ "," ldr x0 [ x19 # 0x8 ] 
+  and x1 x1 # 0x7 
+  add x1 x1 # 0x1a 
+  ldr x1 [ x0 x1 lsl # 0x3 ] 
+  mov x0 x19 
+  blr x1 
+  cbz w0 address 
+"
+"  mov eax 0x0 
+  jmp address 
+ ","  mov w0 # 0 
+  b address 
+ "," mov w0 # 0 
+  b address 
+"
+"  lea r15 [ rsp + 0x60 ] 
+  mov rdx rbx 
+  mov esi 0x20 
+  mov rdi r15 
+  call symbol 
+  cmp rax 0x20 
+  jne address 
+ ","  add x24 sp # 0xb8 
+  mov x25 # 0x20 
+  mov x2 x19 
+  mov x1 x25 
+  mov x0 x24 
+  bl symbol 
+  cmp x0 # 0x20 
+  b.ne address 
+ "," add x24 sp # 0xb8 
+  mov x25 # 0x20 
+  mov x2 x19 
+  mov x1 x25 
+  mov x0 x24 
+  bl symbol 
+  cmp x0 # 0x20 
+  b.ne address 
+"
+"  mov eax r15d 
+  and eax 0xf 
+  cmp eax 0x8 
+  je address 
+ ","  and w0 w22 # 0xf 
+  cmp w0 # 0x8 
+  b.eq address 
+ "," and w0 w22 # 0xf 
+  cmp w0 # 0x8 
+  b.eq address 
+"
+"  mov rax qword [ r13 + 0x68 ] 
+  add rax qword [ rsp + 0x180 ] 
+  mov qword [ rsp + 0x180 ] rax 
+ ","  ldr x1 [ x22 # 0x68 ] 
+  ldr x0 [ sp # 0x1c8 ] 
+  add x0 x0 x1 
+  str x0 [ sp # 0x1c8 ] 
+ "," ldr x1 [ x22 # 0x68 ] 
+  ldr x0 [ sp # 0x1c8 ] 
+  add x0 x0 x1 
+  str x0 [ sp # 0x1c8 ] 
+"
+"  mov rax qword [ rax + 0x370 ] 
+  mov rax qword [ rax + 0x320 ] 
+  movzx eax byte [ rax + 0xa ] 
+  shr al 0x3 
+  movzx eax al 
+ ","  ldr x0 [ x0 # 0x370 ] 
+  ldr x0 [ x0 # 0x320 ] 
+  ldrb w0 [ x0 # 0xa ] 
+ "," ldr x0 [ x0 # 0x370 ] 
+  ldr x0 [ x0 # 0x320 ] 
+  ldrb w0 [ x0 # 0xa ] 
+  ubfx x0 x0 # 0x3 # 0x5 
+"
+"  movzx eax word [ rax + 0x20 ] 
+  sub eax dword [ rbx + 0x40 ] 
+  mov dword [ rsp + 0xc ] eax 
+ ","  ldrh w24 [ x0 # 0x20 ] 
+  ldr x0 [ x19 # 0x40 ] 
+  sub w25 w24 w0 
+ "," ldrh w0 [ x19 # 0x20 ] 
+  ldr w1 [ x19 # 0x40 ] 
+  sub w25 w0 w1 
+"
+"  mov rsi rsp 
+  mov edx address 
+  call symbol 
+  mov rdi rax 
+ ","  mov x2 # <unk> 
+  add x1 sp # 0x28 
+  bl symbol 
+ "," mov x2 # address 
+  add x1 sp # 0x28 
+  bl symbol 
+"
+"  mov rax rcx 
+  sub rax rsi 
+  cqo 
+  idiv rdi 
+  test rdx rdx 
+  je address 
+ ","  sub x5 x1 x4 
+  sdiv x0 x5 x3 
+  msub x0 x0 x3 x5 
+  cbz x0 address 
+ "," sdiv x1 x3 x4 
+  msub x1 x1 x3 x4 
+  cbz x1 address 
+"
+"  cmp dword [ rdi + 0x134 ] 0x400 
+  jg address 
+ ","  ldr w0 [ x0 # 0x134 ] 
+  cmp w0 # 0x400 
+  b.gt address 
+ "," ldr w0 [ x19 # 0x134 ] 
+  cmp w0 # 0x400 
+  b.gt address 
+"
+"  cmp rax 0x1 
+  je address 
+ ","  cmp x0 # 0x1 
+  b.eq address 
+ "," cmp x0 # 0x1 
+  b.eq address 
+"
+"  mov rbp qword [ rsp + 0x58 ] 
+  shl rbp 0x3 
+ ","  ldr x0 [ sp # 0xe0 ] 
+  lsl x21 x0 # 0x3 
+ "," ldr x0 [ sp # 0xe0 ] 
+  lsl x21 x0 # 0x3 
+"
+"  cmp byte [ rdi + 0x1 ] 0x5a 
+  jne address 
+ ","  ldrb w0 [ x20 # 0x1 ] 
+  cmp w0 # 0x5a 
+  b.ne address 
+ "," ldrb w1 [ x0 # 0x1 ] 
+  cmp w1 # 0x5a 
+  b.ne address 
+"
+"  mov r8d ebp 
+  mov rsi r12 
+ ","  mov w2 w20 
+  mov x4 x21 
+ "," mov w2 w20 
+  mov x4 x21 
+"
+"  mov rax qword [ rdi + 0x8 ] 
+  mov rax qword [ rax + 0x370 ] 
+  mov qword [ rsp + 0x38 ] rax 
+ ","  ldr x0 [ x21 # 0x8 ] 
+  ldr x28 [ x0 # 0x370 ] 
+ "," ldr x0 [ x0 # 0x8 ] 
+  ldr x0 [ x0 # 0x370 ] 
+  str x0 [ sp # 0xa8 ] 
+"
+"  cmp r15 0xc 
+  jbe address 
+ ","  cmp x25 # 0xc 
+  b.ls address 
+  stp x21 x22 [ sp # 0x20 ] 
+  stp x23 x24 [ sp # 0x30 ] 
+ "," cmp x26 # 0xc 
+  b.ls address 
+"
+"  cmp qword [ rbp ] r12 
+  je address 
+ ","  ldr x0 [ x20 ] 
+  cmp x0 x21 
+  b.eq address 
+ "," ldr x0 [ x20 ] 
+  cmp x0 x21 
+  b.eq address 
+"
+"  lea edx [ rax - 0x61 ] 
+  cmp dl 0x5 
+  ja address 
+ ","  sub w1 w0 # 0x61 
+  and w1 w1 # 0xff 
+  cmp w1 # 0x5 
+  b.hi address 
+ "," sub w1 w0 # 0x61 
+  and w1 w1 # 0xff 
+  cmp w1 # 0x5 
+  b.hi address 
+"
+"  mov esi 0x3a 
+  call symbol 
+ ","  mov w1 # 0x3a 
+  mov x0 x2 
+  bl symbol 
+ "," mov w1 # 0x3a 
+  bl symbol 
+"
+"  mov edx eax 
+  mov rdx qword [ rcx + rdx * 8 ] 
+  sub eax 0x1 
+  test rdx rdx 
+  je address 
+ ","  ldr x1 [ sp # 0x68 ] 
+  ldr x1 [ x1 w0 uxtw # 0x3 ] 
+  sub w0 w0 # 0x1 
+  cbz x1 address 
+ "," ldr x1 [ sp # 0x60 ] 
+  ldr x1 [ x1 w0 uxtw # 0x3 ] 
+  sub w0 w0 # 0x1 
+  cbz x1 address 
+"
+"  mov eax <unk> 
+  jmp address 
+ ","  mov w0 # <unk> 
+  b address 
+ "," mov w0 # 0x4a 
+  b address 
+"
+"  mov ecx 0x0 
+  jmp address 
+ ","  mov x3 # 0 
+  b address 
+ "," mov x3 # 0 
+  b address 
+"
+"  cmp al 0x2e 
+  je address 
+ ","  add x0 x0 # 0x1 
+  b address 
+ "," cmp w0 # 0x2e 
+  b.eq address 
+"
+"  mov ebx <unk> 
+  jmp address 
+ ","  mov w19 # <unk> 
+  b address 
+ "," mov w19 # 0x4a 
+  b address 
+"
+"  mov esi 0x1 
+  mov r13 qword [ rsp + 0x10 ] 
+  mov rdi r13 
+  call symbol 
+  mov qword [ rsp + 0xc0 ] rax 
+ ","  mov w1 # 0x1 
+  ldr x21 [ sp # 0xb0 ] 
+  mov x0 x21 
+  bl symbol 
+  str x0 [ sp # 0x150 ] 
+ "," mov w1 # 0x1 
+  mov x0 x22 
+  bl symbol 
+  str x0 [ sp # 0x150 ] 
+"
+"  cmp rdx 0x1f 
+  jbe string 
+ ","  cmp x1 # 0x1f 
+  b.ls address 
+ "," cmp x1 # 0x1f 
+  b.ls address 
+"
+"  mov rbx qword [ rbx + 0x18 ] 
+  test rbx rbx 
+  je address 
+ ","  ldr x19 [ x19 # 0x18 ] 
+  cbz x19 address 
+ "," ldr x19 [ x19 # 0x18 ] 
+  cbz x19 address 
+"
+"  mov rdi rbx 
+  call symbol 
+ ","  mov x0 x19 
+  bl symbol 
+ "," mov x0 x19 
+  bl symbol 
+"
+"  mov rdi qword [ rel symbol ] 
+  test rdi rdi 
+  jne address 
+ ","  adrp x0 address 
+  ldr x0 [ x0 # 0xa78 ] 
+  cbnz x0 address 
+ "," adrp x0 address 
+  ldr x0 [ x0 # 0xf98 ] 
+  cbnz x0 address 
+"
+"  lea rsi [ rsp + 0x18 ] 
+  movsxd rdi dword [ rbx + 0x18 ] 
+  mov rax qword [ rbp + 0x8 ] 
+  call qword [ rax + 0x48 ] 
+ ","  ldr x0 [ x20 # 0x8 ] 
+  ldr x2 [ x0 # 0x48 ] 
+  add x1 sp # 0x48 
+  ldrsw x0 [ x19 # 0x18 ] 
+  blr x2 
+ "," ldr x0 [ x20 # 0x8 ] 
+  ldr x2 [ x0 # 0x48 ] 
+  add x1 sp # 0x48 
+  ldrsw x0 [ x19 # 0x18 ] 
+  blr x2 
+"
+"  cmp r13 rbx 
+  cmovb r13 rbx 
+ ","  cmp x24 x20 
+  csel x24 x24 x20 cs 
+ "," cmp x24 x20 
+  csel x24 x24 x20 cs 
+"
+"  cmp byte [ rbx + 0x108 ] 0x3e 
+  je address 
+ ","  ldrb w0 [ x19 # 0x108 ] 
+  cmp w0 # 0x3e 
+  b.eq address 
+ "," ldrb w0 [ x19 # 0x108 ] 
+  cmp w0 # 0x3e 
+  b.eq address 
+"
+"  test rax rax 
+  je address 
+ ","  cbnz x0 address 
+  ldp x21 x22 [ sp # 0x60 ] 
+  b address 
+  stp x23 x24 [ sp # 0x70 ] 
+ "," cbz x0 address 
+  mov x1 x0 
+"
+"  mov r13d 0x0 
+  mov r14d 0x0 
+  mov edi 0x0 
+  mov dword [ rsp + 0x30 ] 0x0 
+  mov eax 0x0 
+  mov r12d 0x0 
+ ","  mov x23 # 0 
+  mov w28 # 0 
+  mov w27 # 0 
+  str wzr [ sp # 0x80 ] 
+  mov x0 # 0 
+  mov x22 # 0 
+ "," mov x24 # 0 
+  mov x22 # 0 
+  mov w28 # 0 
+  mov w27 # 0 
+  mov x0 # 0 
+  str wzr [ sp # 0x80 ] 
+  mov x22 # 0 
+"
+"  mov qword [ rbx + 0x30 ] rax 
+  jmp address 
+ ","  str x0 [ x19 # 0x30 ] 
+  b address 
+ "," str x0 [ x19 # 0x30 ] 
+  b address 
+"
+"  lea r12 [ rsp + 0xf ] 
+  mov edx 0x8 
+  lea rsi [ rel string ] 
+  mov rdi r12 
+  call symbol 
+  mov ebp eax 
+  test eax eax 
+ ","  add x21 sp # 0x38 
+  mov x2 # 0x8 
+  adrp x1 string 
+  add x1 x1 # 0x3d0 
+  mov x0 x21 
+  bl symbol 
+  mov w20 w0 
+  cmp w0 # 0 
+  cset w1 eq 
+ "," add x21 sp # 0x38 
+  mov x2 # 0x8 
+  ldr x1 [ sp # 0x38 ] 
+  mov x0 x21 
+  bl symbol 
+  mov w20 w0 
+"
+"  mov rax qword [ r14 + 0x68 ] 
+  add rax qword [ rbx + 0x30 ] 
+  mov qword [ rsp + 0x20 ] rax 
+ ","  ldr x0 [ x19 # 0x30 ] 
+  ldr x1 [ x25 # 0x68 ] 
+  add x0 x0 x1 
+  str x0 [ sp # 0x68 ] 
+ "," ldr x0 [ x19 # 0x30 ] 
+  ldr x1 [ x25 # 0x68 ] 
+  add x0 x0 x1 
+  str x0 [ sp # 0x68 ] 
+"
+"  test rbp rbp 
+  jne address 
+  jmp address 
+ ","  cbnz x20 address 
+  b address 
+ "," cbnz x20 address 
+  b address 
+"
+"  cmp r12d 0x1 
+  mov eax 0x2 
+  cmove r12d eax 
+ ","  cmp w20 # 0x1 
+  csel w20 w20 w28 ne 
+ "," cmp w21 # 0x1 
+  mov w0 # 0x2 
+  csel w21 w21 w0 ne 
+"
+"  mov rcx r14 
+  mov rdx rbx 
+  mov rsi r12 
+  mov eax 0x0 
+  call symbol 
+ ","  mov x3 x25 
+  ldr x2 [ x25 # 0x70 ] 
+  ldr x1 [ x21 # 0x8 ] 
+  bl symbol 
+ "," mov x3 x21 
+  mov x2 x20 
+  mov x1 x28 
+  bl symbol 
+"
+"  mov r8d ebp 
+  mov r14 qword [ rsp + 0x8 ] 
+  mov rcx r14 
+  mov edx r12d 
+  mov rsi rbx 
+  mov eax 0x0 
+  call symbol 
+ ","  mov w4 w20 
+  mov x3 x23 
+  ldr w2 [ x22 # 0x28 ] 
+  mov x1 x19 
+  bl symbol 
+ "," mov w4 w20 
+  mov x3 x23 
+  ldr w2 [ x22 # 0x28 ] 
+  mov x1 x19 
+  bl symbol 
+"
+"  sub edx dword [ r9 + 0x8 ] 
+  js address 
+ ","  subs w1 w1 w5 
+  b.mi address 
+ "," subs w2 w2 w1 
+  b.mi address 
+"
+"  mov edi dword [ r12 + 0x28 ] 
+  shr edi 0x11 
+  and edi 0x1 
+  mov rax qword [ r13 + 0x8 ] 
+  mov rsi rbp 
+  call qword [ rax + 0x90 ] 
+ ","  ldr w0 [ x21 # 0x28 ] 
+  ldr x1 [ x22 # 0x8 ] 
+  ldr x2 [ x1 # 0x90 ] 
+  mov x1 x20 
+  ubfx x0 x0 # 0x11 # 0x1 
+  blr x2 
+  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x23 x24 [ sp # 0x30 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldr x27 [ sp # 0x50 ] 
+ "," ldr w0 [ x21 # 0x28 ] 
+  ldr x1 [ x1 # 0x90 ] 
+  ubfx x0 x0 # 0x11 # 0x1 
+  blr x1 
+"
+"  lea rsi [ rsp + 0x60 ] 
+  mov edx 0x34 
+  mov rdi r15 
+  call rbx 
+ ","  mov x2 # 0x34 
+  add x1 sp # 0xa8 
+  mov x0 x23 
+  blr x21 
+ "," mov x2 # 0x34 
+  add x1 sp # 0xa8 
+  mov x0 x26 
+  blr x21 
+"
+"  mov rax qword [ rsi + 0x48 ] 
+  test rax rax 
+  jne address 
+ ","  ldr x0 [ x1 # 0x48 ] 
+  cbnz x0 address 
+ "," ldr x0 [ x1 # 0x48 ] 
+  cbnz x0 address 
+"
+"  mov rcx qword [ rsi + 0x320 ] 
+  movzx ecx byte [ rcx + 0x9 ] 
+  lea rcx [ rcx + rcx * 2 ] 
+  lea rdx [ rdx + rcx * 8 ] 
+ ","  ldr x5 [ x10 # 0x320 ] 
+  ldrb w5 [ x5 # 0x9 ] 
+  add x5 x5 x5 lsl # 0x1 
+  add x7 x7 x5 lsl # 0x3 
+ "," ldr x5 [ x10 # 0x320 ] 
+  ldrb w5 [ x5 # 0x9 ] 
+  add x5 x5 x5 lsl # 0x1 
+  add x7 x7 x5 lsl # 0x3 
+"
+"  mov r13d 0x0 
+  jmp address 
+ ","  mov x21 # 0 
+  ldp x23 x24 [ sp # 0x30 ] 
+  b address 
+ "," mov x24 # 0 
+  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldp x27 x28 [ sp # 0x50 ] 
+  b address 
+"
+"  endbr64 
+  push rbp 
+  push rbx 
+  sub rsp 0x8 
+  mov r8 rdi 
+  mov rdi rdx 
+  mov rbp rcx 
+ ","  stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  mov x4 x2 
+  mov x19 x3 
+ "," stp x29 x30 [ sp #- 0x20 ]! 
+  mov x29 sp 
+  stp x19 x20 [ sp # 0x10 ] 
+  mov x4 x2 
+  mov x19 x3 
+"
+"  cmp qword [ rax + 0x40 ] 0x1 
+  sbb rbx rbx 
+  and rbx <unk> 
+  add rbx 0x4 
+ ","  cmp x0 # 0 
+  mov x0 # 0x4 
+  csel x19 x19 x0 eq 
+ "," cmp x0 # 0 
+  mov x0 # 0x4 
+  csel x19 x19 x0 eq 
+"
+"  movsxd rdi edi 
+  lea r11 [ rsi + rdi * 4 ] 
+  movzx edi word [ r11 + 0x2 ] 
+  movzx ebp di 
+  cmp ebp eax 
+  je address 
+ ","  sbfiz x0 x0 # 0x2 # 0x20 
+  add x5 x6 x0 
+  ldrh w2 [ x5 # 0x2 ] 
+  cmp w2 w4 
+  b.eq address 
+ "," sbfiz x0 x0 # 0x2 # 0x20 
+  add x5 x6 x0 
+  ldrh w2 [ x5 # 0x2 ] 
+  cmp w2 w4 
+  b.eq address 
+"
+"  add ebp 0x1 
+  cmp ebp 0x47 
+  je address 
+ ","  add w20 w20 # 0x1 
+  cmp w20 # 0x47 
+  b.eq address 
+ "," add w20 w20 # 0x1 
+  cmp w20 # 0x47 
+  b.eq address 
+"
+"  test byte [ r13 + 0x18 ] 0x8 
+  je address 
+ ","  ldr w0 [ x22 # 0x18 ] 
+  tbz w0 # 0x3 address 
+ "," ldr w0 [ x22 # 0x18 ] 
+  tbz w0 # 0x3 address 
+"
+"  test byte [ rbp + 0x49 ] 0x10 
+  je address 
+ ","  tst w5 # <unk> 
+  b.eq address 
+ "," tst w0 # address 
+  b.eq address 
+"
+"  lea rax [ rdx + rdx ] 
+  test rdx rdx 
+  mov edx 0x7c 
+  cmove rax rdx 
+  mov qword [ rsi ] rax 
+ ","  lsl x2 x0 # 0x1 
+  cmp x0 # 0 
+  mov x0 # 0x7c 
+  csel x0 x2 x0 ne 
+  str x0 [ x1 ] 
+ "," lsl x2 x0 # 0x1 
+  cmp x0 # 0 
+  mov x0 # 0x7c 
+  csel x0 x2 x0 ne 
+  str x0 [ x1 ] 
+"
+"  mov rax qword [ r12 + 0x8 ] 
+  test rax rax 
+  je address 
+ ","  ldr x0 [ x21 # 0x8 ] 
+  cbz x0 address 
+ "," ldr x0 [ x21 # 0x8 ] 
+  cbz x0 address 
+"
+"  cmp dword [ r13 ] 0x3e 
+  je address 
+ ","  ldr w0 [ x22 ] 
+  cmp w0 # 0x3e 
+  b.eq address 
+ "," ldr w0 [ x22 ] 
+  cmp w0 # 0x3e 
+  b.eq address 
+"
+"  mov rdi r13 
+  call symbol 
+  test eax eax 
+  je address 
+ ","  mov x0 x21 
+  bl symbol 
+  cbz w0 address 
+ "," mov x0 x21 
+  bl symbol 
+  cbz w0 address 
+"
+"  mov r15 qword [ rbp + 0x10 ] 
+  mov r14 r15 
+  not r14 
+  and r14 rax 
+ ","  ldr x24 [ x21 # 0x10 ] 
+  bic x20 x0 x24 
+ "," ldr x24 [ x21 # 0x10 ] 
+  bic x20 x0 x24 
+"
+"  test byte [ r13 + 0x3d0 ] 0x20 
+  je address 
+ ","  ldr w0 [ x22 # 0x3d0 ] 
+  tbz w0 # 0x5 address 
+ "," ldr w0 [ x22 # 0x3d0 ] 
+  tbz w0 # 0x5 address 
+"
+"  cmp r8b 0x63 
+  jne address 
+  cmp bl 0x76 
+  jne address 
+ ","  cmp w6 # 0x63 
+  mov w0 # 0x76 
+  ccmp w19 w0 # 0 eq 
+  b.eq address 
+ "," cmp w6 # 0x63 
+  mov w0 # 0x76 
+  ccmp w19 w0 # 0 eq 
+  b.ne address 
+"
+"  mov rax qword [ rdi + 0x8 ] 
+  mov rax qword [ rax + 0x370 ] 
+  test byte [ rax + 0x3d1 ] 0x2 
+  je address 
+ ","  ldr x0 [ x0 # 0x8 ] 
+  ldr x0 [ x0 # 0x370 ] 
+  ldr w0 [ x0 # 0x3d0 ] 
+  tbz w0 # 0x9 address 
+ "," ldr x0 [ x0 # 0x8 ] 
+  ldr x0 [ x0 # 0x370 ] 
+  ldr w0 [ x0 # 0x3d0 ] 
+  tbz w0 # 0x9 address 
+"
+"  mov rdi qword [ r15 + 0x28 ] 
+  mov r8d 0x1 
+  mov ecx 0x0 
+  mov edx 0x0 
+  call symbol 
+  mov r12 rax 
+ ","  mov w4 # 0x1 
+  mov w3 # 0 
+  mov w2 # 0 
+  ldr x0 [ x23 # 0x28 ] 
+  bl symbol 
+  mov x21 x0 
+ "," mov w4 # 0x1 
+  mov w3 # 0 
+  mov w2 # 0 
+  ldr x0 [ x23 # 0x28 ] 
+  bl symbol 
+  mov x21 x0 
+"
+"  add dword [ rsp + 0x1c ] 0x1 
+  mov eax dword [ rsp + 0x1c ] 
+  cmp eax 0x64 
+  je address 
+ ","  add w27 w27 # 0x1 
+  cmp w27 # 0x64 
+  b.eq address 
+ "," add w27 w27 # 0x1 
+  cmp w27 # 0x64 
+  b.eq address 
+"
+"  cmp qword [ rbx + 0x38 ] <unk> 
+  je address 
+ ","  ldr x0 [ x19 # 0x38 ] 
+  cmn x0 # 0x2 
+  b.eq address 
+ "," ldr x0 [ x19 # 0x38 ] 
+  cmp x0 # 0xbb 
+  b.eq address 
+"
+"  mov rax qword [ rax + 0xc98 ] 
+  mov rax qword [ rax + 0x40 ] 
+  mov qword [ rsp + 0x8 ] rax 
+ ","  ldr x0 [ x0 # 0xc98 ] 
+  ldr x21 [ x0 # 0x40 ] 
+ "," ldr x0 [ x0 # 0xc98 ] 
+  ldr x21 [ x0 # 0x40 ] 
+"
+"  or byte [ rbp + 0x19 ] 0x2 
+  jmp address 
+ ","  ldrh w0 [ x20 # 0x18 ] 
+  orr w0 w0 # 0x200 
+  strh w0 [ x20 # 0x18 ] 
+  b address 
+ "," ldrh w0 [ x20 # 0x18 ] 
+  orr w0 w0 # 0x200 
+  strh w0 [ x20 # 0x18 ] 
+  b address 
+"
+"  lea rdx [ rsp + 0x20 ] 
+  lea rsi [ rsp + 0xe0 ] 
+  mov r9 r13 
+  mov r8d 0x0 
+  mov rcx r12 
+  mov rdi rbx 
+  call symbol 
+  mov qword [ rsp + 0x8 ] rax 
+ ","  mov x5 x22 
+  mov w4 # 0 
+  mov x3 x21 
+  add x2 sp # 0x60 
+  add x1 sp # 0x118 
+  mov x0 x19 
+  bl symbol 
+  str x0 [ sp # 0x48 ] 
+ "," mov x5 x22 
+  mov w4 # 0 
+  mov x3 x21 
+  add x2 sp # 0x60 
+  add x1 sp # 0x118 
+  mov x0 x19 
+  bl symbol 
+  str x0 [ sp # 0x48 ] 
+"
+"  mov rax r12 
+  shl rax 0x5 
+  add rax qword [ rsp + 0x48 ] 
+  movdqu xmm4 xmmword [ rax ] 
+  movaps xmmword [ rsp + 0x180 ] xmm4 
+  movdqu xmm5 xmmword [ rax + 0x10 ] 
+  movaps xmmword [ rsp + 0x190 ] xmm5 
+ ","  ldr x0 [ sp # 0x98 ] 
+  add x0 x0 x21 lsl # 0x5 
+  ldp q0 q1 [ x0 ] 
+  add x0 sp # 0x1c8 
+  add x1 sp # 0x200 
+  stp q0 q1 [ x0 ] 
+ "," ldr x0 [ sp # 0x98 ] 
+  add x0 x0 x21 lsl # 0x5 
+  ldp q0 q1 [ x0 ] 
+  stp q0 q1 [ x0 ] 
+"
+"  mov r12 r14 
+  jmp address 
+ ","  mov x21 x24 
+  b address 
+ "," mov x21 x23 
+  b address 
+"
+"  mov rdi qword [ rsp + 0x20 ] 
+  call symbol 
+ ","  mov x0 x26 
+  bl symbol 
+ "," mov x0 x26 
+  bl symbol 
+"
+"  mov eax dword [ r13 ] 
+  and eax address 
+  cmp eax address 
+  setne cl 
+  movzx ecx cl 
+  jmp address 
+ ","  ldr x0 [ x23 ] 
+  and x0 x0 # <unk> 
+  cmp x0 # 0x18 lsl # 0xc 
+  cset w2 ne 
+  b address 
+ "," ldr x0 [ x21 ] 
+  and x0 x0 # address 
+  cmp x0 # 0x18 lsl # 0xc 
+  cset w2 ne 
+  b address 
+"
+"  or dword [ rax + 0x28 ] address 
+  jmp address 
+ ","  ldr w1 [ x0 # 0x28 ] 
+  orr w1 w1 # <unk> 
+  str w1 [ x0 # 0x28 ] 
+ "," ldr w1 [ x0 # 0x28 ] 
+  orr w1 w1 # address 
+  str w1 [ x0 # 0x28 ] 
+"
+"  test r13 r13 
+  je address 
+  cmp byte [ r13 ] 0x0 
+  jne address 
+ ","  cbz x20 address 
+  ldrb w0 [ x20 ] 
+  cbnz w0 address 
+ "," cbz x22 address 
+  ldrb w0 [ x22 ] 
+  cbnz w0 address 
+"
+"  mov rcx qword [ rsp + 0x138 ] 
+  mov rdx rbp 
+  mov rsi qword [ rsp + 0x1a0 ] 
+  mov rdi qword [ rsp + 0x18 ] 
+  call rax 
+  test eax eax 
+  jne address 
+ ","  ldr x3 [ sp # 0x188 ] 
+  mov x2 x24 
+  ldr x1 [ sp # 0x1e8 ] 
+  mov x0 x27 
+  blr x4 
+  cbnz w0 address 
+ "," ldr x3 [ sp # 0x188 ] 
+  mov x2 x24 
+  ldr x1 [ sp # 0x1e8 ] 
+  mov x0 x27 
+  blr x4 
+  cbnz w0 address 
+"
+"  mov rdx rax 
+  add rax 0x1 
+  cmp rsi rdx 
+  jne address 
+ ","  cmp x1 x2 
+  add x2 x2 # 0x1 
+  b.ne string 
+ "," cmp x1 x2 
+  add x0 x0 # 0x1 
+  b.ne string 
+"
+"  mov rax qword [ rdi + 0x100 ] 
+  mov rax qword [ rax + 0xc90 ] 
+  mov eax dword [ rax ] 
+ ","  ldr x0 [ x0 # 0x100 ] 
+  ldr x0 [ x0 # 0xc90 ] 
+ "," ldr x0 [ x0 # 0x100 ] 
+  ldr x0 [ x0 # 0xc90 ] 
+"
+"  add ecx dword [ rsp + 0x4 ] 
+  sub ecx edx 
+  add rcx qword [ r12 + 0x48 ] 
+  jmp address 
+ ","  ldr w2 [ sp # 0x64 ] 
+  add w1 w1 w2 
+  sub w1 w1 w3 
+  ldr x3 [ x21 # 0x48 ] 
+  add x3 x3 x1 
+  b address 
+ "," ldr w2 [ sp # 0x64 ] 
+  add w1 w1 w2 
+  sub w1 w1 w3 
+  ldr x3 [ x21 # 0x48 ] 
+  add x3 x3 x1 
+  b address 
+"
+"  mov rbx rdx 
+  shr rbx 0x2 
+  cmp rdx 0x3 
+  mov eax 0x1 
+  cmovbe rbx rax 
+ ","  lsr x19 x2 # 0x2 
+  cmp x2 # 0x3 
+  csinc x19 x19 xzr hi 
+ "," lsr x19 x2 # 0x2 
+  cmp x2 # 0x3 
+  csinc x19 x19 xzr hi 
+"
+"  mov rax qword [ rsp + 0x38 ] 
+  mov ecx dword [ rax + 0x4c ] 
+  mov dword [ rsp + 0xa0 ] ecx 
+ ","  ldr x0 [ sp # 0x80 ] 
+  ldr w19 [ x0 # 0x4c ] 
+  str w19 [ sp # 0xbc ] 
+ "," ldr x0 [ sp # 0x80 ] 
+  ldr w19 [ x0 # 0x4c ] 
+  str w19 [ sp # 0xbc ] 
+"
+"  mov edx 0x100 
+  mov rsi rbx 
+  mov rdi rbp 
+  call symbol 
+ ","  mov w2 # 0x100 
+  mov x1 x19 
+  mov x0 x20 
+  bl symbol 
+  mov x2 x0 
+ "," mov w2 # 0x100 
+  mov x1 x19 
+  mov x0 x20 
+  bl symbol 
+"
+"  mov rdx qword [ r13 + 0x8 ] 
+  mov qword [ rax + 0x40 ] rdx 
+ ","  ldr x0 [ x22 # 0x8 ] 
+  str x0 [ x2 # 0x40 ] 
+ "," ldr x1 [ x21 # 0x8 ] 
+  str x1 [ x0 # 0x40 ] 
+"
+"  sub rbp rsi 
+  sub rbp 0x1 
+  and rbp rsi 
+ ","  sub x2 x24 x1 
+  sub x2 x2 # 0x1 
+  and x1 x1 x2 
+ "," sub x20 x1 x21 
+  sub x20 x20 # 0x1 
+"
+"  mov rax qword [ rdi + 0x8 ] 
+  mov rdi rsi 
+  call qword [ rax + 0x20 ] 
+  jmp address 
+ ","  ldr x0 [ x0 # 0x8 ] 
+  ldr x2 [ x0 # 0x20 ] 
+  mov x0 x1 
+  blr x2 
+  b address 
+ "," ldr x0 [ x0 # 0x8 ] 
+  ldr x2 [ x0 # 0x20 ] 
+  mov x0 x1 
+  blr x2 
+  b address 
+"
+"  movzx ecx byte [ rdi + 0x4 ] 
+  shl rcx 0x20 
+  or rax rcx 
+ ","  ldrb w3 [ x0 # 0x4 ] 
+  lsl x3 x3 # 0x20 
+ "," ldrb w3 [ x0 # 0x4 ] 
+  lsl x3 x3 # 0x20 
+"
+"  cmp byte [ rdi ] 0x51 
+  jne address 
+ ","  cmp w1 # 0x51 
+  b.ne address 
+ "," cmp w1 # 0x51 
+  b.ne address 
+"
+"  mov r8d r15d 
+  mov rcx r14 
+  mov rdx r13 
+  mov rsi r12 
+  mov rdi rbp 
+  call symbol 
+  jmp address 
+ ","  mov w4 w23 
+  mov x3 x24 
+  mov x2 x22 
+  mov x1 x21 
+  mov x0 x20 
+  bl symbol 
+  b address 
+ "," mov w4 w23 
+  mov x3 x24 
+  mov x2 x22 
+  mov x1 x21 
+  mov x0 x20 
+  bl symbol 
+  b address 
+"
+"  cmp al 0x1 
+  ja address 
+ ","  cmp w1 w0 
+  b.ls address 
+  ldr x23 [ sp # 0x30 ] 
+  b address 
+  mov w1 w0 
+ "," and w0 w0 # 0xff 
+  cmp w0 # 0x1 
+  b.hi address 
+"
+"  cmp r15b 0x8 
+  je address 
+ ","  and w0 w22 # 0xff 
+  cmp w0 # 0x8 
+  b.eq address 
+ "," cmp w23 # 0x8 
+  b.eq address 
+"
+"  mov eax dword [ rbx + 0xb8 ] 
+  sub eax 0x1 
+  mov dword [ rbx + 0xb8 ] eax 
+  je address 
+ ","  ldr w0 [ x19 # 0xb8 ] 
+  sub w0 w0 # 0x1 
+  str w0 [ x19 # 0xb8 ] 
+  cbz w0 address 
+ "," ldr w0 [ x19 # 0xb8 ] 
+  sub w0 w0 # 0x1 
+  str w0 [ x19 # 0xb8 ] 
+  cbz w0 address 
+"
+"  mov esi 0xde3 
+  lea rdi [ rel string ] 
+  call symbol 
+ ","  mov w1 # 0xde3 
+  adrp x0 symbol 
+  add x0 x0 # 0x570 
+  bl symbol 
+ "," mov w1 # 0xde3 
+  ldr x0 [ sp # 0x70 ] 
+  bl symbol 
+"
+"  mov rcx qword [ rbx + 0x10 ] 
+  mov rdx qword [ rbx + 0x28 ] 
+  lea rdi [ rdx + 0x1 ] 
+  mov qword [ rbx + 0x28 ] rdi 
+  mov byte [ rcx + rdx ] al 
+ ","  ldr x3 [ x19 # 0x10 ] 
+  ldr x2 [ x19 # 0x28 ] 
+  add x4 x2 # 0x1 
+  str x4 [ x19 # 0x28 ] 
+  strb w0 [ x3 x2 ] 
+ "," ldr x3 [ x19 # 0x10 ] 
+  ldr x2 [ x19 # 0x28 ] 
+  add x4 x2 # 0x1 
+  str x4 [ x19 # 0x28 ] 
+  strb w0 [ x3 x2 ] 
+"
+"  mov rax qword [ r14 + 0x100 ] 
+  mov eax dword [ rax + 0x340 ] 
+  mov word [ rsp + 0x188 ] ax 
+  jmp address 
+ ","  ldr x0 [ x26 # 0x100 ] 
+  ldr w0 [ x0 # 0x340 ] 
+  strh w0 [ sp # 0x210 ] 
+  b address 
+ "," ldr x0 [ x26 # 0x100 ] 
+  ldr w0 [ x0 # 0x340 ] 
+  strh w0 [ sp # 0x210 ] 
+  b address 
+"
+"  mov rax qword [ r12 + 0x320 ] 
+  movzx esi byte [ rax + 0xa ] 
+  shr sil 0x3 
+  add esi 0x14 
+  movzx esi sil 
+  mov r15 qword [ rsp + 0x20 ] 
+  mov qword [ r15 + 0x40 ] rsi 
+ ","  ldr x0 [ x21 # 0x320 ] 
+  ldrb w1 [ x0 # 0xa ] 
+  lsr w1 w1 # 0x3 
+  add w1 w1 # 0x14 
+  and x1 x1 # 0xff 
+  str x1 [ x28 # 0x40 ] 
+ "," ldr x0 [ x21 # 0x320 ] 
+  ldrb w1 [ x0 # 0xa ] 
+  lsr w1 w1 # 0x3 
+  add w1 w1 # 0x14 
+  and x1 x1 # 0xff 
+  str x1 [ x28 # 0x40 ] 
+"
+"  cmp dil 0x78 
+  mov edi 0x73 
+  mov r8d 0x53 
+  cmovne edi r8d 
+  mov byte [ rdx + 0x3 ] dil 
+ ","  cmp w4 # 0x78 
+  mov w4 # 0x53 
+  mov w5 # 0x73 
+  csel w4 w4 w5 ne 
+  strb w4 [ x1 # 0x3 ] 
+ "," cmp w4 # 0x78 
+  mov w4 # 0x53 
+  mov w5 # 0x73 
+  csel w4 w4 w5 ne 
+  strb w4 [ x1 # 0x3 ] 
+"
+"  mov rsi qword [ rax + 0x8 ] 
+  cmp rcx rsi 
+  cmova rcx rsi 
+ ","  ldr x2 [ x6 # 0x8 ] 
+  cmp x1 x2 
+  csel x1 x1 x2 ls 
+ "," ldr x2 [ x6 # 0x8 ] 
+  cmp x1 x2 
+  csel x1 x1 x2 ls 
+"
+"  add rsp 0x8 
+  retn 
+ ","  ldp x29 x30 [ sp ] # 0x10 
+  ret 
+ "," ldp x29 x30 [ sp ] # 0x10 
+  ret 
+"
+"  lea rdi [ rsp + 0xb0 ] 
+  mov rdx rbx 
+  mov esi 0x34 
+  call symbol 
+  cmp rax 0x34 
+  jne address 
+ ","  mov x2 x19 
+  mov x1 # 0x34 
+  add x0 sp # 0x100 
+  bl symbol 
+  cmp x0 # 0x34 
+  b.ne address 
+ "," mov x2 x19 
+  mov x1 # 0x34 
+  add x0 sp # 0x100 
+  bl symbol 
+  cmp x0 # 0x34 
+  b.ne address 
+"
+"  lea r12 [ rax + 0x28 ] 
+  cmp dl 0x2 
+  mov edx 0x0 
+  cmovae r12 rdx 
+ ","  add x21 x0 # 0x28 
+  cmp w1 # 0x2 
+  csel x21 x21 xzr cc 
+ "," add x21 x0 # 0x28 
+  cmp w1 # 0x2 
+  csel x21 x21 xzr cc 
+"
+"  movzx eax byte [ rbx + 0x50 ] 
+  and eax 0x70 
+  cmp al 0x10 
+  sete dl 
+  shl edx 0x3 
+  movzx eax byte [ r12 + 0xa ] 
+  and eax <unk> 
+  or eax edx 
+  mov byte [ r12 + 0xa ] al 
+ ","  ldrb w0 [ x21 # 0x50 ] 
+  and w0 w0 # 0x70 
+  cmp w0 # 0x10 
+  cset w1 eq 
+  ldr w0 [ x22 # 0x8 ] 
+  bfi w0 w1 # 0x13 # 0x1 
+  str w0 [ x22 # 0x8 ] 
+ "," ldrb w0 [ x21 # 0x50 ] 
+  and w0 w0 # 0x70 
+  cmp w0 # 0x10 
+  cset w1 eq 
+  ldr w0 [ x22 # 0x8 ] 
+  bfi w0 w1 # 0x13 # 0x1 
+  str w0 [ x22 # 0x8 ] 
+"
+"  mov r8d r15d 
+  mov rcx r14 
+  mov rdx r13 
+  mov rsi r12 
+  mov rdi rbp 
+  call symbol 
+  jmp address 
+ ","  mov w4 w23 
+  mov x3 x24 
+  mov x2 x22 
+  mov x1 x21 
+  mov x0 x20 
+  bl symbol 
+  b address 
+ "," mov w4 w23 
+  mov x3 x24 
+  mov x2 x22 
+  mov x1 x21 
+  mov x0 x20 
+  bl symbol 
+  b address 
+"
+"  mov r12 qword [ r12 + 0x18 ] 
+  test r12 r12 
+  je address 
+ ","  ldr x21 [ x21 # 0x18 ] 
+  cbz x21 address 
+ "," ldr x21 [ x21 # 0x18 ] 
+  cbz x21 address 
+"
+"  add rax 0x7f 
+  and rax <unk> 
+ ","  add x0 x0 # 0x7f 
+  and x0 x0 # <unk> 
+ "," add x0 x0 # 0x7f 
+  and x0 x0 # address 
+"
+"  mov dword [ rsp ] 0x8 
+  mov dword [ rsp + 0x4 ] 0x30 
+  lea rax [ rsp + 0xe0 ] 
+  mov qword [ rsp + 0x8 ] rax 
+  lea rax [ rsp + 0x20 ] 
+  mov qword [ rsp + 0x10 ] rax 
+ ","  add x1 sp # 0x120 
+  str x1 [ sp # 0x38 ] 
+  str x1 [ sp # 0x40 ] 
+  add x1 sp # 0xe0 
+  str x1 [ sp # 0x48 ] 
+  mov w1 # <unk> 
+  str w1 [ sp # 0x50 ] 
+  mov w1 # <unk> 
+  str w1 [ sp # 0x54 ] 
+ "," add x1 sp # 0x120 
+  str x1 [ sp # 0x38 ] 
+  str x1 [ sp # 0x40 ] 
+  add x1 sp # 0xe0 
+  str x1 [ sp # 0x48 ] 
+  mov w1 # address 
+  str w1 [ sp # 0x50 ] 
+  mov w1 # address 
+  str w1 [ sp # 0x54 ] 
+"
+"  movzx eax byte [ rbx ] 
+  test al al 
+  je address 
+ ","  ldrb w2 [ x19 ] 
+  cbz w2 address 
+ "," ldrb w0 [ x19 ] 
+  cbz w0 address 
+"
+"  mov rax qword [ r12 + 0xe8 ] 
+  test byte [ rax + 0x8 ] 0x80 
+  je address 
+ ","  ldr x0 [ x21 # 0xe8 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  tbz w0 # 0x7 address 
+ "," ldr x0 [ x21 # 0xe8 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  tbz w0 # 0x7 address 
+"
+"  mov rax qword [ r14 ] 
+  mov qword [ rcx ] rax 
+ ","  ldr x0 [ x19 ] # 0x8 
+  str x0 [ x2 ] 
+ "," ldr x0 [ x23 ] 
+  str x0 [ x23 ] 
+"
+"  add rsp 0x8 
+  retn 
+ ","  ldp x29 x30 [ sp ] # 0x10 
+  ret 
+ "," ldp x29 x30 [ sp ] # 0x10 
+  ret 
+"
+"  mov r13d 0x0 
+  jmp address 
+ ","  mov w22 # 0 
+  ldp x23 x24 [ sp # 0x30 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  b address 
+  str x27 [ sp # 0x50 ] 
+ "," mov x24 # 0 
+  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+  ldp x27 x28 [ sp # 0x50 ] 
+  b address 
+"
+"  mov rax qword [ rcx + 0x218 ] 
+  test rax rax 
+  je address 
+ ","  ldr x2 [ x0 # 0x218 ] 
+  cbz x2 address 
+ "," ldr x1 [ x3 # 0x218 ] 
+  cbz x1 address 
+"
+"  mov rdx rbp 
+  mov rsi r13 
+  mov rdi r12 
+  call symbol 
+  cmp rax r13 
+  jne address 
+ ","  mov x2 x20 
+  mov x1 x22 
+  mov x0 x21 
+  bl symbol 
+  cmp x0 x22 
+  b.ne address 
+ "," mov x2 x20 
+  mov x1 x22 
+  mov x0 x21 
+  bl symbol 
+  cmp x0 x22 
+  b.ne address 
+"
+"  cmp eax 0x1 
+  jle address 
+ ","  cmp w0 # 0x1 
+  b.le address 
+ "," cmp w0 # 0x1 
+  b.le address 
+"
+"  mov rax qword [ r13 + 0x28 ] 
+  mov rdx qword [ rax + 0x88 ] 
+  mov qword [ rax + 0x78 ] rdx 
+ ","  ldr x0 [ x21 # 0x28 ] 
+  ldr x1 [ x0 # 0x88 ] 
+  str x1 [ x0 # 0x78 ] 
+ "," ldr x0 [ x21 # 0x28 ] 
+  ldr x1 [ x0 # 0x88 ] 
+  str x1 [ x0 # 0x78 ] 
+"
+"  mov r14 r15 
+  mov r15 qword [ rsp + 0x10 ] 
+  shr r14 0x3 
+  sub ebx 0x3 
+ ","  lsr x22 x22 # 0x3 
+  sub w19 w19 # 0x3 
+ "," lsr x22 x22 # 0x3 
+  sub w19 w19 # 0x3 
+"
+"  mov rsi qword [ rbx + 0x8 ] 
+  mov rdi qword [ rdx + 0x30 ] 
+  mov ecx 0x0 
+  mov edx 0x0 
+  call symbol 
+  test rax rax 
+  jne address 
+ ","  mov w3 # 0 
+  mov w2 # 0 
+  ldr x1 [ x19 # 0x8 ] 
+  ldr x0 [ x4 # 0x30 ] 
+  bl symbol 
+  cbnz x0 address 
+ "," mov w3 # 0 
+  mov w2 # 0 
+  ldr x1 [ x19 # 0x8 ] 
+  ldr x0 [ x4 # 0x30 ] 
+  bl symbol 
+  cbnz x0 address 
+"
+"  mov rdx qword [ rbx + 0x38 ] 
+  mov edx dword [ rdx + address ] 
+  mov dword [ rbp ] edx 
+ ","  ldr x1 [ x21 # 0x38 ] 
+  ldr w1 [ x1 # <unk> ] 
+  str w1 [ x19 ] 
+ "," ldr x1 [ x21 # 0x38 ] 
+  ldr w1 [ x1 # address ] 
+  str w1 [ x19 ] 
+"
+"  mov r12 qword [ rel symbol ] 
+  mov edx 0x5 
+  lea rsi [ rel string ] 
+  mov edi 0x0 
+  call symbol 
+  mov rdx rax 
+ ","  mov w2 # 0x5 
+  adrp x1 address 
+  add x1 x1 # 0x920 
+  mov x0 # 0 
+  bl symbol 
+  adrp x21 address 
+  ldr x21 [ x21 # 0xfa0 ] 
+ "," adrp x0 address 
+  ldr x0 [ x0 # 0xf88 ] 
+  ldr x21 [ x0 ] 
+  mov w2 # 0x5 
+  adrp x1 address 
+  add x1 x1 # 0xee8 
+  mov x0 # 0 
+  bl symbol 
+"
+"  mov esi 0x863 
+  lea rdi [ rel string ] 
+  call symbol 
+ ","  mov w1 # 0x863 
+  ldr x0 [ sp # 0x70 ] 
+  bl symbol 
+ "," mov w1 # 0x863 
+  ldr x0 [ sp # 0x70 ] 
+  bl symbol 
+"
+"  mov rax r14 
+  add rax 0x30 
+  cmp r15 rax 
+  jbe address 
+ ","  mov x0 x19 
+  add x0 x0 # 0x30 
+  cmp x20 x0 
+  b.ls address 
+ "," mov x0 x19 
+  add x0 x0 # 0x30 
+  cmp x24 x0 
+  b.ls address 
+"
+"  mov edx dword [ rsp + 0x1c ] 
+  mov rsi r14 
+  mov eax 0x0 
+  call symbol 
+ ","  mov w2 w28 
+  mov x1 x19 
+  bl symbol 
+ "," mov w2 w28 
+  mov x1 x19 
+  bl symbol 
+"
+"  mov rax qword [ rbx + 0x30 ] 
+  sub qword [ rbx + 0x28 ] rax 
+ ","  ldr x0 [ x19 # 0x28 ] 
+  ldr x1 [ x19 # 0x30 ] 
+  sub x0 x0 x1 
+  str x0 [ x19 # 0x28 ] 
+ "," ldr x1 [ x19 # 0x28 ] 
+  ldr x0 [ x19 # 0x30 ] 
+  sub x0 x0 x1 
+  str x0 [ x19 # 0x28 ] 
+"
+"  mov ebp 0x0 
+  jmp address 
+ ","  mov x20 # 0 
+  ldp x21 x22 [ sp # 0x20 ] 
+  b address 
+ "," mov x20 # 0 
+  b address 
+"
+"  mov ebp 0x0 
+  jmp address 
+ ","  mov w20 # 0 
+  b address 
+ "," mov x20 # 0 
+  b address 
+"
+"  test rsi rsi 
+  mov eax 0x1 
+  cmovne rax rsi 
+  mov rbx rax 
+ ","  cmp x1 # 0 
+  csinc x19 x1 xzr ne 
+ "," cmp x1 # 0 
+  csinc x19 x1 xzr ne 
+"
+"  mov rdx address 
+  mov rax qword [ rsp + 0x28 ] 
+  mul rdx 
+  shr rdx 0x3 
+  mov rbp rdx 
+ ","  mov x20 # <unk> 
+  movk x20 # <unk> 
+  ldr x0 [ sp # 0x78 ] 
+  umulh x20 x0 x20 
+  lsr x20 x20 # 0x3 
+ "," mov x20 # address 
+  movk x20 # address 
+  umulh x20 x0 x20 
+  lsr x20 x20 # 0x3 
+"
+"  test byte [ rbx + 0x38 ] 0x8 
+  je address 
+ ","  ldrb w0 [ x19 # 0x38 ] 
+  tbz w0 # 0x3 address 
+ "," ldrb w0 [ x19 # 0x38 ] 
+  tbz w0 # 0x3 address 
+"
+"  mov rdx qword [ rbx + 0x8 ] 
+  cmp r13 rdx 
+  jb address 
+ ","  ldr x2 [ x19 # 0x98 ] 
+  cmp x26 x2 
+  b.lo address 
+ "," ldr x2 [ x19 # 0x8 ] 
+  cmp x26 x2 
+  b.lo address 
+"
+"  lea rsi [ rel address ] 
+  mov rdi rbp 
+  call symbol 
+ ","  adrp x1 string 
+  add x1 x1 # 0x530 
+  mov x0 x20 
+  bl symbol 
+ "," mov x1 x24 
+  mov x0 x20 
+  bl symbol 
+"
+"  test r14 r14 
+  je address 
+ ","  cbz x23 address 
+  stp x19 x20 [ sp # 0x10 ] 
+  stp x25 x26 [ sp # 0x40 ] 
+ "," mov w19 # 0x7e 
+  b address 
+"
+"  sub rbp rcx 
+  je address 
+ ","  subs x21 x21 x2 
+  b.eq address 
+ "," subs x21 x21 x2 
+  b.eq address 
+"
+"  mov rax qword [ rax + 0x100 ] 
+  mov eax dword [ rax + 0x18 ] 
+  shr eax 0xf 
+  and eax 0x1 
+  mov dword [ rsp + 0x44 ] eax 
+  jmp address 
+ ","  ldr x0 [ x0 # 0x100 ] 
+  ldr w0 [ x0 # 0x18 ] 
+  ubfx x0 x0 # 0xf # 0x1 
+  str x0 [ sp # 0x98 ] 
+  b address 
+ "," ldr x0 [ x0 # 0x100 ] 
+  ldr w0 [ x0 # 0x18 ] 
+  ubfx x0 x0 # 0xf # 0x1 
+  str x0 [ sp # 0x98 ] 
+  b address 
+"
+"  add eax dword [ rsp ] 
+  mov dword [ r15 ] eax 
+ ","  add w0 w0 w23 
+  str w0 [ x28 ] 
+ "," add w0 w0 w23 
+  str w0 [ x28 ] 
+"
+"  mov rax qword [ rsp + 0xe8 ] 
+  mov dword [ rax ] 0x1 
+ ","  ldr x0 [ sp # 0xe8 ] 
+  str w1 [ x0 ] 
+ "," mov w0 # 0x1 
+  ldr x1 [ sp # 0xe8 ] 
+  str w0 [ x1 ] 
+"
+"  mov rdi rbx 
+  call rax 
+  test eax eax 
+  je address 
+ ","  mov x0 x19 
+  blr x1 
+  cbz w0 address 
+ "," mov x0 x19 
+  blr x1 
+  cbz w0 address 
+"
+"  cmp qword [ rdi + 0x40 ] 0x0 
+  je address 
+ ","  ldr x0 [ x0 # 0x40 ] 
+  cbz x0 address 
+ "," ldr x0 [ x0 # 0x40 ] 
+  cbz x0 address 
+"
+"  add rbx 0x10 
+  add r12 0x1 
+  cmp r13 rbx 
+  jbe address 
+ ","  add x19 x19 # 0x10 
+  add x20 x20 # 0x1 
+  cmp x22 x19 
+  b.ls address 
+ "," add x19 x19 # 0x10 
+  add x20 x20 # 0x1 
+  cmp x22 x19 
+  b.ls address 
+"
+"  test byte [ rbx + 0x2b ] 0x1 
+  je address 
+ ","  ldr w0 [ x19 # 0x28 ] 
+  tbz w0 # 0x18 address 
+ "," ldr w0 [ x19 # 0x28 ] 
+  tbz w0 # 0x18 address 
+"
+"  mov rax qword [ rsi + 0x50 ] 
+  cmp rdx qword [ rax + 0x8 ] 
+  je address 
+ ","  ldr x0 [ x28 # 0x50 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  cmp x1 x0 
+  b.eq address 
+ "," ldr x0 [ x28 # 0x50 ] 
+  ldr x0 [ x0 # 0x8 ] 
+  cmp x1 x0 
+  b.eq address 
+"
+"  mov rbx qword [ rbx + 0x18 ] 
+  test rbx rbx 
+  jne address 
+ ","  ldr x19 [ x19 # 0x18 ] 
+  cbnz x19 address 
+  str x27 [ sp # 0x50 ] 
+ "," ldr x19 [ x19 # 0x18 ] 
+  cbnz x19 address 
+"
+"  mov dword [ rsp ] 0x10 
+  lea rax [ rsp + 0x80 ] 
+  mov qword [ rsp + 0x8 ] rax 
+  lea rax [ rsp + 0x20 ] 
+  mov qword [ rsp + 0x10 ] rax 
+ ","  add x0 sp # 0x130 
+  str x0 [ sp # 0x58 ] 
+  str x0 [ sp # 0x60 ] 
+  add x0 sp # 0x100 
+  str x0 [ sp # 0x68 ] 
+  mov w23 # <unk> 
+  str w23 [ sp # 0x70 ] 
+  mov w0 # <unk> 
+  str w0 [ sp # 0x74 ] 
+ "," mov x21 x25 
+  b address 
+"
+"  mov rax qword [ rax ] 
+  test rax rax 
+  jne address 
+ ","  ldr x0 [ x0 ] 
+  cbnz x0 address 
+ "," ldr x0 [ x0 ] 
+  cbnz x0 address 
+"
+"  mov rax qword [ rbx + 0x38 ] 
+  mov dword [ rbp + 0xcc ] eax 
+ ","  ldr x0 [ x19 # 0x38 ] 
+  str w0 [ x22 # 0xcc ] 
+ "," ldr x0 [ x19 # 0x38 ] 
+  str w0 [ x20 # 0xcc ] 
+"
+"  mov rax qword [ rax + 0x110 ] 
+  test rax rax 
+  jne address 
+  jmp address 
+ ","  ldr x0 [ x0 # 0x110 ] 
+  cbnz x0 address 
+  b address 
+ "," ldr x0 [ x0 # 0x110 ] 
+  cbnz x0 address 
+  b address 
+"
+"  mov rdx rbx 
+  mov esi 0xa 
+  mov rdi r13 
+  call symbol 
+  test eax eax 
+  je address 
+ ","  mov x2 x19 
+  mov x1 # 0xa 
+  mov x0 x21 
+  bl symbol 
+  cbnz w0 address 
+  ldp x19 x20 [ sp # 0x20 ] 
+  b address 
+ "," mov x2 x19 
+  mov x1 # 0xa 
+  mov x0 x21 
+  bl symbol 
+  cbz w0 address 
+"
+"  movzx ecx byte [ rdi ] 
+  sub ecx 0x46 
+  cmp cl 0x13 
+  ja address 
+  mov eax address 
+  shr rax cl 
+  and eax 0x1 
+  retn 
+  mov eax 0x0 
+ ","  ldrb w1 [ x0 ] 
+  sub w1 w1 # 0x46 
+  and w2 w1 # 0xff 
+  mov x0 # <unk> 
+  movk x0 # 0xb lsl # 0x10 
+  lsr x0 x0 x1 
+  and x0 x0 # 0x1 
+  cmp w2 # 0x14 
+ "," ldrb w1 [ x0 ] 
+  sub w1 w1 # 0x46 
+  and w2 w1 # 0xff 
+  mov x0 # address 
+  movk x0 # 0xb lsl # 0x10 
+  lsr x0 x0 x1 
+  and x0 x0 # 0x1 
+  cmp w2 # 0x13 
+"
+"  mov rdx qword [ r14 + 0x18 ] 
+  mov qword [ rax + 0xb0 ] rdx 
+ ","  ldr x1 [ x23 # 0x18 ] 
+  str x1 [ x0 # 0xb0 ] 
+  ldp x19 x20 [ sp # 0x10 ] 
+  ldp x21 x22 [ sp # 0x20 ] 
+  ldp x23 x24 [ sp # 0x30 ] 
+  ldp x25 x26 [ sp # 0x40 ] 
+ "," ldr x1 [ x19 # 0x18 ] 
+  str x1 [ x0 # 0xb0 ] 
+"
+"  mov eax dword [ r14 ] 
+  cmp eax 0x32 
+  je address 
+ ","  ldr w0 [ x23 ] 
+  cmp w0 # 0x32 
+  b.eq address 
+ "," ldr w0 [ x23 ] 
+  cmp w0 # 0x32 
+  b.eq address 
+"
+"  mov rdx r14 
+  cmp rbx r15 
+  jb address 
+ ","  cmp x20 x26 
+  b.lo address 
+ "," cmp x22 x21 
+  b.lo address 
+"
+"  mov eax 0x0 
+  jmp address 
+ ","  mov w0 # 0 
+  b address 
+ "," mov w0 # 0 
+  b address 
+"
+"  mov rdx qword [ rbp + 0x18 ] 
+  mov rsi rbx 
+  mov rdi r15 
+  call symbol 
+ ","  ldr x2 [ x21 # 0x18 ] 
+  mov x1 x19 
+  mov x0 x20 
+  bl symbol 
+ "," ldr x2 [ x21 # 0x18 ] 
+  mov x1 x19 
+  mov x0 x20 
+  bl symbol 
+"
+"  mov rax qword [ r13 + 0x48 ] 
+  lea rsi [ rel string ] 
+  mov rdi qword [ rax ] 
+  call symbol 
+  mov ecx eax 
+  test eax eax 
+  jne address 
+ ","  ldr x0 [ x21 # 0x48 ] 
+  adrp x1 address 
+  add x1 x1 # 0x668 
+  ldr x0 [ x0 ] 
+  bl symbol 
+  cbnz w0 address 
+ "," ldr x1 [ x22 # 0x48 ] 
+  ldr x0 [ x1 ] 
+  bl symbol 
+  cbnz w0 address 
+"
+"  test dword [ rbx + 0x44 ] address 
+  jne address 
+ ","  tst w0 w20 
+  b.ne address 
+ "," ldr w0 [ x19 # 0x44 ] 
+  and w0 w0 # address 
+  and w0 w0 # address 
+  cbnz w0 address 
+"
+"  mov esi address 
+  lea rdi [ rel string ] 
+  call symbol 
+  jmp address 
+ ","  mov w1 # <unk> 
+  adrp x0 address 
+  add x0 x0 # 0xbd0 
+  bl symbol 
+  b address 
+ "," mov w1 # address 
+  adrp x0 string 
+  add x0 x0 # 0x710 
+  bl symbol 
+  b address 
+"
+"  mov eax 0x0 
+  jmp address 
+ ","  mov w0 # 0 
+  b address 
+ "," mov w0 # 0 
+  b address 
+"
+"  mov edi 0x11 
+  call symbol 
+ ","  mov w0 # 0x11 
+  bl symbol 
+ "," mov w0 # 0x11 
+  bl symbol 
+"
+"  mov rdi r12 
+  call symbol 
+ ","  mov x0 x21 
+  bl symbol 
+ "," mov x0 x21 
+  bl symbol 
+"
+"  lea eax [ rbx - 0x1 ] 
+  lea rax [ rax * 8 + 0x8 ] 
+  test ebx ebx 
+  mov edx 0x8 
+  cmove rax rdx 
+  add rbp rax 
+ ","  sub w0 w19 # 0x1 
+  add x0 x0 # 0x1 
+  lsl x0 x0 # 0x3 
+  cmp w19 # 0 
+  mov x1 # 0x8 
+  csel x0 x0 x1 ne 
+  add x20 x20 x0 
+ "," sub w0 w19 # 0x1 
+  add x0 x0 # 0x1 
+  lsl x0 x0 # 0x3 
+  cmp w19 # 0 
+  mov x1 # 0x8 
+  csel x0 x0 x1 eq 
+  add x20 x20 x0 
+"
+"  mov rax qword [ rbx ] 
+  mov qword [ rdx ] rax 
+ ","  ldr x1 [ x19 ] 
+  str x1 [ x0 ] 
+ "," ldr x1 [ x19 ] 
+  str x1 [ x0 ] 
+"
+"  movzx eax byte [ rsp + 0x38 ] 
+  mov byte [ rbp + 0xb5 ] al 
+ ","  ldrb w0 [ sp # 0x78 ] 
+  strb w0 [ x20 # 0xb5 ] 
+ "," ldrb w0 [ sp # 0x80 ] 
+  strb w0 [ x20 # 0xb5 ] 
+"
+"  movzx edx byte [ rcx + 0x2 ] 
+  mov byte [ rsp + 0x2 ] dl 
+ ","  ldrb w0 [ x19 # 0x2 ] 
+  strb w0 [ sp # 0x3a ] 
+ "," ldrb w0 [ x19 # 0x2 ] 
+  strb w0 [ sp # 0x3a ] 
+"
+"  test byte [ rbp + 0x18 ] 0x8 
+  jne address 
+ ","  ldr w0 [ x19 # 0x18 ] 
+  tbnz w0 # 0x3 address 
+ "," ldr w0 [ x20 # 0x18 ] 
+  tbnz w0 # 0x3 address 
+"
+"  test rdi rdi 
+  je address 
+ ","  cmp x1 # 0 
+  ccmp x0 # 0 # 0x4 ne 
+  b.ne address 
+ "," cbz x0 address 
+  mov x8 x0 
+"
+"  mov rsi r12 
+  mov rdi rbx 
+  call symbol 
+  mov edx eax 
+  test eax eax 
+  je address 
+ ","  mov x1 x21 
+  mov x0 x19 
+  bl symbol 
+  mov w20 w0 
+  cbz w0 address 
+ "," mov x1 x21 
+  mov x0 x19 
+  bl symbol 
+  mov w20 w0 
+  cbz w0 address 
+"
+"  endbr64 
+  sub rsp 0x10 
+  mov r9 rcx 
+ ","  stp x29 x30 [ sp #- 0x10 ]! 
+  mov x29 sp 
+ "," stp x29 x30 [ sp #- 0x10 ]! 
+  mov x29 sp 
+"

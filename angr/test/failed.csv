@@ -1,0 +1,4 @@
+"amd64_code","aarch64_code"
+"sub rsp, 0x18;mov rax, qword ptr [fs:0x28];mov qword ptr [rsp+0x8], rax;xor eax, eax;test edi, edi;jne 0x1000","ldr x0, [];ldr x0, [];eor x0, x0, # 0;str x0, [];cbnz w0, 0x1000"
+"mov rdx, qword ptr [rsp+0x8];xor rdx, qword ptr [fs:0x28];jne 0x1000","ldr x0, [];ldr x0, [];eor x0, x0, # 0x1000;b 0x2000"
+"sub rsp, 0x18;mov edx, 0x28;mov rax, qword ptr [fs:rdx];mov qword ptr [rsp+0x8], rax;xor eax, eax;mov dword ptr [rsp+0x4], 0x0;mov eax, dword ptr [rsp+0x4];mov rax, qword ptr [rsp+0x8];xor rax, qword ptr [fs:rdx];jne 0x1000","ldr x0, [];ldr x0, [];eor x0, x0, # 0x28;str x0, [];mov w23, # 0x28;b 0x1000"

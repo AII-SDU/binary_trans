@@ -1,0 +1,2 @@
+amd64_code,aarch64_code
+"xor ebx, ebx","ldr w0, [];ret"

@@ -1,0 +1,13 @@
+amd64_code,aarch64_code
+"sub rsp, 0x8;mov rax, qword ptr [rcx];test rax, rax;je 0x1000","sub x8, x8, #0x8;ldr x4, [x5];cbz x4, 0x1000"
+"add rsp, 0x8","add x8, x8, #0x8"
+"sub rsp, 0x8;mov rax, qword ptr [rbx];test rax, rax;je 0x1000","sub x8, x8, #0x8 ;ldr x4, [x7]; cbz x4, 0x1000"
+"cmp byte ptr [rax], 0x0;jne 0x2000","ldrb w22, [x4];cbnz w22, 0x2000"
+"cmp rax, 0x2; jbe 0x1000","cmp x4, #0x1; b.ls 0x1000"
+"mov rax, [rsp + rbp*8]","ldr x4, [x8, x9, lsl #0x3]"
+"mov [ rsp + 0x1e ], al","strb w4, [x8, #0x1e]"
+"mov rbx, 1;cmp rbx,0;setne al","mov x7, #1; cmp x7,#0; cset w4, ne"
+"mov r15d, [ rbp + 0xc0 ]","ldr w29, [ x9, # 0xc0 ]; mov w4, # 0x100"
+
+
+
