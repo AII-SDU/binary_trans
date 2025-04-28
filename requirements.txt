@@ -1,0 +1,28 @@
+# 基础依赖
+torch>=1.7.0
+numpy>=1.19.0
+scikit-learn>=0.24.0
+matplotlib>=3.3.0
+networkx>=2.5
+tqdm>=4.50.0
+scipy>=1.5.0
+nltk>=3.5
+pandas
+regex
+
+# 代码生成与分析依赖
+transformers>=4.5.0
+binaryninja
+ipython
+jupyter
+
+# 形式化验证依赖
+angr>=9.0.0
+claripy>=9.0.0
+capstone>=4.0.0
+keystone-engine>=0.9.2
+
+# 开发工具
+pytest
+flake8
+black 

@@ -1,0 +1,54 @@
+1.Guest:
+    mov reg0, reg1
+    lsr reg0, reg0, #10
+    add reg2, reg0, #20
+    mov reg0, #30
+    subs reg0, reg0, reg1
+    cmp reg0, reg2
+    csel x20, reg2, reg0, cc
+    csel reg0, x20, reg0, ne
+    add reg3, reg0, reg1
+    mov reg0, reg3
+    lsl reg3, reg3, #5
+    set_call #Label
+1.Host:
+    mov reg0, reg1
+    shr reg0, $10
+    lea reg2, qword [reg0 + 20]
+    mov reg0, $30
+    sub reg0, reg1
+    cmp reg0, reg2
+    cmova reg0, reg2
+    lea reg3, qword [reg0 + reg1 * 1]
+    mov reg0, reg3
+    shl reg3, $5
+    call $Label
+
+2.Guest:
+    add reg0, reg1, #10
+    lsl reg0, reg0, #2
+    add x20, reg3, reg0
+    ldr reg2.x, [x20]
+    tst reg2, reg2
+    b.eq #Label
+2.Host:
+    lea reg0, qword [reg1 + 10]
+    shl reg0, $2
+    nop
+    mov reg2, qword [reg3 + reg0 * 1]
+    test reg2, reg2
+    je $Label
+
+3.Guest:
+    ldrb w20, [reg0, #15]
+    tst w20, #1
+    pc_l reg1, #100
+    pc_l reg0, #200
+    csel reg1, reg0, reg1, ne
+    ldr x20, [x8], #0x8
+3.Host:
+    test byte [reg0 + 15], $1
+    lea reg1, qword [rip + 100]
+    lea reg0, qword [rip + 200]
+    cmovne reg1, reg0
+    ret 
